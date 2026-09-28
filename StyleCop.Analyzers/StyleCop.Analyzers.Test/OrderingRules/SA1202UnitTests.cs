@@ -1,4 +1,4 @@
-﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -18,7 +18,7 @@ namespace StyleCop.Analyzers.Test.OrderingRules
     /// <summary>
     /// Unit tests for <see cref="SA1202ElementsMustBeOrderedByAccess"/>.
     /// </summary>
-    public class SA1202UnitTests
+    public class SA1202UnitTests : LangUnitTestsBase
     {
         /// <summary>
         /// Verifies that the analyzer will properly handle valid access level ordering.
@@ -108,9 +108,16 @@ namespace StyleCop.Analyzers.Test.OrderingRules
         /// </summary>
         /// <param name="keyword">The keyword used to declare the type.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestTypeOrderingAsync(string keyword)
+        [Fact]
+        public async Task TestTypeOrderingAsync()
+        {
+            foreach (string keyword in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoTestTypeOrderingAsync(keyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestTypeOrderingAsync(string keyword)
         {
             var testCode = $@"internal {keyword} TestClass1 {{ }}
 public {keyword} {{|#0:TestClass2|}} {{ }}
@@ -148,9 +155,16 @@ internal class TestClass1 { }
         /// </summary>
         /// <param name="keyword">The keyword used to declare the type.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestInternalInterfaceBeforePublicClassAsync(string keyword)
+        [Fact]
+        public async Task TestInternalInterfaceBeforePublicClassAsync()
+        {
+            foreach (string keyword in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestInternalInterfaceBeforePublicClassAsync(keyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestInternalInterfaceBeforePublicClassAsync(string keyword)
         {
             var testCode = $@"internal interface ITestInterface {{ }}
 public {keyword} TestClass2 {{ }}
@@ -164,9 +178,16 @@ public {keyword} TestClass2 {{ }}
         /// </summary>
         /// <param name="keyword">The keyword used to declare the type.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ReferenceTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestPropertiesOfClassAsync(string keyword)
+        [Fact]
+        public async Task TestPropertiesOfClassAsync()
+        {
+            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            {
+                await this.DoTestPropertiesOfClassAsync(keyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestPropertiesOfClassAsync(string keyword)
         {
             var testCode = $@"public {keyword} TestClass
 {{
@@ -204,9 +225,16 @@ public {keyword} TestClass2 {{ }}
         /// </summary>
         /// <param name="keyword">The keyword used to declare the type.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ValueTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestPropertiesOfStructAsync(string keyword)
+        [Fact]
+        public async Task TestPropertiesOfStructAsync()
+        {
+            foreach (string keyword in CommonMemberData.ValueTypeDeclarationKeywords)
+            {
+                await this.DoTestPropertiesOfStructAsync(keyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestPropertiesOfStructAsync(string keyword)
         {
             var testCode = $@"public {keyword} TestClass
 {{

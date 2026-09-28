@@ -5,6 +5,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.DocumentationRules
 {
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.Testing;
     using StyleCop.Analyzers.Test.CSharp8.DocumentationRules;
     using StyleCop.Analyzers.Test.Helpers;
@@ -13,6 +14,8 @@ namespace StyleCop.Analyzers.Test.CSharp9.DocumentationRules
 
     public partial class SA1611CSharp9UnitTests : SA1611CSharp8UnitTests
     {
+        protected override LanguageVersion LanguageVersion => LanguageVersion.CSharp9;
+
         [Fact]
         [WorkItem(3971, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3971")]
         public async Task TestPartialMethodDeclarationMissingParameterDocumentationAsync()
@@ -36,10 +39,17 @@ public partial class TestClass
             await VerifyCSharpDiagnosticAsync(testCode, new[] { expected }, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.RecordTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
+        [Fact]
         [WorkItem(3770, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3770")]
-        public async Task TestPrimaryRecordConstructorMissingParametersAsync(string keyword)
+        public async Task TestPrimaryRecordConstructorMissingParametersAsync()
+        {
+            foreach (string keyword in CommonMemberData.RecordTypeDeclarationKeywords)
+            {
+                await DoTestPrimaryRecordConstructorMissingParametersAsync(keyword);
+            }
+        }
+
+        private async Task DoTestPrimaryRecordConstructorMissingParametersAsync(string keyword)
         {
             var testCode = $@"
 /// <summary>
@@ -50,10 +60,17 @@ public {keyword} R(int Param1, string Param2);";
             await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.RecordTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
+        [Fact]
         [WorkItem(3770, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3770")]
-        public async Task TestPrimaryRecordConstructorIncludeMissingParametersAsync(string keyword)
+        public async Task TestPrimaryRecordConstructorIncludeMissingParametersAsync()
+        {
+            foreach (string keyword in CommonMemberData.RecordTypeDeclarationKeywords)
+            {
+                await DoTestPrimaryRecordConstructorIncludeMissingParametersAsync(keyword);
+            }
+        }
+
+        private async Task DoTestPrimaryRecordConstructorIncludeMissingParametersAsync(string keyword)
         {
             var testCode = $@"
 /// <include file='MissingClassDocumentation.xml' path='/TestType/*' />

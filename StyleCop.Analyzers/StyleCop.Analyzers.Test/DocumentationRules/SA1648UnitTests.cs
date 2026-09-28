@@ -1,4 +1,4 @@
-﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 namespace StyleCop.Analyzers.Test.DocumentationRules
@@ -15,11 +15,18 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
     /// <summary>
     /// Unit tests for the <see cref="SA1648InheritDocMustBeUsedWithInheritingClass"/> analyzer.
     /// </summary>
-    public class SA1648UnitTests
+    public class SA1648UnitTests : LangUnitTestsBase
     {
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ReferenceTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestConstructorWithNoParametersInheritsFromParentAsync(string keyword)
+        [Fact]
+        public async Task TestConstructorWithNoParametersInheritsFromParentAsync()
+        {
+            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            {
+                await this.DoTestConstructorWithNoParametersInheritsFromParentAsync(keyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestConstructorWithNoParametersInheritsFromParentAsync(string keyword)
         {
             var testCode = @"$KEYWORD$ Base
 {
@@ -35,10 +42,16 @@ $KEYWORD$ Test : Base
 
             await VerifyCSharpDiagnosticAsync(testCode.Replace("$KEYWORD$", keyword), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestConstructorWithParametersInheritsFromParentAsync()
+        {
+            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            {
+                await this.DoTestConstructorWithParametersInheritsFromParentAsync(keyword).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ReferenceTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestConstructorWithParametersInheritsFromParentAsync(string keyword)
+        private async Task DoTestConstructorWithParametersInheritsFromParentAsync(string keyword)
         {
             var testCode = @"$KEYWORD$ Base
 {
@@ -56,10 +69,16 @@ $KEYWORD$ Test : Base
 
             await VerifyCSharpDiagnosticAsync(testCode.Replace("$KEYWORD$", keyword), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestConstructorInheritsImplicitlyFromSystemObjectAsync()
+        {
+            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            {
+                await this.DoTestConstructorInheritsImplicitlyFromSystemObjectAsync(keyword).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ReferenceTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestConstructorInheritsImplicitlyFromSystemObjectAsync(string keyword)
+        private async Task DoTestConstructorInheritsImplicitlyFromSystemObjectAsync(string keyword)
         {
             var testCode = @"$KEYWORD$ Test
 {
@@ -69,10 +88,16 @@ $KEYWORD$ Test : Base
 
             await VerifyCSharpDiagnosticAsync(testCode.Replace("$KEYWORD$", keyword), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestConstructorInheritsExplicitlyFromSystemObjectAsync()
+        {
+            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            {
+                await this.DoTestConstructorInheritsExplicitlyFromSystemObjectAsync(keyword).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ReferenceTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestConstructorInheritsExplicitlyFromSystemObjectAsync(string keyword)
+        private async Task DoTestConstructorInheritsExplicitlyFromSystemObjectAsync(string keyword)
         {
             var testCode = @"$KEYWORD$ Test : System.Object
 {
@@ -97,10 +122,16 @@ $KEYWORD$ Test : Base
 
             await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestConstructorInheritsButBaseCtorHasTheSameNumberOfParametersButNotMatchingSignaturesAsync()
+        {
+            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            {
+                await this.DoTestConstructorInheritsButBaseCtorHasTheSameNumberOfParametersButNotMatchingSignaturesAsync(keyword).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ReferenceTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestConstructorInheritsButBaseCtorHasTheSameNumberOfParametersButNotMatchingSignaturesAsync(string keyword)
+        private async Task DoTestConstructorInheritsButBaseCtorHasTheSameNumberOfParametersButNotMatchingSignaturesAsync(string keyword)
         {
             var testCode = @"$KEYWORD$ Base
 {
@@ -119,10 +150,16 @@ $KEYWORD$ Test : Base
             var expected = Diagnostic().WithLocation(9, 9);
             await VerifyCSharpDiagnosticAsync(testCode.Replace("$KEYWORD$", keyword), expected, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestConstructorInheritsButBaseCtorHasDifferentNumberOfParametersAsync()
+        {
+            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            {
+                await this.DoTestConstructorInheritsButBaseCtorHasDifferentNumberOfParametersAsync(keyword).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ReferenceTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestConstructorInheritsButBaseCtorHasDifferentNumberOfParametersAsync(string keyword)
+        private async Task DoTestConstructorInheritsButBaseCtorHasDifferentNumberOfParametersAsync(string keyword)
         {
             var testCode = @"$KEYWORD$ Base
 {

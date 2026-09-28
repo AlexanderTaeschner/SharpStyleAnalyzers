@@ -5,6 +5,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
 {
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.Testing;
     using StyleCop.Analyzers.Test.CSharp8.ReadabilityRules;
     using StyleCop.Analyzers.Test.Helpers;
@@ -15,10 +16,19 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
 
     public partial class SA1111CSharp9UnitTests : SA1111CSharp8UnitTests
     {
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors), MemberType = typeof(CommonMemberData))]
+        protected override LanguageVersion LanguageVersion => LanguageVersion.CSharp9;
+
+        [Fact]
         [WorkItem(3785, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3785")]
-        public async Task TestPrimaryConstructorWithParameterAsync(string typeKeyword)
+        public async Task TestPrimaryConstructorWithParameterAsync()
+        {
+            foreach (string keyword in CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors)
+            {
+                await DoTestPrimaryConstructorWithParameterAsync(keyword);
+            }
+        }
+
+        private async Task DoTestPrimaryConstructorWithParameterAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo(int x
@@ -35,10 +45,17 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
             await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors), MemberType = typeof(CommonMemberData))]
+        [Fact]
         [WorkItem(3785, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3785")]
-        public async Task TestPrimaryConstructorWithoutParameterAsync(string typeKeyword)
+        public async Task TestPrimaryConstructorWithoutParameterAsync()
+        {
+            foreach (string keyword in CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors)
+            {
+                await DoTestPrimaryConstructorWithoutParameterAsync(keyword);
+            }
+        }
+
+        private async Task DoTestPrimaryConstructorWithoutParameterAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo(
@@ -49,10 +66,17 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
             await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors), MemberType = typeof(CommonMemberData))]
+        [Fact]
         [WorkItem(3785, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3785")]
-        public async Task TestPrimaryConstructorBaseListWithArgumentsAsync(string typeKeyword)
+        public async Task TestPrimaryConstructorBaseListWithArgumentsAsync()
+        {
+            foreach (string keyword in CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
+            {
+                await DoTestPrimaryConstructorBaseListWithArgumentsAsync(keyword);
+            }
+        }
+
+        private async Task DoTestPrimaryConstructorBaseListWithArgumentsAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo(int x)
@@ -77,10 +101,17 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
             await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors), MemberType = typeof(CommonMemberData))]
+        [Fact]
         [WorkItem(3785, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3785")]
-        public async Task TestPrimaryConstructorBaseListWithoutArgumentsAsync(string typeKeyword)
+        public async Task TestPrimaryConstructorBaseListWithoutArgumentsAsync()
+        {
+            foreach (string keyword in CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
+            {
+                await DoTestPrimaryConstructorBaseListWithoutArgumentsAsync(keyword);
+            }
+        }
+
+        private async Task DoTestPrimaryConstructorBaseListWithoutArgumentsAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo()

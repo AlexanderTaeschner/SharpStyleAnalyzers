@@ -7,6 +7,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.LayoutRules
 {
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.Testing;
     using StyleCop.Analyzers.Test.CSharp8.LayoutRules;
     using StyleCop.Analyzers.Test.Helpers;
@@ -17,10 +18,19 @@ namespace StyleCop.Analyzers.Test.CSharp9.LayoutRules
 
     public partial class SA1500CSharp9UnitTests : SA1500CSharp8UnitTests
     {
-        [Theory]
-        [MemberData(nameof(CommonMemberData.RecordTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
+        protected override LanguageVersion LanguageVersion => LanguageVersion.CSharp9;
+
+        [Fact]
         [WorkItem(3272, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3272")]
-        public async Task TestSingleLineRecordAsync(string keyword)
+        public async Task TestSingleLineRecordAsync()
+        { 
+            foreach (string keyword in CommonMemberData.RecordTypeDeclarationKeywords)
+            {
+                await DoTestSingleLineRecordAsync(keyword);
+            }
+        }
+
+        public async Task DoTestSingleLineRecordAsync(string keyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -31,10 +41,17 @@ namespace StyleCop.Analyzers.Test.CSharp9.LayoutRules
             await VerifyCSharpFixAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, testCode, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.RecordTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
+        [Fact]
         [WorkItem(3272, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3272")]
-        public async Task TestSingleLineRecordWithParameterAsync(string keyword)
+        public async Task TestSingleLineRecordWithParameterAsync()
+        {
+            foreach (string keyword in CommonMemberData.RecordTypeDeclarationKeywords)
+            {
+                await DoTestSingleLineRecordWithParameterAsync(keyword);
+            }
+        }
+
+        public async Task DoTestSingleLineRecordWithParameterAsync(string keyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -50,10 +67,17 @@ namespace StyleCop.Analyzers.Test.CSharp9.LayoutRules
             }.RunAsync(CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.RecordTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
+        [Fact]
         [WorkItem(3272, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3272")]
-        public async Task TestMultiLineRecordAsync(string keyword)
+        public async Task TestMultiLineRecordAsync()
+        {
+            foreach (string keyword in CommonMemberData.RecordTypeDeclarationKeywords)
+            {
+                await DoTestMultiLineRecordAsync(keyword);
+            }
+        }
+
+        public async Task DoTestMultiLineRecordAsync(string keyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -72,10 +96,17 @@ namespace StyleCop.Analyzers.Test.CSharp9.LayoutRules
             }.RunAsync(CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.RecordTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
+        [Fact]
         [WorkItem(3272, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3272")]
-        public async Task TestMultiLineRecordWithParameterAsync(string keyword)
+        public async Task TestMultiLineRecordWithParameterAsync()
+        {
+            foreach (string keyword in CommonMemberData.RecordTypeDeclarationKeywords)
+            {
+                await DoTestMultiLineRecordWithParameterAsync(keyword);
+            }
+        }
+
+        public async Task DoTestMultiLineRecordWithParameterAsync(string keyword)
         {
             var testCode = $@"namespace TestNamespace
 {{

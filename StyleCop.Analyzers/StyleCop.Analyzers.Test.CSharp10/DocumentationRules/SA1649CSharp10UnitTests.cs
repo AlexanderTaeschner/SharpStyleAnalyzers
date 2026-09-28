@@ -7,6 +7,7 @@ namespace StyleCop.Analyzers.Test.CSharp10.DocumentationRules
 {
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.CodeAnalysis.CSharp;
     using StyleCop.Analyzers.Test.CSharp9.DocumentationRules;
     using StyleCop.Analyzers.Test.Helpers;
     using Xunit;
@@ -15,15 +16,24 @@ namespace StyleCop.Analyzers.Test.CSharp10.DocumentationRules
 
     public partial class SA1649CSharp10UnitTests : SA1649CSharp9UnitTests
     {
+        protected override LanguageVersion LanguageVersion => LanguageVersion.CSharp10;
+
+        [Fact]
+        [WorkItem(3435, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3435")]
+        public async Task VerifyFirstTypeIsUsedWithFileScopedNamespacesAsync()
+        {
+            foreach (var typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await DoVerifyFirstTypeIsUsedWithFileScopedNamespacesAsync(typeKeyword);
+            }
+        }
+
         /// <summary>
         /// Verifies that the file name is based on the first type.
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        [WorkItem(3435, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3435")]
-        public async Task VerifyFirstTypeIsUsedWithFileScopedNamespacesAsync(string typeKeyword)
+        private async Task DoVerifyFirstTypeIsUsedWithFileScopedNamespacesAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace;
 

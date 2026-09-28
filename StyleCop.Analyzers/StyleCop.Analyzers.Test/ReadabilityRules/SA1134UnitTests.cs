@@ -1,4 +1,4 @@
-﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -17,7 +17,7 @@ namespace StyleCop.Analyzers.Test.ReadabilityRules
     /// <summary>
     /// This class contains unit tests for SA1134.
     /// </summary>
-    public class SA1134UnitTests
+    public class SA1134UnitTests : LangUnitTestsBase
     {
         /// <summary>
         /// Verifies that a single attribute will not produce a diagnostic.
@@ -41,9 +41,16 @@ public class TestClass
         /// </summary>
         /// <param name="typeDeclaration">The type declaration to check.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyMultipleAttributesOnSameLineForTypeDeclarationsAsync(string typeDeclaration)
+        [Fact]
+        public async Task VerifyMultipleAttributesOnSameLineForTypeDeclarationsAsync()
+        {
+            foreach (string typeDeclaration in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoVerifyMultipleAttributesOnSameLineForTypeDeclarationsAsync(typeDeclaration).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyMultipleAttributesOnSameLineForTypeDeclarationsAsync(string typeDeclaration)
         {
             var testCode = $@"using System.ComponentModel;
 

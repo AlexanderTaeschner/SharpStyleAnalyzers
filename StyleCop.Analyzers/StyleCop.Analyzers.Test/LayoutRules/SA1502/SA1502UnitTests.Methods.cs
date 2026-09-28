@@ -1,4 +1,4 @@
-﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -18,16 +18,23 @@ namespace StyleCop.Analyzers.Test.LayoutRules
     /// <summary>
     /// Unit tests for the methods part of <see cref="SA1502ElementMustNotBeOnASingleLine"/>.
     /// </summary>
-    public partial class SA1502UnitTests
+    public partial class SA1502UnitTests : LangUnitTestsBase
     {
         /// <summary>
         /// Verifies that a valid method will pass without diagnostic.
         /// </summary>
         /// <param name="elementType">The type of element to test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestValidEmptyMethodAsync(string elementType)
+        [Fact]
+        public async Task TestValidEmptyMethodAsync()
+        {
+            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestValidEmptyMethodAsync(elementType).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestValidEmptyMethodAsync(string elementType)
         {
             var testCode = @"public ##PH## Foo
 {
@@ -44,9 +51,16 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         /// </summary>
         /// <param name="elementType">The type of element to test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestEmptyMethodOnSingleLineAsync(string elementType)
+        [Fact]
+        public async Task TestEmptyMethodOnSingleLineAsync()
+        {
+            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestEmptyMethodOnSingleLineAsync(elementType).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestEmptyMethodOnSingleLineAsync(string elementType)
         {
             var testCode = @"public ##PH## Foo
 {
@@ -62,9 +76,16 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         /// </summary>
         /// <param name="elementType">The type of element to test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestMethodOnSingleLineAsync(string elementType)
+        [Fact]
+        public async Task TestMethodOnSingleLineAsync()
+        {
+            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestMethodOnSingleLineAsync(elementType).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestMethodOnSingleLineAsync(string elementType)
         {
             var testCode = @"public ##PH## Foo
 {
@@ -80,9 +101,16 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         /// </summary>
         /// <param name="elementType">The type of element to test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestMethodWithBlockOnSingleLineAsync(string elementType)
+        [Fact]
+        public async Task TestMethodWithBlockOnSingleLineAsync()
+        {
+            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestMethodWithBlockOnSingleLineAsync(elementType).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestMethodWithBlockOnSingleLineAsync(string elementType)
         {
             var testCode = @"public ##PH## Foo
 {
@@ -99,9 +127,16 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         /// </summary>
         /// <param name="elementType">The type of element to test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestMethodWithBlockStartOnSameLineAsync(string elementType)
+        [Fact]
+        public async Task TestMethodWithBlockStartOnSameLineAsync()
+        {
+            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestMethodWithBlockStartOnSameLineAsync(elementType).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestMethodWithBlockStartOnSameLineAsync(string elementType)
         {
             var testCode = @"public ##PH## Foo
 {
@@ -117,9 +152,16 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         /// </summary>
         /// <param name="elementType">The type of element to test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestMethodWithExpressionBodyAsync(string elementType)
+        [Fact]
+        public async Task TestMethodWithExpressionBodyAsync()
+        {
+            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestMethodWithExpressionBodyAsync(elementType).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestMethodWithExpressionBodyAsync(string elementType)
         {
             var testCode = @"public ##PH## Foo
 {
@@ -134,9 +176,16 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         /// </summary>
         /// <param name="elementType">The type of element to test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestEmptyMethodOnSingleLineCodeFixAsync(string elementType)
+        [Fact]
+        public async Task TestEmptyMethodOnSingleLineCodeFixAsync()
+        {
+            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestEmptyMethodOnSingleLineCodeFixAsync(elementType).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestEmptyMethodOnSingleLineCodeFixAsync(string elementType)
         {
             var testCode = @"public ##PH## Foo
 {
@@ -158,9 +207,16 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         /// </summary>
         /// <param name="elementType">The type of element to test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestMethodOnSingleLineCodeFixAsync(string elementType)
+        [Fact]
+        public async Task TestMethodOnSingleLineCodeFixAsync()
+        {
+            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestMethodOnSingleLineCodeFixAsync(elementType).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestMethodOnSingleLineCodeFixAsync(string elementType)
         {
             var testCode = @"public ##PH## Foo
 {
@@ -183,9 +239,16 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         /// </summary>
         /// <param name="elementType">The type of element to test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestMethodWithBlockOnSingleLineCodeFixAsync(string elementType)
+        [Fact]
+        public async Task TestMethodWithBlockOnSingleLineCodeFixAsync()
+        {
+            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestMethodWithBlockOnSingleLineCodeFixAsync(elementType).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestMethodWithBlockOnSingleLineCodeFixAsync(string elementType)
         {
             var testCode = @"public ##PH## Foo
 {
@@ -209,9 +272,16 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         /// </summary>
         /// <param name="elementType">The type of element to test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestMethodWithLotsOfTriviaCodeFixAsync(string elementType)
+        [Fact]
+        public async Task TestMethodWithLotsOfTriviaCodeFixAsync()
+        {
+            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestMethodWithLotsOfTriviaCodeFixAsync(elementType).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestMethodWithLotsOfTriviaCodeFixAsync(string elementType)
         {
             var testCode = @"public ##PH## Foo
 {

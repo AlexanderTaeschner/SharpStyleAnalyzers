@@ -1,4 +1,4 @@
-﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 namespace StyleCop.Analyzers.Test.ReadabilityRules
@@ -13,7 +13,7 @@ namespace StyleCop.Analyzers.Test.ReadabilityRules
         StyleCop.Analyzers.ReadabilityRules.SA1106CodeMustNotContainEmptyStatements,
         StyleCop.Analyzers.ReadabilityRules.SA1106CodeFixProvider>;
 
-    public class SA1106UnitTests
+    public class SA1106UnitTests : LangUnitTestsBase
     {
         public static TheoryData<string, string> StatementAsBlock
         {
@@ -327,10 +327,18 @@ class TestClass
             await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        [InlineData("namespace")]
-        public async Task TestMemberAsync(string declarationKeyword)
+        [Fact]
+        public async Task TestMemberAsync()
+        {
+            foreach (string declarationKeyword in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoTestMemberAsync(declarationKeyword).ConfigureAwait(false);
+            }
+
+            await this.DoTestMemberAsync("namespace").ConfigureAwait(false);
+        }
+
+        private async Task DoTestMemberAsync(string declarationKeyword)
         {
             var testCode = declarationKeyword + " Foo { }{|#0:;|}";
             var fixedCode = declarationKeyword + " Foo { }";

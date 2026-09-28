@@ -5,6 +5,7 @@ namespace StyleCop.Analyzers.Test.CSharp11.MaintainabilityRules
 {
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.Testing;
     using StyleCop.Analyzers.Test.CSharp10.MaintainabilityRules;
     using StyleCop.Analyzers.Test.Helpers;
@@ -15,10 +16,19 @@ namespace StyleCop.Analyzers.Test.CSharp11.MaintainabilityRules
 
     public partial class SA1400CSharp11UnitTests : SA1400CSharp10UnitTests
     {
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
+        protected override LanguageVersion LanguageVersion => LanguageVersion.CSharp11;
+
+        [Fact]
         [WorkItem(3588, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3588")]
-        public async Task TestTypeDeclarationWithFileModifierAsync(string typeName)
+        public async Task TestTypeDeclarationWithFileModifierAsync()
+        {
+            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await DoTestTypeDeclarationWithFileModifierAsync(typeName);
+            }
+        }
+
+        private async Task DoTestTypeDeclarationWithFileModifierAsync(string typeName)
         {
             var testCode = $@"file {typeName} TypeName {{ }}";
 

@@ -1,4 +1,4 @@
-﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -21,11 +21,18 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
     /// This class contains unit tests for <see cref="SA1642ConstructorSummaryDocumentationMustBeginWithStandardText"/>.
     /// </summary>
     [UseCulture("en-US")]
-    public class SA1642UnitTests
+    public class SA1642UnitTests : LangUnitTestsBase
     {
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNoDocumentationAsync(string typeKind)
+        [Fact]
+        public async Task TestNoDocumentationAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestNoDocumentationAsync(typeKind).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestNoDocumentationAsync(string typeKind)
         {
             var testCode = $@"namespace FooNamespace
 {{
@@ -38,10 +45,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
 }}";
             await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestEmptyPublicConstructorAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestEmptyPublicConstructorAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestEmptyPublicConstructorAsync(string typeKind)
+        private async Task DoTestEmptyPublicConstructorAsync(string typeKind)
         {
             await TestEmptyConstructorAsync(typeKind, "public").ConfigureAwait(false);
         }
@@ -53,17 +66,29 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             await TestEmptyConstructorAsync(typeKind, "private").ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestEmptyStaticConstructorAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestEmptyStaticConstructorAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestEmptyStaticConstructorAsync(string typeKind)
+        private async Task DoTestEmptyStaticConstructorAsync(string typeKind)
         {
             await TestEmptyConstructorAsync(typeKind, "static").ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNonPrivateConstructorCorrectDocumentationSimpleAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestNonPrivateConstructorCorrectDocumentationSimpleAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNonPrivateConstructorCorrectDocumentationSimpleAsync(string typeKind)
+        private async Task DoTestNonPrivateConstructorCorrectDocumentationSimpleAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -74,10 +99,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, docTypeKind),
                 false).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNonPrivateConstructorCorrectDocumentationCustomizedAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestNonPrivateConstructorCorrectDocumentationCustomizedAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNonPrivateConstructorCorrectDocumentationCustomizedAsync(string typeKind)
+        private async Task DoTestNonPrivateConstructorCorrectDocumentationCustomizedAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -88,10 +119,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, docTypeKind),
                 false).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNonPrivateConstructorCorrectDocumentationGenericSimpleAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestNonPrivateConstructorCorrectDocumentationGenericSimpleAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNonPrivateConstructorCorrectDocumentationGenericSimpleAsync(string typeKind)
+        private async Task DoTestNonPrivateConstructorCorrectDocumentationGenericSimpleAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -102,10 +139,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, docTypeKind),
                 true).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNonPrivateConstructorCorrectDocumentationGenericCustomizedAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestNonPrivateConstructorCorrectDocumentationGenericCustomizedAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNonPrivateConstructorCorrectDocumentationGenericCustomizedAsync(string typeKind)
+        private async Task DoTestNonPrivateConstructorCorrectDocumentationGenericCustomizedAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -224,10 +267,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
                 true).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestStaticConstructorCorrectDocumentationAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestStaticConstructorCorrectDocumentationAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestStaticConstructorCorrectDocumentationAsync(string typeKind)
+        private async Task DoTestStaticConstructorCorrectDocumentationAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -239,10 +288,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Empty,
                 false).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestStaticConstructorCorrectDocumentationGenericAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestStaticConstructorCorrectDocumentationGenericAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestStaticConstructorCorrectDocumentationGenericAsync(string typeKind)
+        private async Task DoTestStaticConstructorCorrectDocumentationGenericAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -254,10 +309,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Empty,
                 true).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNonPrivateConstructorMissingDocumentationAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestNonPrivateConstructorMissingDocumentationAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNonPrivateConstructorMissingDocumentationAsync(string typeKind)
+        private async Task DoTestNonPrivateConstructorMissingDocumentationAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -268,10 +329,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, docTypeKind),
                 false).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNonPrivateConstructorMissingDocumentationGenericAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestNonPrivateConstructorMissingDocumentationGenericAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNonPrivateConstructorMissingDocumentationGenericAsync(string typeKind)
+        private async Task DoTestNonPrivateConstructorMissingDocumentationGenericAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -308,10 +375,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
                 true).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestStaticConstructorMissingDocumentationAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestStaticConstructorMissingDocumentationAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestStaticConstructorMissingDocumentationAsync(string typeKind)
+        private async Task DoTestStaticConstructorMissingDocumentationAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -322,10 +395,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.StaticConstructorStandardTextSecondPart, docTypeKind),
                 false).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestStaticConstructorMissingDocumentationGenericAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestStaticConstructorMissingDocumentationGenericAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestStaticConstructorMissingDocumentationGenericAsync(string typeKind)
+        private async Task DoTestStaticConstructorMissingDocumentationGenericAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -336,10 +415,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.StaticConstructorStandardTextSecondPart, docTypeKind),
                 true).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNonPrivateConstructorSimpleDocumentationAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestNonPrivateConstructorSimpleDocumentationAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNonPrivateConstructorSimpleDocumentationAsync(string typeKind)
+        private async Task DoTestNonPrivateConstructorSimpleDocumentationAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -350,10 +435,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, docTypeKind),
                 false).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNonPrivateConstructorSimpleDocumentationGenericAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestNonPrivateConstructorSimpleDocumentationGenericAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNonPrivateConstructorSimpleDocumentationGenericAsync(string typeKind)
+        private async Task DoTestNonPrivateConstructorSimpleDocumentationGenericAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -390,10 +481,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
                 true).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestStaticConstructorSimpleDocumentationAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestStaticConstructorSimpleDocumentationAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestStaticConstructorSimpleDocumentationAsync(string typeKind)
+        private async Task DoTestStaticConstructorSimpleDocumentationAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -404,10 +501,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.StaticConstructorStandardTextSecondPart, docTypeKind),
                 false).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestStaticConstructorSimpleDocumentationGenericAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestStaticConstructorSimpleDocumentationGenericAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestStaticConstructorSimpleDocumentationGenericAsync(string typeKind)
+        private async Task DoTestStaticConstructorSimpleDocumentationGenericAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -418,10 +521,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.StaticConstructorStandardTextSecondPart, docTypeKind),
                 true).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNonPrivateConstructorSimpleDocumentationWrongTypeNameAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestNonPrivateConstructorSimpleDocumentationWrongTypeNameAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNonPrivateConstructorSimpleDocumentationWrongTypeNameAsync(string typeKind)
+        private async Task DoTestNonPrivateConstructorSimpleDocumentationWrongTypeNameAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -432,10 +541,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, docTypeKind),
                 false).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNonPrivateConstructorSimpleDocumentationGenericWrongTypeNameAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestNonPrivateConstructorSimpleDocumentationGenericWrongTypeNameAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNonPrivateConstructorSimpleDocumentationGenericWrongTypeNameAsync(string typeKind)
+        private async Task DoTestNonPrivateConstructorSimpleDocumentationGenericWrongTypeNameAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -472,10 +587,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
                 true).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestStaticConstructorSimpleDocumentationWrongTypeNameAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestStaticConstructorSimpleDocumentationWrongTypeNameAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestStaticConstructorSimpleDocumentationWrongTypeNameAsync(string typeKind)
+        private async Task DoTestStaticConstructorSimpleDocumentationWrongTypeNameAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -486,10 +607,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.StaticConstructorStandardTextSecondPart, docTypeKind),
                 false).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestStaticConstructorSimpleDocumentationGenericWrongTypeNameAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestStaticConstructorSimpleDocumentationGenericWrongTypeNameAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestStaticConstructorSimpleDocumentationGenericWrongTypeNameAsync(string typeKind)
+        private async Task DoTestStaticConstructorSimpleDocumentationGenericWrongTypeNameAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -604,10 +731,16 @@ internal abstract class CustomizableBlockSubscriberBase<TSource, TTarget, TSubsc
             DiagnosticResult expected = Diagnostic().WithLocation(7, 43);
             await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestWithEmptySeeTagAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestWithEmptySeeTagAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestWithEmptySeeTagAsync(string typeKind)
+        private async Task DoTestWithEmptySeeTagAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 
@@ -637,10 +770,16 @@ public {typeKind} TestClass
             DiagnosticResult expected = Diagnostic().WithLocation(5, 43);
             await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestWithEmptySeeTagGenericAsync()
+        {
+            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestWithEmptySeeTagGenericAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestWithEmptySeeTagGenericAsync(string typeKind)
+        private async Task DoTestWithEmptySeeTagGenericAsync(string typeKind)
         {
             var docTypeKind = GetDocTypeKind(typeKind);
 

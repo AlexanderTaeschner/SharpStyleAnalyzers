@@ -15,9 +15,9 @@ namespace StyleCop.Analyzers.Test.OrderingRules
         StyleCop.Analyzers.OrderingRules.SA1201ElementsMustAppearInTheCorrectOrder,
         StyleCop.Analyzers.OrderingRules.ElementOrderCodeFixProvider>;
 
-    public class SA1201UnitTests
+    public class SA1201UnitTests : LangUnitTestsBase
     {
-        public static IEnumerable<object[]> ValueTypesAndReferenceTypes
+        public IEnumerable<(string structKeyword, string classKeyword)> ValueTypesAndReferenceTypes
         {
             get
             {
@@ -25,7 +25,7 @@ namespace StyleCop.Analyzers.Test.OrderingRules
                 {
                     foreach (var referenceTypeKeyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
                     {
-                        yield return new object[] { valueTypeKeyword.Single(), referenceTypeKeyword.Single() };
+                        yield return (valueTypeKeyword, referenceTypeKeyword);
                     }
                 }
             }
@@ -67,9 +67,16 @@ public struct FooStruct { }
             await VerifyCSharpDiagnosticAsync("namespace OuterNamespace { " + testCode + " }", expected, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(ValueTypesAndReferenceTypes))]
-        public async Task TestClassBeforeStructAsync(
+        [Fact]
+        public async Task TestClassBeforeStructAsync()
+        {
+            foreach (var (structKeyword, classKeyword) in ValueTypesAndReferenceTypes)
+            {
+                await DoTestClassBeforeStructAsync(structKeyword, classKeyword);
+            }
+        }
+
+        private async Task DoTestClassBeforeStructAsync(
             string structKeyword,
             string classKeyword)
         {

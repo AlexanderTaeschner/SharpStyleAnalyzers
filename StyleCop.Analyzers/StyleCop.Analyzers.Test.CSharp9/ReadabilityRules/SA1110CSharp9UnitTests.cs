@@ -5,6 +5,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
 {
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.Testing;
     using StyleCop.Analyzers.Test.CSharp8.ReadabilityRules;
     using StyleCop.Analyzers.Test.Helpers;
@@ -15,10 +16,19 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
 
     public partial class SA1110CSharp9UnitTests : SA1110CSharp8UnitTests
     {
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors), MemberType = typeof(CommonMemberData))]
+        protected override LanguageVersion LanguageVersion => LanguageVersion.CSharp9;
+
+        [Fact]
         [WorkItem(3784, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3784")]
-        public async Task TestPrimaryConstructorWithoutParametersAsync(string typeKeyword)
+        public async Task TestPrimaryConstructorWithoutParametersAsync()
+        {
+            foreach (string keyword in CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors)
+            {
+                await DoTestPrimaryConstructorWithoutParametersAsync(keyword);
+            }
+        }
+
+        public async Task DoTestPrimaryConstructorWithoutParametersAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo
@@ -35,10 +45,17 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
             await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors), MemberType = typeof(CommonMemberData))]
+        [Fact]
         [WorkItem(3784, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3784")]
-        public async Task TestPrimaryConstructorWithParametersAsync(string typeKeyword)
+        public async Task TestPrimaryConstructorWithParametersAsync()
+        {
+            foreach (string keyword in CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors)
+            {
+                await DoTestPrimaryConstructorWithParametersAsync(keyword);
+            }
+        }
+
+        public async Task DoTestPrimaryConstructorWithParametersAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo
@@ -56,10 +73,17 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
             await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors), MemberType = typeof(CommonMemberData))]
+        [Fact]
         [WorkItem(3784, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3784")]
-        public async Task TestPrimaryConstructorBaseListWithParametersOnSameLineAsync(string typeKeyword)
+        public async Task TestPrimaryConstructorBaseListWithParametersOnSameLineAsync()
+        {
+            foreach (string keyword in CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
+            {
+                await DoTestPrimaryConstructorBaseListWithParametersOnSameLineAsync(keyword);
+            }
+        }
+
+        public async Task DoTestPrimaryConstructorBaseListWithParametersOnSameLineAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo(int x)
@@ -73,10 +97,17 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
             await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors), MemberType = typeof(CommonMemberData))]
+        [Fact]
         [WorkItem(3784, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3784")]
-        public async Task TestPrimaryConstructorBaseListWithParametersAsync(string typeKeyword)
+        public async Task TestPrimaryConstructorBaseListWithParametersAsync()
+        {
+            foreach (string keyword in CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
+            {
+                await DoTestPrimaryConstructorBaseListWithParametersAsync(keyword);
+            }
+        }
+
+        public async Task DoTestPrimaryConstructorBaseListWithParametersAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo(int x)
@@ -102,10 +133,16 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
             await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors), MemberType = typeof(CommonMemberData))]
-        [WorkItem(3784, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3784")]
-        public async Task TestPrimaryConstructorBaseListWithoutParametersAsync(string typeKeyword)
+        [Fact]
+        public async Task TestPrimaryConstructorBaseListWithoutParametersAsync()
+        {
+            foreach (string keyword in CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
+            {
+                await DoTestPrimaryConstructorBaseListWithoutParametersAsync(keyword);
+            }
+        }
+
+        public async Task DoTestPrimaryConstructorBaseListWithoutParametersAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo()

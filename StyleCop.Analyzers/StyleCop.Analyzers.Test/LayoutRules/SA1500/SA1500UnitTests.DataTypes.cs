@@ -1,4 +1,4 @@
-﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -18,7 +18,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
     /// <summary>
     /// Unit tests for <see cref="SA1500BracesForMultiLineStatementsMustNotShareLine"/>.
     /// </summary>
-    public partial class SA1500UnitTests
+    public partial class SA1500UnitTests : LangUnitTestsBase
     {
         /// <summary>
         /// Verifies that no diagnostics are reported for the valid data types defined in this test.
@@ -28,9 +28,16 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         /// </remarks>
         /// <param name="keyword">The data type keyword.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestDataTypeValidAsync(string keyword)
+        [Fact]
+        public async Task TestDataTypeValidAsync()
+        {
+            foreach (string keyword in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestDataTypeValidAsync(keyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestDataTypeValidAsync(string keyword)
         {
             var testCode = $@"public class Foo
 {{
@@ -62,9 +69,16 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         /// </remarks>
         /// <param name="keyword">The data type keyword.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.DataTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestDataTypeInvalidAsync(string keyword)
+        [Fact]
+        public async Task TestDataTypeInvalidAsync()
+        {
+            foreach (string keyword in CommonMemberData.DataTypeDeclarationKeywords)
+            {
+                await this.DoTestDataTypeInvalidAsync(keyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestDataTypeInvalidAsync(string keyword)
         {
             var testCode = $@"public class Foo
 {{

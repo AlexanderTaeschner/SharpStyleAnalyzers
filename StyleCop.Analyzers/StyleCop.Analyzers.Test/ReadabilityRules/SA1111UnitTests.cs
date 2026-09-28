@@ -12,7 +12,7 @@ namespace StyleCop.Analyzers.Test.ReadabilityRules
         StyleCop.Analyzers.ReadabilityRules.SA1111ClosingParenthesisMustBeOnLineOfLastParameter,
         StyleCop.Analyzers.SpacingRules.TokenSpacingCodeFixProvider>;
 
-    public class SA1111UnitTests
+    public class SA1111UnitTests : LangUnitTestsBase
     {
         [Theory]
         [InlineData("\n")]

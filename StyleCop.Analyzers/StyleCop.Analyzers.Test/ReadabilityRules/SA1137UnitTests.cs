@@ -1,4 +1,4 @@
-﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -18,11 +18,18 @@ namespace StyleCop.Analyzers.Test.ReadabilityRules
     /// <summary>
     /// This class contains unit tests for <see cref="SA1137ElementsShouldHaveTheSameIndentation"/>.
     /// </summary>
-    public class SA1137UnitTests
+    public class SA1137UnitTests : LangUnitTestsBase
     {
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNamespaceDeclarationAsync(string baseTypeKind)
+        [Fact]
+        public async Task TestNamespaceDeclarationAsync()
+        {
+            foreach (string baseTypeKind in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoTestNamespaceDeclarationAsync(baseTypeKind).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoTestNamespaceDeclarationAsync(string baseTypeKind)
         {
             string testCode = $@"
 using System;
@@ -146,10 +153,16 @@ class MyAttribute : Attribute {{ }}
 
             await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestTypeDeclarationConstraintClausesAsync()
+        {
+            foreach (string typeKind in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoTestTypeDeclarationConstraintClausesAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestTypeDeclarationConstraintClausesAsync(string typeKind)
+        private async Task DoTestTypeDeclarationConstraintClausesAsync(string typeKind)
         {
             string testCode = $@"
 {typeKind} NonGenericType
@@ -215,10 +228,16 @@ where T3 : new()
 
             await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestTypeDeclarationMembersAsync()
+        {
+            foreach (string typeKind in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoTestTypeDeclarationMembersAsync(typeKind).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestTypeDeclarationMembersAsync(string typeKind)
+        private async Task DoTestTypeDeclarationMembersAsync(string typeKind)
         {
             string fieldType = typeKind switch
             {

@@ -20,22 +20,21 @@ namespace StyleCop.Analyzers.Test.LayoutRules
     /// <summary>
     /// Unit tests for the <see cref="SA1505OpeningBracesMustNotBeFollowedByBlankLine"/> class.
     /// </summary>
-    public class SA1505UnitTests
+    public class SA1505UnitTests : LangUnitTestsBase
     {
-        public static IEnumerable<object[]> TypeTestData
+        public IEnumerable<(string keyword, string accessModifier)> TypeTestData
         {
             get
             {
-                foreach (var data in CommonMemberData.TypeDeclarationKeywords)
+                foreach (string keyword in CommonMemberData.TypeDeclarationKeywords)
                 {
-                    var keyword = (string)data.Single();
-                    var accessModifier = keyword switch
+                    string accessModifier = keyword switch
                     {
                         "interface" => string.Empty,
                         _ => "public ",
                     };
 
-                    yield return new[] { keyword, accessModifier };
+                    yield return (keyword, accessModifier);
                 }
             }
         }
@@ -636,15 +635,22 @@ namespace StyleCop.Analyzers.Test.LayoutRules
             await VerifyCSharpFixAsync(testCode, expectedDiagnostic, fixedTestCode, CancellationToken.None).ConfigureAwait(false);
         }
 
+        [Fact]
+        public async Task TestValidTypeDeclarationAsync()
+        {
+            foreach ((string typeKeyword, string accessModifier) in TypeTestData)
+            {
+                await DoTestValidTypeDeclarationAsync(typeKeyword, accessModifier);
+            }
+        }
+
         /// <summary>
         /// Verifies that valid type declarations will not produce any diagnostics.
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use.</param>
         /// <param name="accessModifier">The access modifier to use.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(TypeTestData))]
-        public async Task TestValidTypeDeclarationAsync(string typeKeyword, string accessModifier)
+        private async Task DoTestValidTypeDeclarationAsync(string typeKeyword, string accessModifier)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -658,15 +664,22 @@ namespace StyleCop.Analyzers.Test.LayoutRules
             await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
 
+        [Fact]
+        public async Task TestInvalidTypeDeclarationAsync()
+        {
+            foreach ((string typeKeyword, string accessModifier) in TypeTestData)
+            {
+                await DoTestInvalidTypeDeclarationAsync(typeKeyword, accessModifier);
+            }
+        }
+
         /// <summary>
         /// Verifies that invalid type declarations will produce the expected diagnostics.
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use.</param>
         /// <param name="accessModifier">The access modifier to use.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(TypeTestData))]
-        public async Task TestInvalidTypeDeclarationAsync(string typeKeyword, string accessModifier)
+        private async Task DoTestInvalidTypeDeclarationAsync(string typeKeyword, string accessModifier)
         {
             var testCode = $@"namespace TestNamespace
 {{

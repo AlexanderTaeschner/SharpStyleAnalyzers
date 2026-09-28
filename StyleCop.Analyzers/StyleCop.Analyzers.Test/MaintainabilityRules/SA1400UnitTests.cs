@@ -1,4 +1,4 @@
-﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -14,69 +14,123 @@ namespace StyleCop.Analyzers.Test.MaintainabilityRules
         StyleCop.Analyzers.MaintainabilityRules.SA1400AccessModifierMustBeDeclared,
         StyleCop.Analyzers.MaintainabilityRules.SA1400CodeFixProvider>;
 
-    public class SA1400UnitTests
+    public class SA1400UnitTests : LangUnitTestsBase
     {
         private const string Tab = "\t";
+        [Fact]
+        public async Task TestTypeDeclarationAsync()
+        {
+            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoTestTypeDeclarationAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestTypeDeclarationAsync(string typeName)
+        private async Task DoTestTypeDeclarationAsync(string typeName)
         {
             await this.TestTypeDeclarationImplAsync(typeName).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestPartialTypeDeclarationAsync()
+        {
+            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoTestPartialTypeDeclarationAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestPartialTypeDeclarationAsync(string typeName)
+        private async Task DoTestPartialTypeDeclarationAsync(string typeName)
         {
             await this.TestTypeDeclarationImplAsync($"partial {typeName}", warning: false).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestTypeDeclarationWithAttributesAsync()
+        {
+            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoTestTypeDeclarationWithAttributesAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestTypeDeclarationWithAttributesAsync(string typeName)
+        private async Task DoTestTypeDeclarationWithAttributesAsync(string typeName)
         {
             await this.TestTypeDeclarationWithAttributesImplAsync(typeName).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestPartialTypeDeclarationWithAttributesAsync()
+        {
+            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoTestPartialTypeDeclarationWithAttributesAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestPartialTypeDeclarationWithAttributesAsync(string typeName)
+        private async Task DoTestPartialTypeDeclarationWithAttributesAsync(string typeName)
         {
             await this.TestTypeDeclarationWithAttributesImplAsync($"partial {typeName}", warning: false).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestTypeDeclarationWithDirectivesAsync()
+        {
+            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoTestTypeDeclarationWithDirectivesAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestTypeDeclarationWithDirectivesAsync(string typeName)
+        private async Task DoTestTypeDeclarationWithDirectivesAsync(string typeName)
         {
             await this.TestTypeDeclarationWithDirectivesImplAsync(typeName).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestPartialTypeDeclarationWithDirectivesAsync()
+        {
+            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoTestPartialTypeDeclarationWithDirectivesAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestPartialTypeDeclarationWithDirectivesAsync(string typeName)
+        private async Task DoTestPartialTypeDeclarationWithDirectivesAsync(string typeName)
         {
             await this.TestTypeDeclarationWithDirectivesImplAsync($"partial {typeName}", warning: false).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNestedTypeDeclarationAsync()
+        {
+            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoTestNestedTypeDeclarationAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNestedTypeDeclarationAsync(string typeName)
+        private async Task DoTestNestedTypeDeclarationAsync(string typeName)
         {
             await this.TestNestedTypeDeclarationImplAsync(typeName).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNestedTypeDeclarationWithAttributesAsync()
+        {
+            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoTestNestedTypeDeclarationWithAttributesAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNestedTypeDeclarationWithAttributesAsync(string typeName)
+        private async Task DoTestNestedTypeDeclarationWithAttributesAsync(string typeName)
         {
             await this.TestNestedTypeDeclarationWithAttributesImplAsync(typeName).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNestedTypeDeclarationWithDirectivesAsync()
+        {
+            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoTestNestedTypeDeclarationWithDirectivesAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNestedTypeDeclarationWithDirectivesAsync(string typeName)
+        private async Task DoTestNestedTypeDeclarationWithDirectivesAsync(string typeName)
         {
             await this.TestNestedTypeDeclarationWithDirectivesImplAsync(typeName).ConfigureAwait(false);
         }

@@ -14,7 +14,7 @@ namespace StyleCop.Analyzers.Test.ReadabilityRules
         StyleCop.Analyzers.ReadabilityRules.SA1110OpeningParenthesisMustBeOnDeclarationLine,
         StyleCop.Analyzers.SpacingRules.TokenSpacingCodeFixProvider>;
 
-    public class SA1110UnitTests
+    public class SA1110UnitTests : LangUnitTestsBase
     {
         [Theory]
         [InlineData("\n")]

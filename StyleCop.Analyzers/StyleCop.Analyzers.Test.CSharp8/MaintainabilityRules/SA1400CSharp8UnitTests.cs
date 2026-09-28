@@ -5,6 +5,7 @@ namespace StyleCop.Analyzers.Test.CSharp8.MaintainabilityRules
 {
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.Testing;
     using StyleCop.Analyzers.Test.CSharp7.MaintainabilityRules;
     using StyleCop.Analyzers.Test.Helpers;
@@ -15,6 +16,8 @@ namespace StyleCop.Analyzers.Test.CSharp8.MaintainabilityRules
 
     public partial class SA1400CSharp8UnitTests : SA1400CSharp7UnitTests
     {
+        protected override LanguageVersion LanguageVersion => LanguageVersion.CSharp8;
+
         [Fact]
         [WorkItem(3002, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3002")]
         public async Task TestDefaultInterfaceImplementationWithoutAccessModifierAsync()
@@ -83,10 +86,17 @@ public interface ITest
             await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
+        [Fact]
         [WorkItem(3002, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3002")]
-        public async Task TestTypeDeclarationInsideInterfaceAsync(string typeKind)
+        public async Task TestTypeDeclarationInsideInterfaceAsync()
+        {
+            foreach (string typeKind in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoTestTypeDeclarationInsideInterfaceAsync(typeKind);
+            }
+        }
+
+        private async Task DoTestTypeDeclarationInsideInterfaceAsync(string typeKind)
         {
             var testCode = $@"
 public interface ITest

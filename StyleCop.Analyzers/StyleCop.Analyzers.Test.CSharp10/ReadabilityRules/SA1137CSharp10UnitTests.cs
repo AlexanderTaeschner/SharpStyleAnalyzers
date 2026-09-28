@@ -7,6 +7,7 @@ namespace StyleCop.Analyzers.Test.CSharp10.ReadabilityRules
 {
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.CodeAnalysis.CSharp;
     using StyleCop.Analyzers.Test.CSharp9.ReadabilityRules;
     using StyleCop.Analyzers.Test.Helpers;
     using Xunit;
@@ -16,9 +17,18 @@ namespace StyleCop.Analyzers.Test.CSharp10.ReadabilityRules
 
     public partial class SA1137CSharp10UnitTests : SA1137CSharp9UnitTests
     {
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestFileScopedNamespaceDeclarationAsync(string baseTypeKind)
+        protected override LanguageVersion LanguageVersion => LanguageVersion.CSharp10;
+
+        [Fact]
+        public async Task TestFileScopedNamespaceDeclarationAsync()
+        {
+            foreach (var baseTypeKind in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await DoTestFileScopedNamespaceDeclarationAsync(baseTypeKind);
+            }
+        }
+
+        private async Task DoTestFileScopedNamespaceDeclarationAsync(string baseTypeKind)
         {
             await new CSharpTest
             {

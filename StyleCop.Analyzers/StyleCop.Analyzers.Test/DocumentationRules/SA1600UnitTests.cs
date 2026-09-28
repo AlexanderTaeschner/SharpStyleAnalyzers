@@ -1,4 +1,4 @@
-﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -19,7 +19,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
     /// <summary>
     /// This class contains unit tests for <see cref="SA1600ElementsMustBeDocumented"/>.
     /// </summary>
-    public class SA1600UnitTests
+    public class SA1600UnitTests : LangUnitTestsBase
     {
         protected virtual LanguageVersion LanguageVersion => LanguageVersion.CSharp6;
 
@@ -40,25 +40,43 @@ using System;
             var expected = this.GetExpectedResultTestRegressionMethodGlobalNamespace(code);
             await VerifyCSharpDiagnosticAsync(this.LanguageVersion, testCode, expected, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestBaseTypeWithoutDocumentationAsync()
+        {
+            foreach (string type in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoTestBaseTypeWithoutDocumentationAsync(type).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestBaseTypeWithoutDocumentationAsync(string type)
+        private async Task DoTestBaseTypeWithoutDocumentationAsync(string type)
         {
             var isInterface = type == "interface";
             await this.TestTypeWithoutDocumentationAsync(type, isInterface).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestBaseTypeWithDocumentationAsync()
+        {
+            foreach (string type in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoTestBaseTypeWithDocumentationAsync(type).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestBaseTypeWithDocumentationAsync(string type)
+        private async Task DoTestBaseTypeWithDocumentationAsync(string type)
         {
             await this.TestTypeWithDocumentationAsync(type).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestPartialTypeWithoutDocumentationAsync()
+        {
+            foreach (string type in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoTestPartialTypeWithoutDocumentationAsync(type).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestPartialTypeWithoutDocumentationAsync(string type)
+        private async Task DoTestPartialTypeWithoutDocumentationAsync(string type)
         {
             await this.TestTypeDeclarationDocumentationAsync(type, "partial", false, false).ConfigureAwait(false);
             await this.TestTypeDeclarationDocumentationAsync(type, "internal partial", false, false).ConfigureAwait(false);

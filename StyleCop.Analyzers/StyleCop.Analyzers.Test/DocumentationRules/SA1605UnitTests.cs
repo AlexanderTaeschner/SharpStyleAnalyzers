@@ -1,4 +1,4 @@
-﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -17,7 +17,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
     /// <summary>
     /// This class contains unit tests for <see cref="SA1605PartialElementDocumentationMustHaveSummary"/>.
     /// </summary>
-    public class SA1605UnitTests
+    public class SA1605UnitTests : LangUnitTestsBase
     {
         private const string TestSettings = @"
 {
@@ -28,10 +28,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
   }
 }
 ";
+        [Fact]
+        public async Task TestTypeNoDocumentationAsync()
+        {
+            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoTestTypeNoDocumentationAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestTypeNoDocumentationAsync(string typeName)
+        private async Task DoTestTypeNoDocumentationAsync(string typeName)
         {
             var testCode = @"
 partial {0} TypeName
@@ -39,10 +45,16 @@ partial {0} TypeName
 }}";
             await VerifyCSharpDiagnosticAsync(string.Format(testCode, typeName), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestTypeWithSummaryDocumentationAsync()
+        {
+            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoTestTypeWithSummaryDocumentationAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestTypeWithSummaryDocumentationAsync(string typeName)
+        private async Task DoTestTypeWithSummaryDocumentationAsync(string typeName)
         {
             var testCode = @"
 /// <summary>
@@ -53,10 +65,16 @@ partial {0} TypeName
 }}";
             await VerifyCSharpDiagnosticAsync(string.Format(testCode, typeName), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestTypeWithContentDocumentationAsync()
+        {
+            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoTestTypeWithContentDocumentationAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestTypeWithContentDocumentationAsync(string typeName)
+        private async Task DoTestTypeWithContentDocumentationAsync(string typeName)
         {
             var testCode = @"
 /// <content>
@@ -67,10 +85,16 @@ partial {0} TypeName
 }}";
             await VerifyCSharpDiagnosticAsync(string.Format(testCode, typeName), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestTypeWithInheritedDocumentationAsync()
+        {
+            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoTestTypeWithInheritedDocumentationAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestTypeWithInheritedDocumentationAsync(string typeName)
+        private async Task DoTestTypeWithInheritedDocumentationAsync(string typeName)
         {
             var testCode = @"
 /// <inheritdoc/>
@@ -79,10 +103,16 @@ partial {0} TypeName
 }}";
             await VerifyCSharpDiagnosticAsync(string.Format(testCode, typeName), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestTypeWithoutDocumentationAsync()
+        {
+            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoTestTypeWithoutDocumentationAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestTypeWithoutDocumentationAsync(string typeName)
+        private async Task DoTestTypeWithoutDocumentationAsync(string typeName)
         {
             var testCode = @"
 ///
@@ -95,10 +125,16 @@ TypeName
 
             await VerifyCSharpDiagnosticAsync(string.Format(testCode, typeName), expected, CancellationToken.None).ConfigureAwait(false);
         }
+        [Fact]
+        public async Task TestNonPartialTypeWithoutDocumentationAsync()
+        {
+            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            {
+                await this.DoTestNonPartialTypeWithoutDocumentationAsync(typeName).ConfigureAwait(false);
+            }
+        }
 
-        [Theory]
-        [MemberData(nameof(CommonMemberData.BaseTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task TestNonPartialTypeWithoutDocumentationAsync(string typeName)
+        private async Task DoTestNonPartialTypeWithoutDocumentationAsync(string typeName)
         {
             var testCode = @"
 ///

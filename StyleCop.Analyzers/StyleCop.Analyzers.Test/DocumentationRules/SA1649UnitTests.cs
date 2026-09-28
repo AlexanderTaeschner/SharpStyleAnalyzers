@@ -1,4 +1,4 @@
-﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -17,7 +17,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
     /// <summary>
     /// Unit tests for the SA1649 diagnostic.
     /// </summary>
-    public class SA1649UnitTests
+    public class SA1649UnitTests : LangUnitTestsBase
     {
         protected const string MetadataSettings = @"
 {
@@ -44,9 +44,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.AllTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyWrongFileNameAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyWrongFileNameAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.AllTypeDeclarationKeywords)
+            {
+                await this.DoVerifyWrongFileNameAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyWrongFileNameAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -69,9 +76,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.GenericTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyWrongFileNameGenericStyleCopAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyWrongFileNameGenericStyleCopAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.GenericTypeDeclarationKeywords)
+            {
+                await this.DoVerifyWrongFileNameGenericStyleCopAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyWrongFileNameGenericStyleCopAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -94,9 +108,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.GenericTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyWrongFileNameGenericMetadataAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyWrongFileNameGenericMetadataAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.GenericTypeDeclarationKeywords)
+            {
+                await this.DoVerifyWrongFileNameGenericMetadataAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyWrongFileNameGenericMetadataAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -120,9 +141,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.AllTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyWrongFileNameMultipleExtensionsAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyWrongFileNameMultipleExtensionsAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.AllTypeDeclarationKeywords)
+            {
+                await this.DoVerifyWrongFileNameMultipleExtensionsAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyWrongFileNameMultipleExtensionsAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -146,9 +174,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.AllTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyWrongFileNameNoExtensionAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyWrongFileNameNoExtensionAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.AllTypeDeclarationKeywords)
+            {
+                await this.DoVerifyWrongFileNameNoExtensionAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyWrongFileNameNoExtensionAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -171,9 +206,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.AllTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyCaseInsensitivityAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyCaseInsensitivityAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.AllTypeDeclarationKeywords)
+            {
+                await this.DoVerifyCaseInsensitivityAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyCaseInsensitivityAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -189,9 +231,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.GenericTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyCaseInsensitivityGenericStyleCopAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyCaseInsensitivityGenericStyleCopAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.GenericTypeDeclarationKeywords)
+            {
+                await this.DoVerifyCaseInsensitivityGenericStyleCopAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyCaseInsensitivityGenericStyleCopAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -207,9 +256,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.GenericTypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyCaseInsensitivityGenericMetadataAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyCaseInsensitivityGenericMetadataAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.GenericTypeDeclarationKeywords)
+            {
+                await this.DoVerifyCaseInsensitivityGenericMetadataAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyCaseInsensitivityGenericMetadataAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -225,9 +281,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyFirstTypeIsUsedAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyFirstTypeIsUsedAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoVerifyFirstTypeIsUsedAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyFirstTypeIsUsedAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -259,9 +322,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyFirstTypeIsUsedGenericStyleCopAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyFirstTypeIsUsedGenericStyleCopAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoVerifyFirstTypeIsUsedGenericStyleCopAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyFirstTypeIsUsedGenericStyleCopAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -293,9 +363,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyFirstTypeIsUsedGenericMetadataAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyFirstTypeIsUsedGenericMetadataAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoVerifyFirstTypeIsUsedGenericMetadataAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyFirstTypeIsUsedGenericMetadataAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -362,9 +439,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyThatPartialTypesAreIgnoredAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyThatPartialTypesAreIgnoredAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoVerifyThatPartialTypesAreIgnoredAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyThatPartialTypesAreIgnoredAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -382,9 +466,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyStyleCopNamingConventionForGenericTypeAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyStyleCopNamingConventionForGenericTypeAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoVerifyStyleCopNamingConventionForGenericTypeAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyStyleCopNamingConventionForGenericTypeAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -404,9 +495,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyMetadataNamingConventionForGenericTypeAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyMetadataNamingConventionForGenericTypeAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoVerifyMetadataNamingConventionForGenericTypeAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyMetadataNamingConventionForGenericTypeAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{
@@ -429,9 +527,16 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         /// </summary>
         /// <param name="typeKeyword">The type keyword to use during the test.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-        [Theory]
-        [MemberData(nameof(CommonMemberData.TypeDeclarationKeywords), MemberType = typeof(CommonMemberData))]
-        public async Task VerifyMetadataNamingConventionForGenericTypeMultipleExtensionsAsync(string typeKeyword)
+        [Fact]
+        public async Task VerifyMetadataNamingConventionForGenericTypeMultipleExtensionsAsync()
+        {
+            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            {
+                await this.DoVerifyMetadataNamingConventionForGenericTypeMultipleExtensionsAsync(typeKeyword).ConfigureAwait(false);
+            }
+        }
+
+        private async Task DoVerifyMetadataNamingConventionForGenericTypeMultipleExtensionsAsync(string typeKeyword)
         {
             var testCode = $@"namespace TestNamespace
 {{

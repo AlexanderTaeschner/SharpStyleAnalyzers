@@ -10,6 +10,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
     using System.Threading.Tasks;
     using Microsoft.CodeAnalysis.Testing;
     using StyleCop.Analyzers.DocumentationRules;
+    using StyleCop.Analyzers.Test.Helpers;
     using StyleCop.Analyzers.Test.Verifiers;
     using Xunit;
     using static StyleCop.Analyzers.Test.Verifiers.CustomDiagnosticVerifier<StyleCop.Analyzers.DocumentationRules.SA1611ElementParametersMustBeDocumented>;
@@ -17,7 +18,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
     /// <summary>
     /// This class contains unit tests for <see cref="SA1611ElementParametersMustBeDocumented"/>.
     /// </summary>
-    public class SA1611UnitTests
+    public class SA1611UnitTests : LangUnitTestsBase
     {
         public static IEnumerable<object[]> Data
         {

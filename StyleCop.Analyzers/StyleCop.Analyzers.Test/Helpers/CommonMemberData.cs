@@ -5,136 +5,144 @@ namespace StyleCop.Analyzers.Test.Helpers
 {
     using System.Collections.Generic;
     using System.Linq;
-    using StyleCop.Analyzers.Lightup;
+    using Microsoft.CodeAnalysis.CSharp;
 
-    public static class CommonMemberData
+    public class CommonMemberData(LanguageVersion languageVersion)
     {
-        public static IEnumerable<object[]> DataTypeDeclarationKeywords
+        public LanguageVersion LanguageVersion { get; } = languageVersion;
+
+        public bool SupportsCSharp9 => LanguageVersion >= LanguageVersion.CSharp9;
+
+        public bool SupportsCSharp10 => LanguageVersion >= LanguageVersion.CSharp10;
+
+        public bool SupportsCSharp12 => LanguageVersion >= LanguageVersion.CSharp12;
+
+        public IEnumerable<string> DataTypeDeclarationKeywords
         {
             get
             {
-                yield return new[] { "class" };
-                yield return new[] { "struct" };
+                yield return "class";
+                yield return "struct";
 
-                if (LightupHelpers.SupportsCSharp9)
+                if (SupportsCSharp9)
                 {
-                    yield return new[] { "record" };
+                    yield return "record";
                 }
 
-                if (LightupHelpers.SupportsCSharp10)
+                if (SupportsCSharp10)
                 {
-                    yield return new[] { "record class" };
-                    yield return new[] { "record struct" };
+                    yield return "record class";
+                    yield return "record struct";
                 }
             }
         }
 
-        public static IEnumerable<object[]> ReferenceTypeDeclarationKeywords
+        public IEnumerable<string> ReferenceTypeDeclarationKeywords
         {
             get
             {
-                yield return new[] { "class" };
+                yield return "class";
 
-                if (LightupHelpers.SupportsCSharp9)
+                if (SupportsCSharp9)
                 {
-                    yield return new[] { "record" };
+                    yield return "record";
                 }
 
-                if (LightupHelpers.SupportsCSharp10)
+                if (SupportsCSharp10)
                 {
-                    yield return new[] { "record class" };
+                    yield return "record class";
                 }
             }
         }
 
-        public static IEnumerable<object[]> ValueTypeDeclarationKeywords
+        public IEnumerable<string> ValueTypeDeclarationKeywords
         {
             get
             {
-                yield return new[] { "struct" };
+                yield return "struct";
 
-                if (LightupHelpers.SupportsCSharp10)
+                if (SupportsCSharp10)
                 {
-                    yield return new[] { "record struct" };
+                    yield return "record struct";
                 }
             }
         }
 
-        public static IEnumerable<object[]> RecordTypeDeclarationKeywords
+        public IEnumerable<string> RecordTypeDeclarationKeywords
         {
             get
             {
-                if (LightupHelpers.SupportsCSharp9)
+                if (SupportsCSharp9)
                 {
-                    yield return new[] { "record" };
+                    yield return "record";
                 }
 
-                if (LightupHelpers.SupportsCSharp10)
+                if (SupportsCSharp10)
                 {
-                    yield return new[] { "record class" };
-                    yield return new[] { "record struct" };
+                    yield return "record class";
+                    yield return "record struct";
                 }
             }
         }
 
-        public static IEnumerable<object[]> TypeDeclarationKeywords
+        public IEnumerable<string> TypeDeclarationKeywords
         {
             get
             {
                 return DataTypeDeclarationKeywords
-                    .Concat(new[] { new[] { "interface" } });
+                    .Concat(["interface"]);
             }
         }
 
-        public static IEnumerable<object[]> BaseTypeDeclarationKeywords
+        public IEnumerable<string> BaseTypeDeclarationKeywords
         {
             get
             {
                 return TypeDeclarationKeywords
-                    .Concat(new[] { new[] { "enum" } });
+                    .Concat(["enum"]);
             }
         }
 
-        public static IEnumerable<object[]> AllTypeDeclarationKeywords
+        public IEnumerable<string> AllTypeDeclarationKeywords
         {
             get
             {
                 return BaseTypeDeclarationKeywords
-                    .Concat(new[] { new[] { "delegate" } });
+                    .Concat(["delegate"]);
             }
         }
 
-        public static IEnumerable<object[]> GenericTypeDeclarationKeywords
+        public IEnumerable<string> GenericTypeDeclarationKeywords
         {
             get
             {
                 return TypeDeclarationKeywords
-                    .Concat(new[] { new[] { "delegate" } });
+                    .Concat(["delegate"]);
             }
         }
 
-        public static IEnumerable<object[]> ReferenceTypeKeywordsWhichSupportPrimaryConstructors
+        public IEnumerable<string> ReferenceTypeKeywordsWhichSupportPrimaryConstructors
         {
             get
             {
-                if (LightupHelpers.SupportsCSharp9)
+                if (SupportsCSharp9)
                 {
-                    yield return new[] { "record" };
+                    yield return "record";
                 }
 
-                if (LightupHelpers.SupportsCSharp10)
+                if (SupportsCSharp10)
                 {
-                    yield return new[] { "record class" };
+                    yield return "record class";
                 }
 
-                if (LightupHelpers.SupportsCSharp12)
+                if (SupportsCSharp12)
                 {
-                    yield return new[] { "class" };
+                    yield return "class";
                 }
             }
         }
 
-        public static IEnumerable<object[]> TypeKeywordsWhichSupportPrimaryConstructors
+        public IEnumerable<string> TypeKeywordsWhichSupportPrimaryConstructors
         {
             get
             {
@@ -143,14 +151,14 @@ namespace StyleCop.Analyzers.Test.Helpers
                     yield return keyword;
                 }
 
-                if (LightupHelpers.SupportsCSharp10)
+                if (SupportsCSharp10)
                 {
-                    yield return new[] { "record struct" };
+                    yield return "record struct";
                 }
 
-                if (LightupHelpers.SupportsCSharp12)
+                if (SupportsCSharp12)
                 {
-                    yield return new[] { "struct" };
+                    yield return "struct";
                 }
             }
         }
