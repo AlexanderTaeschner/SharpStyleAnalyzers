@@ -1,4 +1,4 @@
-// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -488,11 +488,11 @@ namespace TestNamespace
 
             DiagnosticResult[] expected =
             {
-                DiagnosticResult.CompilerError("CS1513").WithLocation(6, 10),
+                DiagnosticResult.CompilerError("CS7014").WithSpan(6, 10, 6, 11),
                 Diagnostic().WithLocation(6, 10),
                 DiagnosticResult.CompilerError("CS1001").WithLocation(6, 11),
-                DiagnosticResult.CompilerError("CS1001").WithLocation(6, 11),
-                DiagnosticResult.CompilerError("CS1022").WithLocation(8, 1),
+                DiagnosticResult.CompilerError("CS1003").WithSpan(6, 11, 6, 12).WithArguments("]"),
+                DiagnosticResult.CompilerError("CS1513").WithSpan(6, 12, 6, 13),
             };
 
             await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(false);

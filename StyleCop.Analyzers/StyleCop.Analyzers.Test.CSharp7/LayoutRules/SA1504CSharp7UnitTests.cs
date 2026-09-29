@@ -3,9 +3,11 @@
 
 namespace StyleCop.Analyzers.Test.CSharp7.LayoutRules
 {
+    using Microsoft.CodeAnalysis.CSharp;
     using StyleCop.Analyzers.Test.LayoutRules;
 
     public partial class SA1504CSharp7UnitTests : SA1504UnitTests
     {
+        protected override LanguageVersion LanguageVersion => LanguageVersion.CSharp7_2;
     }
 }

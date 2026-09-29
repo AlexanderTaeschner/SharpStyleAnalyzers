@@ -1006,6 +1006,7 @@ public class TypeName
                 Diagnostic(CS7014).WithLocation(13, 47),
                 Diagnostic(CS1670).WithLocation(14, 47),
                 Diagnostic(CS1669).WithLocation(15, 42),
+                DiagnosticResult.CompilerError("CS0225").WithSpan(14, 47, 14, 53),
             };
         }
     }

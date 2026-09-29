@@ -140,7 +140,20 @@ namespace StyleCop.Analyzers.Test.SpacingRules
         {
             return new[]
             {
+                // /0/Test0.cs(10,2): error CS1031: Type expected
                 DiagnosticResult.CompilerError("CS1031").WithMessage("Type expected").WithLocation(10, 2),
+
+                // /0/Test0.cs(11,1): error CS8803: Top-level statements must precede namespace and type declarations.
+                DiagnosticResult.CompilerError("CS8803").WithSpan(11, 1, 12, 1),
+
+                // /0/Test0.cs(11,1): error CS8805: Program using top-level statements must be an executable.
+                DiagnosticResult.CompilerError("CS8805").WithSpan(11, 1, 12, 1),
+
+                // /0/Test0.cs(11,2): error CS1001: Identifier expected
+                DiagnosticResult.CompilerError("CS1001").WithSpan(11, 2, 11, 2),
+
+                // /0/Test0.cs(11,2): error CS1002: ; expected
+                DiagnosticResult.CompilerError("CS1002").WithSpan(11, 2, 11, 2),
             };
         }
     }

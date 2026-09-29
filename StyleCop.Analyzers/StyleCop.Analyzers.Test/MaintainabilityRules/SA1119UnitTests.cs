@@ -1486,7 +1486,7 @@ internal class Program
     public void Bar()
     {
         bool flag = false;
-        string data = $""{ flag}"";
+        string data = $""{flag}"";
     }
 }";
         }

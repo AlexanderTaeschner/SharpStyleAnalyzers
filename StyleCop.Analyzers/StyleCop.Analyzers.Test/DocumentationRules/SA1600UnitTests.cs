@@ -1,4 +1,4 @@
-// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -40,6 +40,7 @@ using System;
             var expected = this.GetExpectedResultTestRegressionMethodGlobalNamespace(code);
             await VerifyCSharpDiagnosticAsync(this.LanguageVersion, testCode, expected, CancellationToken.None).ConfigureAwait(false);
         }
+
         [Fact]
         public async Task TestBaseTypeWithoutDocumentationAsync()
         {
@@ -54,6 +55,7 @@ using System;
             var isInterface = type == "interface";
             await this.TestTypeWithoutDocumentationAsync(type, isInterface).ConfigureAwait(false);
         }
+
         [Fact]
         public async Task TestBaseTypeWithDocumentationAsync()
         {
@@ -67,6 +69,7 @@ using System;
         {
             await this.TestTypeWithDocumentationAsync(type).ConfigureAwait(false);
         }
+
         [Fact]
         public async Task TestPartialTypeWithoutDocumentationAsync()
         {
@@ -1383,9 +1386,24 @@ public class OuterClass
 
         protected virtual DiagnosticResult[] GetExpectedResultTestRegressionMethodGlobalNamespace(string code)
         {
+            if (code == "public void {|#0:TestMember|}() { }")
+            {
+                return new[]
+                {
+                    // /0/Test0.cs(4,1): error CS0106: The modifier 'public' is not valid for this item
+                    DiagnosticResult.CompilerError("CS0106").WithSpan(4, 1, 4, 7).WithArguments("public"),
+
+                    // /0/Test0.cs(4,1): error CS8805: Program using top-level statements must be an executable.
+                    DiagnosticResult.CompilerError("CS8805").WithSpan(4, 1, 4, 29),
+
+                    // /0/Test0.cs(4,1): error CS8320: Feature 'top-level statements' is not available in C# 7.2. Please use language version 9.0 or greater.
+                    DiagnosticResult.CompilerError("CS8320").WithSpan(4, 1, 4, 29).WithArguments("top-level statements", "9.0"),
+                };
+            }
+
             return new[]
             {
-                DiagnosticResult.CompilerError("CS0116").WithMessage("A namespace cannot directly contain members such as fields or methods").WithLocation(0),
+                DiagnosticResult.CompilerError("CS9348").WithMessage("A compilation unit cannot directly contain members such as fields, methods or properties").WithLocation(0),
                 Diagnostic().WithLocation(0),
             };
         }

@@ -45,7 +45,8 @@ namespace StyleCop.Analyzers.ReadabilityRules
             foreach (var diagnostic in context.Diagnostics)
             {
                 // Do not offer the code fix if the error is found at an invalid node (like IncompleteMemberSyntax)
-                if (syntaxRoot.FindNode(diagnostic.Location.SourceSpan) is AttributeListSyntax)
+                if (syntaxRoot.FindNode(diagnostic.Location.SourceSpan) is AttributeListSyntax attributeListSyntax &&
+                    attributeListSyntax.Parent is not EmptyStatementSyntax)
                 {
                     context.RegisterCodeFix(
                         CodeAction.Create(

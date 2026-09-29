@@ -8,12 +8,13 @@ namespace StyleCop.Analyzers.Test.LayoutRules
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.CodeAnalysis.Testing;
+    using StyleCop.Analyzers.Test.Helpers;
     using Xunit;
     using static StyleCop.Analyzers.Test.Verifiers.StyleCopCodeFixVerifier<
         StyleCop.Analyzers.LayoutRules.SA1504AllAccessorsMustBeSingleLineOrMultiLine,
         StyleCop.Analyzers.LayoutRules.SA1504CodeFixProvider>;
 
-    public class SA1504UnitTests
+    public class SA1504UnitTests : LangUnitTestsBase
     {
         [Theory]
         [InlineData("int Prop")]
@@ -305,7 +306,7 @@ public class Foo
 }";
 
             var expected = this.GetExpectedResultAccessorWithoutBody();
-            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(this.LanguageVersion, testCode, expected, CancellationToken.None).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -389,7 +390,8 @@ public class Foo
         {
             return new DiagnosticResult[]
             {
-                DiagnosticResult.CompilerError("CS0501").WithMessage("'Foo.Prop.get' must declare a body because it is not marked abstract, extern, or partial").WithLocation(6, 9),
+                // /0/Test0.cs(4,16): error CS8320: Feature 'field keyword' is not available in C# 7.2. Please use language version 14.0 or greater.
+                DiagnosticResult.CompilerError("CS8320").WithSpan(4, 16, 4, 20).WithArguments("field keyword", "14.0"),
             };
         }
     }
