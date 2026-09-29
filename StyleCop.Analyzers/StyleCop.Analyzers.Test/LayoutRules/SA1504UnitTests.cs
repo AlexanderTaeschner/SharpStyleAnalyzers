@@ -390,8 +390,8 @@ public class Foo
         {
             return new DiagnosticResult[]
             {
-                // /0/Test0.cs(4,16): error CS8320: Feature 'field keyword' is not available in C# 7.2. Please use language version 14.0 or greater.
-                DiagnosticResult.CompilerError("CS8320").WithSpan(4, 16, 4, 20).WithArguments("field keyword", "14.0"),
+                // /0/Test0.cs(4,16): error CS8059: Feature 'field keyword' is not available in C# 6. Please use language version 14.0 or greater.
+                DiagnosticResult.CompilerError("CS8059").WithSpan(4, 16, 4, 20).WithArguments("field keyword", "14.0"),
             };
         }
     }

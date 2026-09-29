@@ -5,6 +5,7 @@
 
 namespace StyleCop.Analyzers.Test.CSharp10.DocumentationRules
 {
+    using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.Testing;
     using StyleCop.Analyzers.Test.CSharp9.DocumentationRules;
     using static StyleCop.Analyzers.Test.Verifiers.StyleCopCodeFixVerifier<
@@ -13,5 +14,6 @@ namespace StyleCop.Analyzers.Test.CSharp10.DocumentationRules
 
     public partial class SA1600CSharp10UnitTests : SA1600CSharp9UnitTests
     {
+        protected override LanguageVersion LanguageVersion => LanguageVersion.CSharp9;
     }
 }

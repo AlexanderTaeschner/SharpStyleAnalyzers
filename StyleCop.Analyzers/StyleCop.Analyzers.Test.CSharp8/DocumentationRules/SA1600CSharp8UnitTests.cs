@@ -15,8 +15,7 @@ namespace StyleCop.Analyzers.Test.CSharp8.DocumentationRules
 
     public partial class SA1600CSharp8UnitTests : SA1600CSharp7UnitTests
     {
-        // Using 'Default' here makes sure that later test projects also run these tests with their own language version, without having to override this property
-        protected override LanguageVersion LanguageVersion => LanguageVersion.Default;
+        protected override LanguageVersion LanguageVersion => LanguageVersion.CSharp8;
 
         [Fact]
         [WorkItem(3002, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3002")]
@@ -118,6 +117,30 @@ public interface ITest
 ";
 
             await VerifyCSharpDiagnosticAsync(testCode, settings, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+        }
+
+        protected override DiagnosticResult[] GetExpectedResultTestRegressionMethodGlobalNamespace(string code)
+        {
+            if (code == "public void {|#0:TestMember|}() { }")
+            {
+                return new[]
+                {
+                    // /0/Test0.cs(4,1): error CS0106: The modifier 'public' is not valid for this item
+                    DiagnosticResult.CompilerError("CS0106").WithSpan(4, 1, 4, 7).WithArguments("public"),
+
+                    // /0/Test0.cs(4,1): error CS8805: Program using top-level statements must be an executable.
+                    DiagnosticResult.CompilerError("CS8805").WithSpan(4, 1, 4, 29),
+
+                    // /0/Test0.cs(4,1): error CS8400: Feature 'top-level statements' is not available in C# 8.0. Please use language version 9.0 or greater.
+                    DiagnosticResult.CompilerError("CS8400").WithSpan(4, 1, 4, 29).WithArguments("top-level statements", "9.0"),
+                };
+            }
+
+            return new[]
+            {
+                DiagnosticResult.CompilerError("CS9348").WithMessage("A compilation unit cannot directly contain members such as fields, methods or properties").WithLocation(0),
+                Diagnostic().WithLocation(0),
+            };
         }
     }
 }

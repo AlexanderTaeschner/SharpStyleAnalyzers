@@ -1393,11 +1393,14 @@ public class OuterClass
                     // /0/Test0.cs(4,1): error CS0106: The modifier 'public' is not valid for this item
                     DiagnosticResult.CompilerError("CS0106").WithSpan(4, 1, 4, 7).WithArguments("public"),
 
+                    // /0/Test0.cs(4,1): error CS8059: Feature 'top-level statements' is not available in C# 6. Please use language version 9.0 or greater.
+                    DiagnosticResult.CompilerError("CS8059").WithSpan(4, 1, 4, 29).WithArguments("top-level statements", "9.0"),
+
                     // /0/Test0.cs(4,1): error CS8805: Program using top-level statements must be an executable.
                     DiagnosticResult.CompilerError("CS8805").WithSpan(4, 1, 4, 29),
 
-                    // /0/Test0.cs(4,1): error CS8320: Feature 'top-level statements' is not available in C# 7.2. Please use language version 9.0 or greater.
-                    DiagnosticResult.CompilerError("CS8320").WithSpan(4, 1, 4, 29).WithArguments("top-level statements", "9.0"),
+                    // /0/Test0.cs(4,13): error CS8059: Feature 'local functions' is not available in C# 6. Please use language version 7.0 or greater.
+                    DiagnosticResult.CompilerError("CS8059").WithSpan(4, 13, 4, 23).WithArguments("local functions", "7.0"),
                 };
             }
 

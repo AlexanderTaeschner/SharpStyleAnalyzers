@@ -3,9 +3,11 @@
 
 namespace StyleCop.Analyzers.Test.CSharp13.DocumentationRules
 {
+    using Microsoft.CodeAnalysis.CSharp;
     using StyleCop.Analyzers.Test.CSharp12.DocumentationRules;
 
     public partial class SA1600CSharp13UnitTests : SA1600CSharp12UnitTests
     {
+        protected override LanguageVersion LanguageVersion => LanguageVersion.CSharp13;
     }
 }
