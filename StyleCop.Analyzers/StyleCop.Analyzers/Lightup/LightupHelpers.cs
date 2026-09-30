@@ -770,8 +770,7 @@ namespace StyleCop.Analyzers.Lightup
 
         private static bool ValidatePropertyType(Type returnType, Type actualType)
         {
-            var requiredType = SyntaxWrapperHelper.GetWrappedType(returnType)
-                ?? OperationWrapperHelper.GetWrappedType(returnType)
+            var requiredType = OperationWrapperHelper.GetWrappedType(returnType)
                 ?? WrapperHelper.GetWrappedType(returnType)
                 ?? returnType;
             return requiredType == actualType;
