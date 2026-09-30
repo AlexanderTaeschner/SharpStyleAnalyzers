@@ -1,14 +1,10 @@
 # StyleCop Analyzers for the .NET Compiler Platform
 
-[![NuGet](https://img.shields.io/nuget/v/StyleCop.Analyzers.svg)](https://www.nuget.org/packages/StyleCop.Analyzers)[![NuGet Beta](https://img.shields.io/nuget/vpre/StyleCop.Analyzers.svg)](https://www.nuget.org/packages/StyleCop.Analyzers)
-
-[![Join the chat at https://gitter.im/DotNetAnalyzers/StyleCopAnalyzers](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/DotNetAnalyzers/StyleCopAnalyzers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-[![Build status](https://ci.appveyor.com/api/projects/status/8jw2lq431kgg44jl/branch/master?svg=true)](https://ci.appveyor.com/project/sharwell/stylecopanalyzers/branch/master)
-
-[![codecov.io](https://codecov.io/github/DotNetAnalyzers/StyleCopAnalyzers/coverage.svg?branch=master)](https://codecov.io/github/DotNetAnalyzers/StyleCopAnalyzers?branch=master)
-
 This repository contains an implementation of the StyleCop rules using the .NET Compiler Platform. Where possible, code fixes are also provided to simplify the process of correcting violations.
+
+**This repository has been created by cloning the [StyleCopAnalyzers](https://github.com/DotNetAnalyzers/StyleCopAnalyzers) project.
+It will be focused on supporting only modern .NET versions while older versions of Visual Studio or .NET will not be considered.**
+
 
 ## Using StyleCop.Analyzers
 
