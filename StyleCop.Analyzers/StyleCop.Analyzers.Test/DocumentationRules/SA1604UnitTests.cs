@@ -22,7 +22,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestTypeNoDocumentationAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeNoDocumentationAsync(typeName).ConfigureAwait(true);
             }
@@ -39,7 +39,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestTypeWithDocumentationAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithDocumentationAsync(typeName).ConfigureAwait(true);
             }
@@ -59,7 +59,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestTypeWithInheritedDocumentationAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithInheritedDocumentationAsync(typeName).ConfigureAwait(true);
             }
@@ -77,7 +77,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestTypeWithoutDocumentationAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithoutDocumentationAsync(typeName).ConfigureAwait(true);
             }
@@ -99,7 +99,7 @@ TypeName
         [Fact]
         public async Task TestPartialTypeWithoutDocumentationAsync()
         {
-            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoTestPartialTypeWithoutDocumentationAsync(typeName).ConfigureAwait(true);
             }

@@ -28,7 +28,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestValidEmptyMethodAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestValidEmptyMethodAsync(elementType).ConfigureAwait(true);
             }
@@ -54,7 +54,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestEmptyMethodOnSingleLineAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestEmptyMethodOnSingleLineAsync(elementType).ConfigureAwait(true);
             }
@@ -79,7 +79,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestMethodOnSingleLineAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestMethodOnSingleLineAsync(elementType).ConfigureAwait(true);
             }
@@ -104,7 +104,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestMethodWithBlockOnSingleLineAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestMethodWithBlockOnSingleLineAsync(elementType).ConfigureAwait(true);
             }
@@ -130,7 +130,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestMethodWithBlockStartOnSameLineAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestMethodWithBlockStartOnSameLineAsync(elementType).ConfigureAwait(true);
             }
@@ -155,7 +155,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestMethodWithExpressionBodyAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestMethodWithExpressionBodyAsync(elementType).ConfigureAwait(true);
             }
@@ -179,7 +179,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestEmptyMethodOnSingleLineCodeFixAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestEmptyMethodOnSingleLineCodeFixAsync(elementType).ConfigureAwait(true);
             }
@@ -210,7 +210,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestMethodOnSingleLineCodeFixAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestMethodOnSingleLineCodeFixAsync(elementType).ConfigureAwait(true);
             }
@@ -242,7 +242,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestMethodWithBlockOnSingleLineCodeFixAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestMethodWithBlockOnSingleLineCodeFixAsync(elementType).ConfigureAwait(true);
             }
@@ -275,7 +275,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestMethodWithLotsOfTriviaCodeFixAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestMethodWithLotsOfTriviaCodeFixAsync(elementType).ConfigureAwait(true);
             }

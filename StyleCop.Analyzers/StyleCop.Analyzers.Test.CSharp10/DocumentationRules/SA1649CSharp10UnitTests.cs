@@ -22,9 +22,9 @@ namespace StyleCop.Analyzers.Test.CSharp10.DocumentationRules
         [WorkItem(3435, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3435")]
         public async Task VerifyFirstTypeIsUsedWithFileScopedNamespacesAsync()
         {
-            foreach (var typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            foreach (var typeKeyword in this.CommonMemberData.TypeDeclarationKeywords)
             {
-                await DoVerifyFirstTypeIsUsedWithFileScopedNamespacesAsync(typeKeyword);
+                await this.DoVerifyFirstTypeIsUsedWithFileScopedNamespacesAsync(typeKeyword);
             }
         }
 

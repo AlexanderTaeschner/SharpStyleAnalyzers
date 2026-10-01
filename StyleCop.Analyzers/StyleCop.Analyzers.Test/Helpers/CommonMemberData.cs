@@ -11,11 +11,11 @@ namespace StyleCop.Analyzers.Test.Helpers
     {
         public LanguageVersion LanguageVersion { get; } = languageVersion;
 
-        public bool SupportsCSharp9 => LanguageVersion >= LanguageVersion.CSharp9;
+        public bool SupportsCSharp9 => this.LanguageVersion >= LanguageVersion.CSharp9;
 
-        public bool SupportsCSharp10 => LanguageVersion >= LanguageVersion.CSharp10;
+        public bool SupportsCSharp10 => this.LanguageVersion >= LanguageVersion.CSharp10;
 
-        public bool SupportsCSharp12 => LanguageVersion >= LanguageVersion.CSharp12;
+        public bool SupportsCSharp12 => this.LanguageVersion >= LanguageVersion.CSharp12;
 
         public IEnumerable<string> DataTypeDeclarationKeywords
         {
@@ -24,12 +24,12 @@ namespace StyleCop.Analyzers.Test.Helpers
                 yield return "class";
                 yield return "struct";
 
-                if (SupportsCSharp9)
+                if (this.SupportsCSharp9)
                 {
                     yield return "record";
                 }
 
-                if (SupportsCSharp10)
+                if (this.SupportsCSharp10)
                 {
                     yield return "record class";
                     yield return "record struct";
@@ -43,12 +43,12 @@ namespace StyleCop.Analyzers.Test.Helpers
             {
                 yield return "class";
 
-                if (SupportsCSharp9)
+                if (this.SupportsCSharp9)
                 {
                     yield return "record";
                 }
 
-                if (SupportsCSharp10)
+                if (this.SupportsCSharp10)
                 {
                     yield return "record class";
                 }
@@ -61,7 +61,7 @@ namespace StyleCop.Analyzers.Test.Helpers
             {
                 yield return "struct";
 
-                if (SupportsCSharp10)
+                if (this.SupportsCSharp10)
                 {
                     yield return "record struct";
                 }
@@ -72,12 +72,12 @@ namespace StyleCop.Analyzers.Test.Helpers
         {
             get
             {
-                if (SupportsCSharp9)
+                if (this.SupportsCSharp9)
                 {
                     yield return "record";
                 }
 
-                if (SupportsCSharp10)
+                if (this.SupportsCSharp10)
                 {
                     yield return "record class";
                     yield return "record struct";
@@ -89,7 +89,7 @@ namespace StyleCop.Analyzers.Test.Helpers
         {
             get
             {
-                return DataTypeDeclarationKeywords
+                return this.DataTypeDeclarationKeywords
                     .Concat(["interface"]);
             }
         }
@@ -98,7 +98,7 @@ namespace StyleCop.Analyzers.Test.Helpers
         {
             get
             {
-                return TypeDeclarationKeywords
+                return this.TypeDeclarationKeywords
                     .Concat(["enum"]);
             }
         }
@@ -107,7 +107,7 @@ namespace StyleCop.Analyzers.Test.Helpers
         {
             get
             {
-                return BaseTypeDeclarationKeywords
+                return this.BaseTypeDeclarationKeywords
                     .Concat(["delegate"]);
             }
         }
@@ -116,7 +116,7 @@ namespace StyleCop.Analyzers.Test.Helpers
         {
             get
             {
-                return TypeDeclarationKeywords
+                return this.TypeDeclarationKeywords
                     .Concat(["delegate"]);
             }
         }
@@ -125,17 +125,17 @@ namespace StyleCop.Analyzers.Test.Helpers
         {
             get
             {
-                if (SupportsCSharp9)
+                if (this.SupportsCSharp9)
                 {
                     yield return "record";
                 }
 
-                if (SupportsCSharp10)
+                if (this.SupportsCSharp10)
                 {
                     yield return "record class";
                 }
 
-                if (SupportsCSharp12)
+                if (this.SupportsCSharp12)
                 {
                     yield return "class";
                 }
@@ -146,17 +146,17 @@ namespace StyleCop.Analyzers.Test.Helpers
         {
             get
             {
-                foreach (var keyword in ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
+                foreach (var keyword in this.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
                 {
                     yield return keyword;
                 }
 
-                if (SupportsCSharp10)
+                if (this.SupportsCSharp10)
                 {
                     yield return "record struct";
                 }
 
-                if (SupportsCSharp12)
+                if (this.SupportsCSharp12)
                 {
                     yield return "struct";
                 }

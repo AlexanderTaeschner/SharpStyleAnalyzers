@@ -26,7 +26,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             get
             {
-                foreach (string keyword in CommonMemberData.TypeDeclarationKeywords)
+                foreach (string keyword in this.CommonMemberData.TypeDeclarationKeywords)
                 {
                     string accessModifier = keyword switch
                     {
@@ -638,9 +638,9 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestValidTypeDeclarationAsync()
         {
-            foreach ((string typeKeyword, string accessModifier) in TypeTestData)
+            foreach ((string typeKeyword, string accessModifier) in this.TypeTestData)
             {
-                await DoTestValidTypeDeclarationAsync(typeKeyword, accessModifier);
+                await this.DoTestValidTypeDeclarationAsync(typeKeyword, accessModifier);
             }
         }
 
@@ -667,9 +667,9 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestInvalidTypeDeclarationAsync()
         {
-            foreach ((string typeKeyword, string accessModifier) in TypeTestData)
+            foreach ((string typeKeyword, string accessModifier) in this.TypeTestData)
             {
-                await DoTestInvalidTypeDeclarationAsync(typeKeyword, accessModifier);
+                await this.DoTestInvalidTypeDeclarationAsync(typeKeyword, accessModifier);
             }
         }
 

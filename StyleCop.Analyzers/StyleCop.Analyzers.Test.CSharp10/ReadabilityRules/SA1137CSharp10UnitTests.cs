@@ -22,9 +22,9 @@ namespace StyleCop.Analyzers.Test.CSharp10.ReadabilityRules
         [Fact]
         public async Task TestFileScopedNamespaceDeclarationAsync()
         {
-            foreach (var baseTypeKind in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (var baseTypeKind in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
-                await DoTestFileScopedNamespaceDeclarationAsync(baseTypeKind);
+                await this.DoTestFileScopedNamespaceDeclarationAsync(baseTypeKind);
             }
         }
 

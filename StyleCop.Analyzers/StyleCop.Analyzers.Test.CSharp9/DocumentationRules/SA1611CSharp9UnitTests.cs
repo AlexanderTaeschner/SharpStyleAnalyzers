@@ -43,9 +43,9 @@ public partial class TestClass
         [WorkItem(3770, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3770")]
         public async Task TestPrimaryRecordConstructorMissingParametersAsync()
         {
-            foreach (string keyword in CommonMemberData.RecordTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.RecordTypeDeclarationKeywords)
             {
-                await DoTestPrimaryRecordConstructorMissingParametersAsync(keyword);
+                await this.DoTestPrimaryRecordConstructorMissingParametersAsync(keyword);
             }
         }
 
@@ -64,9 +64,9 @@ public {keyword} R(int Param1, string Param2);";
         [WorkItem(3770, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3770")]
         public async Task TestPrimaryRecordConstructorIncludeMissingParametersAsync()
         {
-            foreach (string keyword in CommonMemberData.RecordTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.RecordTypeDeclarationKeywords)
             {
-                await DoTestPrimaryRecordConstructorIncludeMissingParametersAsync(keyword);
+                await this.DoTestPrimaryRecordConstructorIncludeMissingParametersAsync(keyword);
             }
         }
 

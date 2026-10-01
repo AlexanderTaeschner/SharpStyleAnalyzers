@@ -20,7 +20,7 @@ namespace StyleCop.Analyzers.Test.MaintainabilityRules
         [Fact]
         public async Task TestTypeDeclarationAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeDeclarationAsync(typeName).ConfigureAwait(true);
             }
@@ -33,7 +33,7 @@ namespace StyleCop.Analyzers.Test.MaintainabilityRules
         [Fact]
         public async Task TestPartialTypeDeclarationAsync()
         {
-            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoTestPartialTypeDeclarationAsync(typeName).ConfigureAwait(true);
             }
@@ -46,7 +46,7 @@ namespace StyleCop.Analyzers.Test.MaintainabilityRules
         [Fact]
         public async Task TestTypeDeclarationWithAttributesAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeDeclarationWithAttributesAsync(typeName).ConfigureAwait(true);
             }
@@ -59,7 +59,7 @@ namespace StyleCop.Analyzers.Test.MaintainabilityRules
         [Fact]
         public async Task TestPartialTypeDeclarationWithAttributesAsync()
         {
-            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoTestPartialTypeDeclarationWithAttributesAsync(typeName).ConfigureAwait(true);
             }
@@ -72,7 +72,7 @@ namespace StyleCop.Analyzers.Test.MaintainabilityRules
         [Fact]
         public async Task TestTypeDeclarationWithDirectivesAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeDeclarationWithDirectivesAsync(typeName).ConfigureAwait(true);
             }
@@ -85,7 +85,7 @@ namespace StyleCop.Analyzers.Test.MaintainabilityRules
         [Fact]
         public async Task TestPartialTypeDeclarationWithDirectivesAsync()
         {
-            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoTestPartialTypeDeclarationWithDirectivesAsync(typeName).ConfigureAwait(true);
             }
@@ -98,7 +98,7 @@ namespace StyleCop.Analyzers.Test.MaintainabilityRules
         [Fact]
         public async Task TestNestedTypeDeclarationAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestNestedTypeDeclarationAsync(typeName).ConfigureAwait(true);
             }
@@ -111,7 +111,7 @@ namespace StyleCop.Analyzers.Test.MaintainabilityRules
         [Fact]
         public async Task TestNestedTypeDeclarationWithAttributesAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestNestedTypeDeclarationWithAttributesAsync(typeName).ConfigureAwait(true);
             }
@@ -124,7 +124,7 @@ namespace StyleCop.Analyzers.Test.MaintainabilityRules
         [Fact]
         public async Task TestNestedTypeDeclarationWithDirectivesAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestNestedTypeDeclarationWithDirectivesAsync(typeName).ConfigureAwait(true);
             }

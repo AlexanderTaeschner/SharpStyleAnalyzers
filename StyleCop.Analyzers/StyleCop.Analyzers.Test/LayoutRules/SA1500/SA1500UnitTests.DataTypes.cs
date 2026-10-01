@@ -31,7 +31,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestDataTypeValidAsync()
         {
-            foreach (string keyword in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestDataTypeValidAsync(keyword).ConfigureAwait(true);
             }
@@ -72,7 +72,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestDataTypeInvalidAsync()
         {
-            foreach (string keyword in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestDataTypeInvalidAsync(keyword).ConfigureAwait(true);
             }

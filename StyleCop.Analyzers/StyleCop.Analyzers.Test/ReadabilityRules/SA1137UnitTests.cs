@@ -23,7 +23,7 @@ namespace StyleCop.Analyzers.Test.ReadabilityRules
         [Fact]
         public async Task TestNamespaceDeclarationAsync()
         {
-            foreach (string baseTypeKind in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string baseTypeKind in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestNamespaceDeclarationAsync(baseTypeKind).ConfigureAwait(true);
             }
@@ -156,7 +156,7 @@ class MyAttribute : Attribute {{ }}
         [Fact]
         public async Task TestTypeDeclarationConstraintClausesAsync()
         {
-            foreach (string typeKind in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoTestTypeDeclarationConstraintClausesAsync(typeKind).ConfigureAwait(true);
             }
@@ -231,7 +231,7 @@ where T3 : new()
         [Fact]
         public async Task TestTypeDeclarationMembersAsync()
         {
-            foreach (string typeKind in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoTestTypeDeclarationMembersAsync(typeKind).ConfigureAwait(true);
             }

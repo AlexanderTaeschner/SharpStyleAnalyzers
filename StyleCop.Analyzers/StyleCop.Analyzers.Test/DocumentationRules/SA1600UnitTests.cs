@@ -44,7 +44,7 @@ using System;
         [Fact]
         public async Task TestBaseTypeWithoutDocumentationAsync()
         {
-            foreach (string type in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string type in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestBaseTypeWithoutDocumentationAsync(type).ConfigureAwait(true);
             }
@@ -59,7 +59,7 @@ using System;
         [Fact]
         public async Task TestBaseTypeWithDocumentationAsync()
         {
-            foreach (string type in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string type in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestBaseTypeWithDocumentationAsync(type).ConfigureAwait(true);
             }
@@ -73,7 +73,7 @@ using System;
         [Fact]
         public async Task TestPartialTypeWithoutDocumentationAsync()
         {
-            foreach (string type in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string type in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoTestPartialTypeWithoutDocumentationAsync(type).ConfigureAwait(true);
             }

@@ -22,13 +22,13 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
         [WorkItem(3784, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3784")]
         public async Task TestPrimaryConstructorWithoutParametersAsync()
         {
-            foreach (string keyword in CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors)
+            foreach (string keyword in this.CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors)
             {
-                await DoTestPrimaryConstructorWithoutParametersAsync(keyword);
+                await this.DoTestPrimaryConstructorWithoutParametersAsync(keyword);
             }
         }
 
-        public async Task DoTestPrimaryConstructorWithoutParametersAsync(string typeKeyword)
+        internal async Task DoTestPrimaryConstructorWithoutParametersAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo
@@ -49,13 +49,13 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
         [WorkItem(3784, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3784")]
         public async Task TestPrimaryConstructorWithParametersAsync()
         {
-            foreach (string keyword in CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors)
+            foreach (string keyword in this.CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors)
             {
-                await DoTestPrimaryConstructorWithParametersAsync(keyword);
+                await this.DoTestPrimaryConstructorWithParametersAsync(keyword);
             }
         }
 
-        public async Task DoTestPrimaryConstructorWithParametersAsync(string typeKeyword)
+        internal async Task DoTestPrimaryConstructorWithParametersAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo
@@ -77,13 +77,13 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
         [WorkItem(3784, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3784")]
         public async Task TestPrimaryConstructorBaseListWithParametersOnSameLineAsync()
         {
-            foreach (string keyword in CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
+            foreach (string keyword in this.CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
             {
-                await DoTestPrimaryConstructorBaseListWithParametersOnSameLineAsync(keyword);
+                await this.DoTestPrimaryConstructorBaseListWithParametersOnSameLineAsync(keyword);
             }
         }
 
-        public async Task DoTestPrimaryConstructorBaseListWithParametersOnSameLineAsync(string typeKeyword)
+        internal async Task DoTestPrimaryConstructorBaseListWithParametersOnSameLineAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo(int x)
@@ -101,13 +101,13 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
         [WorkItem(3784, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3784")]
         public async Task TestPrimaryConstructorBaseListWithParametersAsync()
         {
-            foreach (string keyword in CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
+            foreach (string keyword in this.CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
             {
-                await DoTestPrimaryConstructorBaseListWithParametersAsync(keyword);
+                await this.DoTestPrimaryConstructorBaseListWithParametersAsync(keyword);
             }
         }
 
-        public async Task DoTestPrimaryConstructorBaseListWithParametersAsync(string typeKeyword)
+        internal async Task DoTestPrimaryConstructorBaseListWithParametersAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo(int x)
@@ -136,13 +136,13 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
         [Fact]
         public async Task TestPrimaryConstructorBaseListWithoutParametersAsync()
         {
-            foreach (string keyword in CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
+            foreach (string keyword in this.CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
             {
-                await DoTestPrimaryConstructorBaseListWithoutParametersAsync(keyword);
+                await this.DoTestPrimaryConstructorBaseListWithoutParametersAsync(keyword);
             }
         }
 
-        public async Task DoTestPrimaryConstructorBaseListWithoutParametersAsync(string typeKeyword)
+        internal async Task DoTestPrimaryConstructorBaseListWithoutParametersAsync(string typeKeyword)
         {
             var testCode = $@"
 {typeKeyword} Foo()

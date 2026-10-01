@@ -47,7 +47,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyWrongFileNameAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.AllTypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.AllTypeDeclarationKeywords)
             {
                 await this.DoVerifyWrongFileNameAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -79,7 +79,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyWrongFileNameGenericStyleCopAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.GenericTypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.GenericTypeDeclarationKeywords)
             {
                 await this.DoVerifyWrongFileNameGenericStyleCopAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -111,7 +111,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyWrongFileNameGenericMetadataAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.GenericTypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.GenericTypeDeclarationKeywords)
             {
                 await this.DoVerifyWrongFileNameGenericMetadataAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -144,7 +144,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyWrongFileNameMultipleExtensionsAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.AllTypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.AllTypeDeclarationKeywords)
             {
                 await this.DoVerifyWrongFileNameMultipleExtensionsAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -177,7 +177,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyWrongFileNameNoExtensionAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.AllTypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.AllTypeDeclarationKeywords)
             {
                 await this.DoVerifyWrongFileNameNoExtensionAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -209,7 +209,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyCaseInsensitivityAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.AllTypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.AllTypeDeclarationKeywords)
             {
                 await this.DoVerifyCaseInsensitivityAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -234,7 +234,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyCaseInsensitivityGenericStyleCopAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.GenericTypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.GenericTypeDeclarationKeywords)
             {
                 await this.DoVerifyCaseInsensitivityGenericStyleCopAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -259,7 +259,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyCaseInsensitivityGenericMetadataAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.GenericTypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.GenericTypeDeclarationKeywords)
             {
                 await this.DoVerifyCaseInsensitivityGenericMetadataAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -284,7 +284,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyFirstTypeIsUsedAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoVerifyFirstTypeIsUsedAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -325,7 +325,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyFirstTypeIsUsedGenericStyleCopAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoVerifyFirstTypeIsUsedGenericStyleCopAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -366,7 +366,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyFirstTypeIsUsedGenericMetadataAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoVerifyFirstTypeIsUsedGenericMetadataAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -442,7 +442,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyThatPartialTypesAreIgnoredAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoVerifyThatPartialTypesAreIgnoredAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -469,7 +469,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyStyleCopNamingConventionForGenericTypeAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoVerifyStyleCopNamingConventionForGenericTypeAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -498,7 +498,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyMetadataNamingConventionForGenericTypeAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoVerifyMetadataNamingConventionForGenericTypeAsync(typeKeyword).ConfigureAwait(true);
             }
@@ -530,7 +530,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task VerifyMetadataNamingConventionForGenericTypeMultipleExtensionsAsync()
         {
-            foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeKeyword in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoVerifyMetadataNamingConventionForGenericTypeMultipleExtensionsAsync(typeKeyword).ConfigureAwait(true);
             }

@@ -28,7 +28,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestValidEmptyTypeAsync()
         {
-            foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string token in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestValidEmptyTypeAsync(token).ConfigureAwait(true);
             }
@@ -51,7 +51,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestEmptyTypeOnSingleLineAsync()
         {
-            foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string token in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestEmptyTypeOnSingleLineAsync(token).ConfigureAwait(true);
             }
@@ -73,7 +73,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestTypeOnSingleLineAsync()
         {
-            foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string token in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestTypeOnSingleLineAsync(token).ConfigureAwait(true);
             }
@@ -95,7 +95,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestTypeWithBlockOnSingleLineAsync()
         {
-            foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string token in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithBlockOnSingleLineAsync(token).ConfigureAwait(true);
             }
@@ -118,7 +118,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestTypeWithBlockStartOnSameLineAsync()
         {
-            foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string token in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithBlockStartOnSameLineAsync(token).ConfigureAwait(true);
             }
@@ -141,7 +141,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestEmptyTypeOnSingleLineCodeFixAsync()
         {
-            foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string token in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestEmptyTypeOnSingleLineCodeFixAsync(token).ConfigureAwait(true);
             }
@@ -167,7 +167,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestTypeOnSingleLineCodeFixAsync()
         {
-            foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string token in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestTypeOnSingleLineCodeFixAsync(token).ConfigureAwait(true);
             }
@@ -194,7 +194,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestTypeOnSingleLineWithMultipleStatementsCodeFixAsync()
         {
-            foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string token in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestTypeOnSingleLineWithMultipleStatementsCodeFixAsync(token).ConfigureAwait(true);
             }
@@ -221,7 +221,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestTypeWithBlockOnSingleLineCodeFixAsync()
         {
-            foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string token in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithBlockOnSingleLineCodeFixAsync(token).ConfigureAwait(true);
             }
@@ -249,7 +249,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestTypeWithLotsOfTriviaCodeFixAsync()
         {
-            foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string token in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithLotsOfTriviaCodeFixAsync(token).ConfigureAwait(true);
             }

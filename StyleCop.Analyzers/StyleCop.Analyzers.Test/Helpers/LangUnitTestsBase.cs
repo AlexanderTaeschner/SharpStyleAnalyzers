@@ -10,7 +10,7 @@ public class LangUnitTestsBase
     private CommonMemberData? _commonMemberData;
 
     protected CommonMemberData CommonMemberData
-        => _commonMemberData ??= new CommonMemberData(LanguageVersion);
+        => this._commonMemberData ??= new CommonMemberData(this.LanguageVersion);
 
     protected virtual LanguageVersion LanguageVersion => LanguageVersion.CSharp6;
 }

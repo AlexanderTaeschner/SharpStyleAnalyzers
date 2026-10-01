@@ -20,7 +20,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestConstructorWithNoParametersInheritsFromParentAsync()
         {
-            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.ReferenceTypeDeclarationKeywords)
             {
                 await this.DoTestConstructorWithNoParametersInheritsFromParentAsync(keyword).ConfigureAwait(true);
             }
@@ -45,7 +45,7 @@ $KEYWORD$ Test : Base
         [Fact]
         public async Task TestConstructorWithParametersInheritsFromParentAsync()
         {
-            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.ReferenceTypeDeclarationKeywords)
             {
                 await this.DoTestConstructorWithParametersInheritsFromParentAsync(keyword).ConfigureAwait(true);
             }
@@ -72,7 +72,7 @@ $KEYWORD$ Test : Base
         [Fact]
         public async Task TestConstructorInheritsImplicitlyFromSystemObjectAsync()
         {
-            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.ReferenceTypeDeclarationKeywords)
             {
                 await this.DoTestConstructorInheritsImplicitlyFromSystemObjectAsync(keyword).ConfigureAwait(true);
             }
@@ -91,7 +91,7 @@ $KEYWORD$ Test : Base
         [Fact]
         public async Task TestConstructorInheritsExplicitlyFromSystemObjectAsync()
         {
-            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.ReferenceTypeDeclarationKeywords)
             {
                 await this.DoTestConstructorInheritsExplicitlyFromSystemObjectAsync(keyword).ConfigureAwait(true);
             }
@@ -125,7 +125,7 @@ $KEYWORD$ Test : Base
         [Fact]
         public async Task TestConstructorInheritsButBaseCtorHasTheSameNumberOfParametersButNotMatchingSignaturesAsync()
         {
-            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.ReferenceTypeDeclarationKeywords)
             {
                 await this.DoTestConstructorInheritsButBaseCtorHasTheSameNumberOfParametersButNotMatchingSignaturesAsync(keyword).ConfigureAwait(true);
             }
@@ -153,7 +153,7 @@ $KEYWORD$ Test : Base
         [Fact]
         public async Task TestConstructorInheritsButBaseCtorHasDifferentNumberOfParametersAsync()
         {
-            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.ReferenceTypeDeclarationKeywords)
             {
                 await this.DoTestConstructorInheritsButBaseCtorHasDifferentNumberOfParametersAsync(keyword).ConfigureAwait(true);
             }

@@ -26,7 +26,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestNoDocumentationAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestNoDocumentationAsync(typeKind).ConfigureAwait(true);
             }
@@ -48,7 +48,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestEmptyPublicConstructorAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestEmptyPublicConstructorAsync(typeKind).ConfigureAwait(true);
             }
@@ -69,7 +69,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestEmptyStaticConstructorAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestEmptyStaticConstructorAsync(typeKind).ConfigureAwait(true);
             }
@@ -82,7 +82,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestNonPrivateConstructorCorrectDocumentationSimpleAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestNonPrivateConstructorCorrectDocumentationSimpleAsync(typeKind).ConfigureAwait(true);
             }
@@ -102,7 +102,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestNonPrivateConstructorCorrectDocumentationCustomizedAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestNonPrivateConstructorCorrectDocumentationCustomizedAsync(typeKind).ConfigureAwait(true);
             }
@@ -122,7 +122,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestNonPrivateConstructorCorrectDocumentationGenericSimpleAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestNonPrivateConstructorCorrectDocumentationGenericSimpleAsync(typeKind).ConfigureAwait(true);
             }
@@ -142,7 +142,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestNonPrivateConstructorCorrectDocumentationGenericCustomizedAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestNonPrivateConstructorCorrectDocumentationGenericCustomizedAsync(typeKind).ConfigureAwait(true);
             }
@@ -270,7 +270,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestStaticConstructorCorrectDocumentationAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestStaticConstructorCorrectDocumentationAsync(typeKind).ConfigureAwait(true);
             }
@@ -291,7 +291,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestStaticConstructorCorrectDocumentationGenericAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestStaticConstructorCorrectDocumentationGenericAsync(typeKind).ConfigureAwait(true);
             }
@@ -312,7 +312,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestNonPrivateConstructorMissingDocumentationAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestNonPrivateConstructorMissingDocumentationAsync(typeKind).ConfigureAwait(true);
             }
@@ -332,7 +332,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestNonPrivateConstructorMissingDocumentationGenericAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestNonPrivateConstructorMissingDocumentationGenericAsync(typeKind).ConfigureAwait(true);
             }
@@ -378,7 +378,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestStaticConstructorMissingDocumentationAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestStaticConstructorMissingDocumentationAsync(typeKind).ConfigureAwait(true);
             }
@@ -398,7 +398,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestStaticConstructorMissingDocumentationGenericAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestStaticConstructorMissingDocumentationGenericAsync(typeKind).ConfigureAwait(true);
             }
@@ -418,7 +418,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestNonPrivateConstructorSimpleDocumentationAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestNonPrivateConstructorSimpleDocumentationAsync(typeKind).ConfigureAwait(true);
             }
@@ -438,7 +438,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestNonPrivateConstructorSimpleDocumentationGenericAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestNonPrivateConstructorSimpleDocumentationGenericAsync(typeKind).ConfigureAwait(true);
             }
@@ -484,7 +484,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestStaticConstructorSimpleDocumentationAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestStaticConstructorSimpleDocumentationAsync(typeKind).ConfigureAwait(true);
             }
@@ -504,7 +504,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestStaticConstructorSimpleDocumentationGenericAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestStaticConstructorSimpleDocumentationGenericAsync(typeKind).ConfigureAwait(true);
             }
@@ -524,7 +524,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestNonPrivateConstructorSimpleDocumentationWrongTypeNameAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestNonPrivateConstructorSimpleDocumentationWrongTypeNameAsync(typeKind).ConfigureAwait(true);
             }
@@ -544,7 +544,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestNonPrivateConstructorSimpleDocumentationGenericWrongTypeNameAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestNonPrivateConstructorSimpleDocumentationGenericWrongTypeNameAsync(typeKind).ConfigureAwait(true);
             }
@@ -590,7 +590,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestStaticConstructorSimpleDocumentationWrongTypeNameAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestStaticConstructorSimpleDocumentationWrongTypeNameAsync(typeKind).ConfigureAwait(true);
             }
@@ -610,7 +610,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestStaticConstructorSimpleDocumentationGenericWrongTypeNameAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestStaticConstructorSimpleDocumentationGenericWrongTypeNameAsync(typeKind).ConfigureAwait(true);
             }
@@ -734,7 +734,7 @@ internal abstract class CustomizableBlockSubscriberBase<TSource, TTarget, TSubsc
         [Fact]
         public async Task TestWithEmptySeeTagAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestWithEmptySeeTagAsync(typeKind).ConfigureAwait(true);
             }
@@ -773,7 +773,7 @@ public {typeKind} TestClass
         [Fact]
         public async Task TestWithEmptySeeTagGenericAsync()
         {
-            foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestWithEmptySeeTagGenericAsync(typeKind).ConfigureAwait(true);
             }

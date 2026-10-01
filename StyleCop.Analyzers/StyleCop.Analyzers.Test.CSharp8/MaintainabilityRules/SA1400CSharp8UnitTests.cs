@@ -90,7 +90,7 @@ public interface ITest
         [WorkItem(3002, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3002")]
         public async Task TestTypeDeclarationInsideInterfaceAsync()
         {
-            foreach (string typeKind in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeKind in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeDeclarationInsideInterfaceAsync(typeKind);
             }

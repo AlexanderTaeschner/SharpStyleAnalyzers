@@ -26,7 +26,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             get
             {
-                foreach (var keyword in CommonMemberData.TypeDeclarationKeywords)
+                foreach (var keyword in this.CommonMemberData.TypeDeclarationKeywords)
                 {
                     var accessModifier = keyword switch
                     {
@@ -647,9 +647,9 @@ to determine the spacing with the close brace.
         [Fact]
         public async Task TestValidTypeDeclarationAsync()
         {
-            foreach (var (typeKeyword, accessModifier) in TypeTestData)
+            foreach (var (typeKeyword, accessModifier) in this.TypeTestData)
             {
-                await DoTestValidTypeDeclarationAsync(typeKeyword, accessModifier);
+                await this.DoTestValidTypeDeclarationAsync(typeKeyword, accessModifier);
             }
         }
 
@@ -676,9 +676,9 @@ to determine the spacing with the close brace.
         [Fact]
         public async Task TestInvalidTypeDeclarationAsync()
         {
-            foreach (var (typeKeyword, accessModifier) in TypeTestData)
+            foreach (var (typeKeyword, accessModifier) in this.TypeTestData)
             {
-                await DoTestInvalidTypeDeclarationAsync(typeKeyword, accessModifier);
+                await this.DoTestInvalidTypeDeclarationAsync(typeKeyword, accessModifier);
             }
         }
 

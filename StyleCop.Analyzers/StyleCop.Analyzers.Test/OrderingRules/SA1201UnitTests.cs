@@ -21,9 +21,9 @@ namespace StyleCop.Analyzers.Test.OrderingRules
         {
             get
             {
-                foreach (var valueTypeKeyword in CommonMemberData.ValueTypeDeclarationKeywords)
+                foreach (var valueTypeKeyword in this.CommonMemberData.ValueTypeDeclarationKeywords)
                 {
-                    foreach (var referenceTypeKeyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+                    foreach (var referenceTypeKeyword in this.CommonMemberData.ReferenceTypeDeclarationKeywords)
                     {
                         yield return (valueTypeKeyword, referenceTypeKeyword);
                     }
@@ -70,9 +70,9 @@ public struct FooStruct { }
         [Fact]
         public async Task TestClassBeforeStructAsync()
         {
-            foreach (var (structKeyword, classKeyword) in ValueTypesAndReferenceTypes)
+            foreach (var (structKeyword, classKeyword) in this.ValueTypesAndReferenceTypes)
             {
-                await DoTestClassBeforeStructAsync(structKeyword, classKeyword);
+                await this.DoTestClassBeforeStructAsync(structKeyword, classKeyword);
             }
         }
 

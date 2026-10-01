@@ -330,7 +330,7 @@ class TestClass
         [Fact]
         public async Task TestMemberAsync()
         {
-            foreach (string declarationKeyword in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string declarationKeyword in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestMemberAsync(declarationKeyword).ConfigureAwait(true);
             }

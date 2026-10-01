@@ -28,7 +28,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestValidEmptyConstructorAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestValidEmptyConstructorAsync(elementType).ConfigureAwait(true);
             }
@@ -54,7 +54,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestEmptyConstructorOnSingleLineAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestEmptyConstructorOnSingleLineAsync(elementType).ConfigureAwait(true);
             }
@@ -79,7 +79,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestConstructorOnSingleLineAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestConstructorOnSingleLineAsync(elementType).ConfigureAwait(true);
             }
@@ -104,7 +104,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestConstructorWithBlockOnSingleLineAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestConstructorWithBlockOnSingleLineAsync(elementType).ConfigureAwait(true);
             }
@@ -130,7 +130,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestConstructorWithBlockStartOnSameLineAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestConstructorWithBlockStartOnSameLineAsync(elementType).ConfigureAwait(true);
             }
@@ -155,7 +155,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestEmptyConstructorOnSingleLineCodeFixAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestEmptyConstructorOnSingleLineCodeFixAsync(elementType).ConfigureAwait(true);
             }
@@ -186,7 +186,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestConstructorOnSingleLineCodeFixAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestConstructorOnSingleLineCodeFixAsync(elementType).ConfigureAwait(true);
             }
@@ -218,7 +218,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestConstructorWithBlockOnSingleLineCodeFixAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestConstructorWithBlockOnSingleLineCodeFixAsync(elementType).ConfigureAwait(true);
             }
@@ -251,7 +251,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         [Fact]
         public async Task TestConstructorWithLotsOfTriviaCodeFixAsync()
         {
-            foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string elementType in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestConstructorWithLotsOfTriviaCodeFixAsync(elementType).ConfigureAwait(true);
             }

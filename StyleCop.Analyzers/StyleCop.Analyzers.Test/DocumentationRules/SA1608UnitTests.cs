@@ -22,7 +22,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestTypeNoDocumentationAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeNoDocumentationAsync(typeName).ConfigureAwait(true);
             }
@@ -39,7 +39,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestTypeWithSummaryDocumentationAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithSummaryDocumentationAsync(typeName).ConfigureAwait(true);
             }
@@ -59,7 +59,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestTypeWithContentDocumentationAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithContentDocumentationAsync(typeName).ConfigureAwait(true);
             }
@@ -79,7 +79,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestTypeWithInheritedDocumentationAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithInheritedDocumentationAsync(typeName).ConfigureAwait(true);
             }
@@ -97,7 +97,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [Fact]
         public async Task TestTypeWithoutSummaryDocumentationAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithoutSummaryDocumentationAsync(typeName).ConfigureAwait(true);
             }
@@ -118,7 +118,7 @@ TypeName
         [Fact]
         public async Task TestTypeWithoutContentDocumentationAsync()
         {
-            foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithoutContentDocumentationAsync(typeName).ConfigureAwait(true);
             }
@@ -139,7 +139,7 @@ TypeName
         [Fact]
         public async Task TestTypeWithDefaultDocumentationAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoTestTypeWithDefaultDocumentationAsync(typeName).ConfigureAwait(true);
             }

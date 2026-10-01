@@ -22,9 +22,9 @@ namespace StyleCop.Analyzers.Test.CSharp9.LayoutRules
         [WorkItem(3272, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3272")]
         public async Task TestSingleLineRecordAsync()
         {
-            foreach (string keyword in CommonMemberData.RecordTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.RecordTypeDeclarationKeywords)
             {
-                await DoTestSingleLineRecordAsync(keyword);
+                await this.DoTestSingleLineRecordAsync(keyword);
             }
         }
 
@@ -43,9 +43,9 @@ namespace StyleCop.Analyzers.Test.CSharp9.LayoutRules
         [WorkItem(3272, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3272")]
         public async Task TestSingleLineRecordWithParameterAsync()
         {
-            foreach (string keyword in CommonMemberData.RecordTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.RecordTypeDeclarationKeywords)
             {
-                await DoTestSingleLineRecordWithParameterAsync(keyword);
+                await this.DoTestSingleLineRecordWithParameterAsync(keyword);
             }
         }
 
@@ -71,9 +71,9 @@ namespace StyleCop.Analyzers.Test.CSharp9.LayoutRules
         [WorkItem(3272, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3272")]
         public async Task TestMultiLineRecordAsync()
         {
-            foreach (string keyword in CommonMemberData.RecordTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.RecordTypeDeclarationKeywords)
             {
-                await DoTestMultiLineRecordAsync(keyword);
+                await this.DoTestMultiLineRecordAsync(keyword);
             }
         }
 
@@ -100,9 +100,9 @@ namespace StyleCop.Analyzers.Test.CSharp9.LayoutRules
         [WorkItem(3272, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3272")]
         public async Task TestMultiLineRecordWithParameterAsync()
         {
-            foreach (string keyword in CommonMemberData.RecordTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.RecordTypeDeclarationKeywords)
             {
-                await DoTestMultiLineRecordWithParameterAsync(keyword);
+                await this.DoTestMultiLineRecordWithParameterAsync(keyword);
             }
         }
 

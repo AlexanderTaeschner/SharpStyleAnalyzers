@@ -22,9 +22,9 @@ namespace StyleCop.Analyzers.Test.CSharp11.MaintainabilityRules
         [WorkItem(3588, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3588")]
         public async Task TestTypeDeclarationWithFileModifierAsync()
         {
-            foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeName in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
-                await DoTestTypeDeclarationWithFileModifierAsync(typeName);
+                await this.DoTestTypeDeclarationWithFileModifierAsync(typeName);
             }
         }
 

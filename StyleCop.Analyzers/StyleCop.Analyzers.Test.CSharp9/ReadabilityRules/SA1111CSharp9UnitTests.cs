@@ -22,9 +22,9 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
         [WorkItem(3785, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3785")]
         public async Task TestPrimaryConstructorWithParameterAsync()
         {
-            foreach (string keyword in CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors)
+            foreach (string keyword in this.CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors)
             {
-                await DoTestPrimaryConstructorWithParameterAsync(keyword);
+                await this.DoTestPrimaryConstructorWithParameterAsync(keyword);
             }
         }
 
@@ -49,9 +49,9 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
         [WorkItem(3785, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3785")]
         public async Task TestPrimaryConstructorWithoutParameterAsync()
         {
-            foreach (string keyword in CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors)
+            foreach (string keyword in this.CommonMemberData.TypeKeywordsWhichSupportPrimaryConstructors)
             {
-                await DoTestPrimaryConstructorWithoutParameterAsync(keyword);
+                await this.DoTestPrimaryConstructorWithoutParameterAsync(keyword);
             }
         }
 
@@ -70,9 +70,9 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
         [WorkItem(3785, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3785")]
         public async Task TestPrimaryConstructorBaseListWithArgumentsAsync()
         {
-            foreach (string keyword in CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
+            foreach (string keyword in this.CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
             {
-                await DoTestPrimaryConstructorBaseListWithArgumentsAsync(keyword);
+                await this.DoTestPrimaryConstructorBaseListWithArgumentsAsync(keyword);
             }
         }
 
@@ -105,9 +105,9 @@ namespace StyleCop.Analyzers.Test.CSharp9.ReadabilityRules
         [WorkItem(3785, "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3785")]
         public async Task TestPrimaryConstructorBaseListWithoutArgumentsAsync()
         {
-            foreach (string keyword in CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
+            foreach (string keyword in this.CommonMemberData.ReferenceTypeKeywordsWhichSupportPrimaryConstructors)
             {
-                await DoTestPrimaryConstructorBaseListWithoutArgumentsAsync(keyword);
+                await this.DoTestPrimaryConstructorBaseListWithoutArgumentsAsync(keyword);
             }
         }
 

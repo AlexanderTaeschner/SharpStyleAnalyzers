@@ -111,7 +111,7 @@ namespace StyleCop.Analyzers.Test.OrderingRules
         [Fact]
         public async Task TestTypeOrderingAsync()
         {
-            foreach (string keyword in CommonMemberData.TypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.TypeDeclarationKeywords)
             {
                 await this.DoTestTypeOrderingAsync(keyword).ConfigureAwait(true);
             }
@@ -158,7 +158,7 @@ internal class TestClass1 { }
         [Fact]
         public async Task TestInternalInterfaceBeforePublicClassAsync()
         {
-            foreach (string keyword in CommonMemberData.DataTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.DataTypeDeclarationKeywords)
             {
                 await this.DoTestInternalInterfaceBeforePublicClassAsync(keyword).ConfigureAwait(true);
             }
@@ -181,7 +181,7 @@ public {keyword} TestClass2 {{ }}
         [Fact]
         public async Task TestPropertiesOfClassAsync()
         {
-            foreach (string keyword in CommonMemberData.ReferenceTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.ReferenceTypeDeclarationKeywords)
             {
                 await this.DoTestPropertiesOfClassAsync(keyword).ConfigureAwait(true);
             }
@@ -228,7 +228,7 @@ public {keyword} TestClass2 {{ }}
         [Fact]
         public async Task TestPropertiesOfStructAsync()
         {
-            foreach (string keyword in CommonMemberData.ValueTypeDeclarationKeywords)
+            foreach (string keyword in this.CommonMemberData.ValueTypeDeclarationKeywords)
             {
                 await this.DoTestPropertiesOfStructAsync(keyword).ConfigureAwait(true);
             }

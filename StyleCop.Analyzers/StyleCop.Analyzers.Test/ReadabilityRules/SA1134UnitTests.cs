@@ -44,7 +44,7 @@ public class TestClass
         [Fact]
         public async Task VerifyMultipleAttributesOnSameLineForTypeDeclarationsAsync()
         {
-            foreach (string typeDeclaration in CommonMemberData.BaseTypeDeclarationKeywords)
+            foreach (string typeDeclaration in this.CommonMemberData.BaseTypeDeclarationKeywords)
             {
                 await this.DoVerifyMultipleAttributesOnSameLineForTypeDeclarationsAsync(typeDeclaration).ConfigureAwait(true);
             }
