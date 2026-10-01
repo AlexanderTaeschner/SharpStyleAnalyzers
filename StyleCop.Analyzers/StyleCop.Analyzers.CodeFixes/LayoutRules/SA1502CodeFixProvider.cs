@@ -37,7 +37,7 @@ namespace StyleCop.Analyzers.LayoutRules
         }
 
         /// <inheritdoc/>
-        public override Task RegisterCodeFixesAsync(CodeFixContext context)
+        public override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             foreach (Diagnostic diagnostic in context.Diagnostics)
             {
@@ -48,8 +48,6 @@ namespace StyleCop.Analyzers.LayoutRules
                         nameof(SA1502CodeFixProvider)),
                     diagnostic);
             }
-
-            return SpecializedTasks.CompletedTask;
         }
 
         private async Task<Document> GetTransformedDocumentAsync(Document document, Diagnostic diagnostic, CancellationToken cancellationToken)

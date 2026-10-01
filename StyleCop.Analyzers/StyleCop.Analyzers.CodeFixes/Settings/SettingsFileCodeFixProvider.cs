@@ -58,7 +58,7 @@ namespace StyleCop.Analyzers.Settings
                 SA1649FileNameMustMatchTypeName.DiagnosticId);
 
         /// <inheritdoc/>
-        public override Task RegisterCodeFixesAsync(CodeFixContext context)
+        public override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             var project = context.Document.Project;
             var workspace = project.Solution.Workspace;
@@ -66,13 +66,13 @@ namespace StyleCop.Analyzers.Settings
             // check if the settings file already exists
             if (project.AdditionalDocuments.Any(document => SettingsHelper.IsStyleCopSettingsFile(document.Name)))
             {
-                return SpecializedTasks.CompletedTask;
+                return;
             }
 
             // check if we are allowed to add it
             if (!workspace.CanApplyChange(ApplyChangesKind.AddAdditionalDocument))
             {
-                return SpecializedTasks.CompletedTask;
+                return;
             }
 
             foreach (var diagnostic in context.Diagnostics)
@@ -84,8 +84,6 @@ namespace StyleCop.Analyzers.Settings
                         nameof(SettingsFileCodeFixProvider)),
                     diagnostic);
             }
-
-            return SpecializedTasks.CompletedTask;
         }
 
         /// <inheritdoc/>

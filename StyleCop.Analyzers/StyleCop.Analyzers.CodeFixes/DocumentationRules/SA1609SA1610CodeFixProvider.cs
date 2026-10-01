@@ -42,7 +42,7 @@ namespace StyleCop.Analyzers.DocumentationRules
         }
 
         /// <inheritdoc/>
-        public override Task RegisterCodeFixesAsync(CodeFixContext context)
+        public override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             foreach (var diagnostic in context.Diagnostics)
             {
@@ -56,8 +56,6 @@ namespace StyleCop.Analyzers.DocumentationRules
                         diagnostic);
                 }
             }
-
-            return SpecializedTasks.CompletedTask;
         }
 
         private static bool IsContentElement(XmlNodeSyntax syntax)

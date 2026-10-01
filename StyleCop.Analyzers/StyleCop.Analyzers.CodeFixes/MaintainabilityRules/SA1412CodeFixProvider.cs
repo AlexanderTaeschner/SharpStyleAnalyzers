@@ -37,7 +37,7 @@ namespace StyleCop.Analyzers.MaintainabilityRules
         }
 
         /// <inheritdoc/>
-        public override Task RegisterCodeFixesAsync(CodeFixContext context)
+        public override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             foreach (var diagnostic in context.Diagnostics)
             {
@@ -50,8 +50,6 @@ namespace StyleCop.Analyzers.MaintainabilityRules
                         nameof(SA1412CodeFixProvider) + "." + usedEncoding),
                     diagnostic);
             }
-
-            return SpecializedTasks.CompletedTask;
         }
 
         internal static async Task<Solution> GetTransformedSolutionAsync(Document document, CancellationToken cancellationToken)

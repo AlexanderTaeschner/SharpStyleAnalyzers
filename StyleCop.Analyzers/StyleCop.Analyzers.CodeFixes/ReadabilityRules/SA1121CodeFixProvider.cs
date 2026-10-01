@@ -39,7 +39,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
         }
 
         /// <inheritdoc/>
-        public override Task RegisterCodeFixesAsync(CodeFixContext context)
+        public override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             foreach (var diagnostic in context.Diagnostics)
             {
@@ -50,8 +50,6 @@ namespace StyleCop.Analyzers.ReadabilityRules
                         nameof(SA1121CodeFixProvider)),
                     diagnostic);
             }
-
-            return SpecializedTasks.CompletedTask;
         }
 
         private static SyntaxNode ComputeReplacement(SemanticModel semanticModel, SyntaxNode node, CancellationToken cancellationToken)

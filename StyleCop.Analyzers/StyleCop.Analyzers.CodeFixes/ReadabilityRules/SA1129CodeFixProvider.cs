@@ -37,7 +37,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
             return FixAll.Instance;
         }
 
-        public override Task RegisterCodeFixesAsync(CodeFixContext context)
+        public override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             foreach (var diagnostic in context.Diagnostics)
             {
@@ -48,8 +48,6 @@ namespace StyleCop.Analyzers.ReadabilityRules
                         nameof(SA1129CodeFixProvider)),
                     diagnostic);
             }
-
-            return SpecializedTasks.CompletedTask;
         }
 
         private static async Task<Document> GetTransformedDocumentAsync(Document document, Diagnostic diagnostic, CancellationToken cancellationToken)

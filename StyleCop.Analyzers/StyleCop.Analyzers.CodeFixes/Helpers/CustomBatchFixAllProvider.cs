@@ -108,8 +108,11 @@ namespace StyleCop.Analyzers.Helpers
 
                     // TODO: Wrap call to ComputeFixesAsync() below in IExtensionManager.PerformFunctionAsync() so that
                     // a buggy extension that throws can't bring down the host?
-                    var task = fixAllContext.CodeFixProvider.RegisterCodeFixesAsync(context) ?? SpecializedTasks.CompletedTask;
-                    await task.ConfigureAwait(false);
+                    var task = fixAllContext.CodeFixProvider.RegisterCodeFixesAsync(context);
+                    if (task is not null)
+                    {
+                        await task.ConfigureAwait(false);
+                    }
 
                     cancellationToken.ThrowIfCancellationRequested();
                     localFixes.RemoveAll(action => action.EquivalenceKey != fixAllContext.CodeActionEquivalenceKey);

@@ -29,7 +29,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
             ImmutableArray.Create(SA1139UseLiteralSuffixNotationInsteadOfCasting.DiagnosticId);
 
         /// <inheritdoc/>
-        public override Task RegisterCodeFixesAsync(CodeFixContext context)
+        public override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             foreach (var diagnostic in context.Diagnostics)
             {
@@ -40,8 +40,6 @@ namespace StyleCop.Analyzers.ReadabilityRules
                         nameof(SA1139CodeFixProvider)),
                     diagnostic);
             }
-
-            return SpecializedTasks.CompletedTask;
         }
 
         /// <inheritdoc/>
