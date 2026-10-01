@@ -52,7 +52,7 @@ public class TestClass
 ";
 
             var expected = Diagnostic().WithLocation(0).WithArguments("catch");
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

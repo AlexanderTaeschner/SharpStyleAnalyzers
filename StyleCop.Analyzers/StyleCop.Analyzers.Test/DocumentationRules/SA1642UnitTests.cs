@@ -1,4 +1,4 @@
-// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -28,7 +28,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestNoDocumentationAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestNoDocumentationAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -50,7 +50,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestEmptyPublicConstructorAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestEmptyPublicConstructorAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -64,14 +64,14 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         [InlineData("struct")]
         public async Task TestEmptyNonPublicConstructorAsync(string typeKind)
         {
-            await TestEmptyConstructorAsync(typeKind, "private").ConfigureAwait(false);
+            await TestEmptyConstructorAsync(typeKind, "private").ConfigureAwait(true);
         }
         [Fact]
         public async Task TestEmptyStaticConstructorAsync()
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestEmptyStaticConstructorAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestEmptyStaticConstructorAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -84,7 +84,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestNonPrivateConstructorCorrectDocumentationSimpleAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestNonPrivateConstructorCorrectDocumentationSimpleAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -104,7 +104,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestNonPrivateConstructorCorrectDocumentationCustomizedAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestNonPrivateConstructorCorrectDocumentationCustomizedAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -124,7 +124,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestNonPrivateConstructorCorrectDocumentationGenericSimpleAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestNonPrivateConstructorCorrectDocumentationGenericSimpleAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -144,7 +144,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestNonPrivateConstructorCorrectDocumentationGenericCustomizedAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestNonPrivateConstructorCorrectDocumentationGenericCustomizedAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -171,7 +171,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.PrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.PrivateConstructorStandardTextSecondPart, typeKind),
                 string.Empty,
-                false).ConfigureAwait(false);
+                false).ConfigureAwait(true);
         }
 
         [Theory]
@@ -185,7 +185,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.PrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.PrivateConstructorStandardTextSecondPart, typeKind) + " externally",
                 string.Empty,
-                false).ConfigureAwait(false);
+                false).ConfigureAwait(true);
         }
 
         [Theory]
@@ -198,7 +198,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 "private",
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
-                false).ConfigureAwait(false);
+                false).ConfigureAwait(true);
         }
 
         [Theory]
@@ -211,7 +211,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 "private",
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
-                false).ConfigureAwait(false);
+                false).ConfigureAwait(true);
         }
 
         [Theory]
@@ -225,7 +225,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.PrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.PrivateConstructorStandardTextSecondPart, typeKind),
                 string.Empty,
-                true).ConfigureAwait(false);
+                true).ConfigureAwait(true);
         }
 
         [Theory]
@@ -239,7 +239,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 string.Format(DocumentationResources.PrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.PrivateConstructorStandardTextSecondPart, typeKind) + " externally",
                 string.Empty,
-                true).ConfigureAwait(false);
+                true).ConfigureAwait(true);
         }
 
         [Theory]
@@ -252,7 +252,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 "private",
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
-                true).ConfigureAwait(false);
+                true).ConfigureAwait(true);
         }
 
         [Theory]
@@ -265,14 +265,14 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 "private",
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
-                true).ConfigureAwait(false);
+                true).ConfigureAwait(true);
         }
         [Fact]
         public async Task TestStaticConstructorCorrectDocumentationAsync()
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestStaticConstructorCorrectDocumentationAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestStaticConstructorCorrectDocumentationAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -293,7 +293,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestStaticConstructorCorrectDocumentationGenericAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestStaticConstructorCorrectDocumentationGenericAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -314,7 +314,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestNonPrivateConstructorMissingDocumentationAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestNonPrivateConstructorMissingDocumentationAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -334,7 +334,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestNonPrivateConstructorMissingDocumentationGenericAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestNonPrivateConstructorMissingDocumentationGenericAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -360,7 +360,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 "private",
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
-                false).ConfigureAwait(false);
+                false).ConfigureAwait(true);
         }
 
         [Theory]
@@ -373,14 +373,14 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 "private",
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
-                true).ConfigureAwait(false);
+                true).ConfigureAwait(true);
         }
         [Fact]
         public async Task TestStaticConstructorMissingDocumentationAsync()
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestStaticConstructorMissingDocumentationAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestStaticConstructorMissingDocumentationAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -400,7 +400,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestStaticConstructorMissingDocumentationGenericAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestStaticConstructorMissingDocumentationGenericAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -420,7 +420,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestNonPrivateConstructorSimpleDocumentationAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestNonPrivateConstructorSimpleDocumentationAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -440,7 +440,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestNonPrivateConstructorSimpleDocumentationGenericAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestNonPrivateConstructorSimpleDocumentationGenericAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -466,7 +466,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 "private",
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
-                false).ConfigureAwait(false);
+                false).ConfigureAwait(true);
         }
 
         [Theory]
@@ -479,14 +479,14 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 "private",
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
-                true).ConfigureAwait(false);
+                true).ConfigureAwait(true);
         }
         [Fact]
         public async Task TestStaticConstructorSimpleDocumentationAsync()
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestStaticConstructorSimpleDocumentationAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestStaticConstructorSimpleDocumentationAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -506,7 +506,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestStaticConstructorSimpleDocumentationGenericAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestStaticConstructorSimpleDocumentationGenericAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -526,7 +526,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestNonPrivateConstructorSimpleDocumentationWrongTypeNameAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestNonPrivateConstructorSimpleDocumentationWrongTypeNameAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -546,7 +546,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestNonPrivateConstructorSimpleDocumentationGenericWrongTypeNameAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestNonPrivateConstructorSimpleDocumentationGenericWrongTypeNameAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -572,7 +572,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 "private",
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
-                false).ConfigureAwait(false);
+                false).ConfigureAwait(true);
         }
 
         [Theory]
@@ -585,14 +585,14 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                 "private",
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextFirstPart, typeKind),
                 string.Format(DocumentationResources.NonPrivateConstructorStandardTextSecondPart, typeKind),
-                true).ConfigureAwait(false);
+                true).ConfigureAwait(true);
         }
         [Fact]
         public async Task TestStaticConstructorSimpleDocumentationWrongTypeNameAsync()
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestStaticConstructorSimpleDocumentationWrongTypeNameAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestStaticConstructorSimpleDocumentationWrongTypeNameAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -612,7 +612,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestStaticConstructorSimpleDocumentationGenericWrongTypeNameAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestStaticConstructorSimpleDocumentationGenericWrongTypeNameAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -665,7 +665,7 @@ class ClassName
 ";
 
             DiagnosticResult expected = Diagnostic().WithLocation(6, 13);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Theory]
@@ -690,7 +690,7 @@ class ClassName
 }}
 ";
 
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -729,14 +729,14 @@ internal abstract class CustomizableBlockSubscriberBase<TSource, TTarget, TSubsc
 ";
 
             DiagnosticResult expected = Diagnostic().WithLocation(7, 43);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
         [Fact]
         public async Task TestWithEmptySeeTagAsync()
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestWithEmptySeeTagAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestWithEmptySeeTagAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -775,7 +775,7 @@ public {typeKind} TestClass
         {
             foreach (string typeKind in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestWithEmptySeeTagGenericAsync(typeKind).ConfigureAwait(false);
+                await this.DoTestWithEmptySeeTagGenericAsync(typeKind).ConfigureAwait(true);
             }
         }
 
@@ -843,7 +843,7 @@ public class TestClass
 
             // TODO: The codefix produces a wrong result for this scenario but its not easily fixed.
             DiagnosticResult expected = Diagnostic().WithLocation(4, 9);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -861,7 +861,7 @@ public class TestClass
 }
 ";
 
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -879,7 +879,7 @@ public class TestClass
 }
 ";
 
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -898,7 +898,7 @@ public class TestClass
 ";
 
             var expected = Diagnostic().WithLocation(4, 9);
-            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -917,7 +917,7 @@ public class TestClass
 ";
 
             var expected = Diagnostic().WithLocation(4, 9);
-            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -938,7 +938,7 @@ public class WrongClass { }
 ";
 
             var expected = Diagnostic().WithLocation(4, 9);
-            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -959,7 +959,7 @@ namespace WrongClass { }
 ";
 
             var expected = Diagnostic().WithLocation(4, 9);
-            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -978,7 +978,7 @@ public class TestClass
 ";
 
             var expected = Diagnostic().WithLocation(4, 9);
-            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -997,7 +997,7 @@ public class TestClass
 ";
 
             var expected = Diagnostic().WithLocation(4, 9);
-            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -1016,7 +1016,7 @@ public class TestClass
 ";
 
             var expected = Diagnostic().WithLocation(4, 9);
-            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, testCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Theory]
@@ -1041,7 +1041,7 @@ public class TestClass
                 "public",
                 "Initialises a new instance of the ",
                 " " + typeKind,
-                false).ConfigureAwait(false);
+                false).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -1072,7 +1072,7 @@ public class TestClass
 ";
 
             var expected = Diagnostic().WithLocation(4, 9);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -1105,7 +1105,7 @@ public class TestClass
 ";
 
             var expected = Diagnostic().WithLocation(4, 9);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Theory]
@@ -1137,7 +1137,7 @@ public class TestClass
 }}";
 
             DiagnosticResult expected = Diagnostic().WithLocation(5, 13);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -1161,7 +1161,7 @@ public class TestClass
 ";
 
             var expected = Diagnostic().WithLocation(4, 9);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Theory]
@@ -1197,7 +1197,7 @@ public class TestClass
 }}";
 
             DiagnosticResult expected = Diagnostic().WithLocation(5, 13);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -1227,7 +1227,7 @@ public class B
 
             var expectedDiagnostics = DiagnosticResult.EmptyDiagnosticResults;
 
-            await VerifyCSharpFixAsync(testCode, expectedDiagnostics, testCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expectedDiagnostics, testCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         private static async Task TestEmptyConstructorAsync(string typeKind, string modifiers)

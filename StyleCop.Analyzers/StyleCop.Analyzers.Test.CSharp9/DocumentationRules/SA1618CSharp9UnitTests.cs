@@ -31,7 +31,7 @@ public partial class TestClass
 
             var expected = Diagnostic().WithLocation(0).WithArguments("T");
 
-            await VerifyCSharpDiagnosticAsync(testCode, new[] { expected }, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, new[] { expected }, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

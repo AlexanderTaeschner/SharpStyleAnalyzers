@@ -38,7 +38,7 @@ namespace StyleCop.Analyzers.Test.CSharp8.NamingRules
 }";
 
             DiagnosticResult expected = Diagnostic().WithArguments("localFunction").WithLocation(0);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

@@ -61,7 +61,7 @@ public class Item
                 Diagnostic().WithLocation(1),
             };
 
-            await VerifyCSharpFixAsync(testCode, expectedDiagnostics, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expectedDiagnostics, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -113,7 +113,7 @@ public class TestType
                 Diagnostic().WithLocation(1),
             };
 
-            await VerifyCSharpFixAsync(testCode, expectedDiagnostics, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expectedDiagnostics, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

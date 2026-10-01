@@ -78,7 +78,7 @@ class MyAttributeAttribute : Attribute
                 Diagnostic().WithLocation(1),
                 Diagnostic().WithLocation(2),
             };
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

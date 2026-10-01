@@ -40,7 +40,7 @@ namespace Bar
 ".ReplaceLineEndings(lineEnding);
 
             var expectedDiagnostic = Diagnostic(FileHeaderAnalyzers.SA1635Descriptor).WithLocation(0);
-            await this.VerifyCSharpFixAsync(testCode, expectedDiagnostic, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await this.VerifyCSharpFixAsync(testCode, expectedDiagnostic, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Bar
                 "}\r\n";
 
             var expectedDiagnostic = Diagnostic(FileHeaderAnalyzers.SA1635Descriptor).WithLocation(1, 4);
-            await this.VerifyCSharpFixAsync(testCode, expectedDiagnostic, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await this.VerifyCSharpFixAsync(testCode, expectedDiagnostic, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

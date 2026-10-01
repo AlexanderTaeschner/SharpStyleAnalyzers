@@ -64,7 +64,7 @@ namespace StyleCop.Analyzers.Test.Settings
   }
 }
 ";
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -115,7 +115,7 @@ namespace StyleCop.Analyzers.Test.Settings
   }
 }
 ";
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -157,7 +157,7 @@ namespace StyleCop.Analyzers.Test.Settings
   }}
 }}
 ";
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -189,7 +189,7 @@ namespace StyleCop.Analyzers.Test.Settings
   }}
 }}
 ";
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -225,7 +225,7 @@ namespace StyleCop.Analyzers.Test.Settings
   }
 }
 ";
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -253,7 +253,7 @@ namespace StyleCop.Analyzers.Test.Settings
   }}
 }}
 ";
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -273,7 +273,7 @@ namespace StyleCop.Analyzers.Test.Settings
   }
 }
 ";
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -292,7 +292,7 @@ namespace StyleCop.Analyzers.Test.Settings
   }
 }
 ";
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -316,7 +316,7 @@ namespace StyleCop.Analyzers.Test.Settings
   }
 }
 ";
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -343,7 +343,7 @@ namespace StyleCop.Analyzers.Test.Settings
   }
 }
 ";
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -370,7 +370,7 @@ namespace StyleCop.Analyzers.Test.Settings
   }
 }
 ";
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -393,7 +393,7 @@ namespace StyleCop.Analyzers.Test.Settings
   }
 }
 ";
-            var context = await CreateAnalysisContextAsync(settings, ".stylecop.json").ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings, ".stylecop.json").ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -404,7 +404,7 @@ namespace StyleCop.Analyzers.Test.Settings
         public async Task VerifyInvalidJsonBehaviorAsync()
         {
             var settings = @"This is not a JSON file.";
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 
@@ -417,7 +417,7 @@ namespace StyleCop.Analyzers.Test.Settings
         public async Task VerifyEmptyOrMissingFileAsync()
         {
             var settings = string.Empty;
-            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(false);
+            var context = await CreateAnalysisContextAsync(settings).ConfigureAwait(true);
 
             var styleCopSettings = context.GetStyleCopSettingsInTests(CancellationToken.None);
 

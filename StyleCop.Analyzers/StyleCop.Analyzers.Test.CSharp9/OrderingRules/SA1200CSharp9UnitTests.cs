@@ -76,7 +76,7 @@ return 0;
                     Sources = { testCode },
                     AdditionalFiles = { ("stylecop.json", file) },
                 },
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

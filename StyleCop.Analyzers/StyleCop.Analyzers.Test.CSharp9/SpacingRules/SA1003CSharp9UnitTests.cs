@@ -44,7 +44,7 @@ class TestClass
                 Diagnostic(DescriptorFollowedByWhitespace).WithArguments(":").WithLocation(1),
             };
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -90,7 +90,7 @@ class C
                 Diagnostic(DescriptorFollowedByWhitespace).WithLocation(3).WithArguments(">="),
                 Diagnostic(DescriptorNotAtEndOfLine).WithLocation(4).WithArguments(">"),
             };
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

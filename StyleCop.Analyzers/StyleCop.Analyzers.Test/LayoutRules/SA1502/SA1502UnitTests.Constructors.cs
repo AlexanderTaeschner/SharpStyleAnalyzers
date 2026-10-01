@@ -1,4 +1,4 @@
-// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -30,7 +30,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestValidEmptyConstructorAsync(elementType).ConfigureAwait(false);
+                await this.DoTestValidEmptyConstructorAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -56,7 +56,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestEmptyConstructorOnSingleLineAsync(elementType).ConfigureAwait(false);
+                await this.DoTestEmptyConstructorOnSingleLineAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -81,7 +81,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestConstructorOnSingleLineAsync(elementType).ConfigureAwait(false);
+                await this.DoTestConstructorOnSingleLineAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -106,7 +106,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestConstructorWithBlockOnSingleLineAsync(elementType).ConfigureAwait(false);
+                await this.DoTestConstructorWithBlockOnSingleLineAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -132,7 +132,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestConstructorWithBlockStartOnSameLineAsync(elementType).ConfigureAwait(false);
+                await this.DoTestConstructorWithBlockStartOnSameLineAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -157,7 +157,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestEmptyConstructorOnSingleLineCodeFixAsync(elementType).ConfigureAwait(false);
+                await this.DoTestEmptyConstructorOnSingleLineCodeFixAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -188,7 +188,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestConstructorOnSingleLineCodeFixAsync(elementType).ConfigureAwait(false);
+                await this.DoTestConstructorOnSingleLineCodeFixAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -220,7 +220,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestConstructorWithBlockOnSingleLineCodeFixAsync(elementType).ConfigureAwait(false);
+                await this.DoTestConstructorWithBlockOnSingleLineCodeFixAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -253,7 +253,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestConstructorWithLotsOfTriviaCodeFixAsync(elementType).ConfigureAwait(false);
+                await this.DoTestConstructorWithLotsOfTriviaCodeFixAsync(elementType).ConfigureAwait(true);
             }
         }
 

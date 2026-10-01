@@ -65,7 +65,7 @@ namespace TestNamespace
                     Diagnostic(DescriptorNotPrecededByWhitespace).WithLocation(1).WithArguments("(int)"),
                 },
                 FixedCode = fixedCode,
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -103,7 +103,7 @@ namespace TestNamespace
                     Diagnostic(DescriptorPrecededByWhitespace).WithLocation(0).WithArguments("??="),
                     Diagnostic(DescriptorFollowedByWhitespace).WithLocation(0).WithArguments("??="),
             };
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -152,7 +152,7 @@ namespace TestNamespace
                 Diagnostic(DescriptorFollowedByWhitespace).WithLocation(1).WithArguments("=>"),
             };
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -200,7 +200,7 @@ namespace TestNamespace
                 Diagnostic(DescriptorPrecededByWhitespace).WithLocation(0).WithArguments("=>"),
             };
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -238,7 +238,7 @@ namespace TestNamespace
                     Diagnostic(DescriptorNotPrecededByWhitespace).WithLocation(0).WithArguments("!"),
                     Diagnostic(DescriptorNotFollowedByWhitespace).WithLocation(0).WithArguments("!"),
             };
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -268,7 +268,7 @@ namespace TestNamespace
             {
                 ReferenceAssemblies = ReferenceAssemblies.NetCore.NetCoreApp31,
                 TestCode = testCode,
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -327,7 +327,7 @@ namespace TestNamespace
                 Diagnostic(DescriptorNotFollowedByWhitespace).WithLocation(5).WithArguments(".."),
             };
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

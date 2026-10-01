@@ -40,7 +40,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.SpacingRules
                 Diagnostic().WithArguments("preceded").WithLocation(2),
             };
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

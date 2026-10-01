@@ -58,7 +58,7 @@ class ClassName
                 Diagnostic().WithLocation(10, 28),
             };
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -79,7 +79,7 @@ class ClassName
                 DiagnosticResult.CompilerError("CS1003").WithMessage("Syntax error, 'operator' expected").WithLocation(4, 28),
             };
 
-            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

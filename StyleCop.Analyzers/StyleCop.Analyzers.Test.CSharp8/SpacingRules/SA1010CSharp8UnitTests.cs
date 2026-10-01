@@ -71,7 +71,7 @@ namespace TestNamespace
                 Diagnostic(DescriptorNotFollowed).WithLocation(5),
             };
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

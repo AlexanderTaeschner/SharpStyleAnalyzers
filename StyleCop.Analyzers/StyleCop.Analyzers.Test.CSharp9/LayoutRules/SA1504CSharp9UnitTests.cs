@@ -74,7 +74,7 @@ public class TestClass
                 FixedCode = fixedSingleLine,
                 ExpectedDiagnostics = { expected },
                 CodeActionIndex = 0,
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
 
             await new CSharpTest
             {
@@ -82,7 +82,7 @@ public class TestClass
                 FixedCode = fixedMultiLine,
                 ExpectedDiagnostics = { expected },
                 CodeActionIndex = 1,
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

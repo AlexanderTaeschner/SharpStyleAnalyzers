@@ -50,7 +50,7 @@ namespace TestNamespace
             {
             };
 
-            await this.VerifyCSharpFixAsync(testCode, expected, fixedCode, fixedExpected, CancellationToken.None).ConfigureAwait(false);
+            await this.VerifyCSharpFixAsync(testCode, expected, fixedCode, fixedExpected, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -93,7 +93,7 @@ namespace TestNamespace
             {
             };
 
-            await this.VerifyCSharpFixAsync(testCode, expected, fixedCode, fixedExpected, CancellationToken.None).ConfigureAwait(false);
+            await this.VerifyCSharpFixAsync(testCode, expected, fixedCode, fixedExpected, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

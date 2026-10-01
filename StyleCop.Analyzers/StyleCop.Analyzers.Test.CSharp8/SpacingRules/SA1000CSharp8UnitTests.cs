@@ -39,7 +39,7 @@ async IAsyncEnumerable<int> GetValues()
 
             DiagnosticResult expected = Diagnostic().WithArguments("foreach", string.Empty, "followed").WithLocation(0);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace, returnType: "Task", asyncMethod: true).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace, returnType: "Task", asyncMethod: true).ConfigureAwait(true);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ public class TestClass
 ";
 
             var expected = Diagnostic().WithLocation(0).WithArguments("switch", string.Empty);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -91,7 +91,7 @@ public class SomeType
 ";
 
             var expected = Diagnostic().WithLocation(0).WithArguments("is", string.Empty);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

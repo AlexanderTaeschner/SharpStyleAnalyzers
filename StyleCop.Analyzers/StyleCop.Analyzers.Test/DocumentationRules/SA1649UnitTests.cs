@@ -1,4 +1,4 @@
-// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -49,7 +49,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.AllTypeDeclarationKeywords)
             {
-                await this.DoVerifyWrongFileNameAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyWrongFileNameAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -81,7 +81,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.GenericTypeDeclarationKeywords)
             {
-                await this.DoVerifyWrongFileNameGenericStyleCopAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyWrongFileNameGenericStyleCopAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -113,7 +113,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.GenericTypeDeclarationKeywords)
             {
-                await this.DoVerifyWrongFileNameGenericMetadataAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyWrongFileNameGenericMetadataAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -146,7 +146,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.AllTypeDeclarationKeywords)
             {
-                await this.DoVerifyWrongFileNameMultipleExtensionsAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyWrongFileNameMultipleExtensionsAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -179,7 +179,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.AllTypeDeclarationKeywords)
             {
-                await this.DoVerifyWrongFileNameNoExtensionAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyWrongFileNameNoExtensionAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -211,7 +211,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.AllTypeDeclarationKeywords)
             {
-                await this.DoVerifyCaseInsensitivityAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyCaseInsensitivityAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -236,7 +236,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.GenericTypeDeclarationKeywords)
             {
-                await this.DoVerifyCaseInsensitivityGenericStyleCopAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyCaseInsensitivityGenericStyleCopAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -261,7 +261,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.GenericTypeDeclarationKeywords)
             {
-                await this.DoVerifyCaseInsensitivityGenericMetadataAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyCaseInsensitivityGenericMetadataAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -286,7 +286,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoVerifyFirstTypeIsUsedAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyFirstTypeIsUsedAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -327,7 +327,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoVerifyFirstTypeIsUsedGenericStyleCopAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyFirstTypeIsUsedGenericStyleCopAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -368,7 +368,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoVerifyFirstTypeIsUsedGenericMetadataAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyFirstTypeIsUsedGenericMetadataAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -416,7 +416,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
 ";
 
             // File names are not checked for 'enum' if more than one is present
-            await VerifyCSharpDiagnosticAsync("TestType2.cs", testCode, testSettings: null, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync("TestType2.cs", testCode, testSettings: null, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -431,7 +431,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
 ";
 
             // File names are not checked for 'delegate' if more than one is present
-            await VerifyCSharpDiagnosticAsync("TestType2.cs", testCode, testSettings: null, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync("TestType2.cs", testCode, testSettings: null, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -444,7 +444,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoVerifyThatPartialTypesAreIgnoredAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyThatPartialTypesAreIgnoredAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -471,7 +471,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoVerifyStyleCopNamingConventionForGenericTypeAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyStyleCopNamingConventionForGenericTypeAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -500,7 +500,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoVerifyMetadataNamingConventionForGenericTypeAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyMetadataNamingConventionForGenericTypeAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -532,7 +532,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeKeyword in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoVerifyMetadataNamingConventionForGenericTypeMultipleExtensionsAsync(typeKeyword).ConfigureAwait(false);
+                await this.DoVerifyMetadataNamingConventionForGenericTypeMultipleExtensionsAsync(typeKeyword).ConfigureAwait(true);
             }
         }
 
@@ -570,7 +570,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
 }
 ";
 
-            await VerifyCSharpDiagnosticAsync("Test0.cs", testCode, testSettings: null, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync("Test0.cs", testCode, testSettings: null, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -589,7 +589,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
                             }
                             ";
 
-            await VerifyCSharpDiagnosticAsync("Class1.cs", testCode, testSettings: null, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync("Class1.cs", testCode, testSettings: null, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         protected static string GetTypeDeclaration(string typeKind, string typeName, int? diagnosticKey = null)

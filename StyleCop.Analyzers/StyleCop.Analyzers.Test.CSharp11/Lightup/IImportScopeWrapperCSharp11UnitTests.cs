@@ -22,7 +22,7 @@ namespace StyleCop.Analyzers.Test.CSharp11.Lightup
         [InlineData(2)]
         public async Task TestCompatibleInstanceAsync(int numberOfAliasSymbols)
         {
-            var obj = await CreateImportScopeAsync(numberOfAliasSymbols, CancellationToken.None).ConfigureAwait(false);
+            var obj = await CreateImportScopeAsync(numberOfAliasSymbols, CancellationToken.None).ConfigureAwait(true);
             Assert.True(IImportScopeWrapper.IsInstance(obj));
             var wrapper = IImportScopeWrapper.FromObject(obj);
             Assert.Equal(obj.Aliases, wrapper.Aliases);

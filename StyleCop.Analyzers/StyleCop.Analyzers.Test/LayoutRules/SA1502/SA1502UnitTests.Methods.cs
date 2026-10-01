@@ -1,4 +1,4 @@
-// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -30,7 +30,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestValidEmptyMethodAsync(elementType).ConfigureAwait(false);
+                await this.DoTestValidEmptyMethodAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -56,7 +56,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestEmptyMethodOnSingleLineAsync(elementType).ConfigureAwait(false);
+                await this.DoTestEmptyMethodOnSingleLineAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -81,7 +81,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestMethodOnSingleLineAsync(elementType).ConfigureAwait(false);
+                await this.DoTestMethodOnSingleLineAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -106,7 +106,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestMethodWithBlockOnSingleLineAsync(elementType).ConfigureAwait(false);
+                await this.DoTestMethodWithBlockOnSingleLineAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -132,7 +132,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestMethodWithBlockStartOnSameLineAsync(elementType).ConfigureAwait(false);
+                await this.DoTestMethodWithBlockStartOnSameLineAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -157,7 +157,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestMethodWithExpressionBodyAsync(elementType).ConfigureAwait(false);
+                await this.DoTestMethodWithExpressionBodyAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -181,7 +181,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestEmptyMethodOnSingleLineCodeFixAsync(elementType).ConfigureAwait(false);
+                await this.DoTestEmptyMethodOnSingleLineCodeFixAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -212,7 +212,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestMethodOnSingleLineCodeFixAsync(elementType).ConfigureAwait(false);
+                await this.DoTestMethodOnSingleLineCodeFixAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -244,7 +244,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestMethodWithBlockOnSingleLineCodeFixAsync(elementType).ConfigureAwait(false);
+                await this.DoTestMethodWithBlockOnSingleLineCodeFixAsync(elementType).ConfigureAwait(true);
             }
         }
 
@@ -277,7 +277,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string elementType in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestMethodWithLotsOfTriviaCodeFixAsync(elementType).ConfigureAwait(false);
+                await this.DoTestMethodWithLotsOfTriviaCodeFixAsync(elementType).ConfigureAwait(true);
             }
         }
 

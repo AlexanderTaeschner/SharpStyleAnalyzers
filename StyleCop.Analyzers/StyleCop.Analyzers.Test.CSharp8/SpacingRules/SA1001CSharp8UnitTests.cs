@@ -39,7 +39,7 @@ public class TestClass
 ";
 
             var expected = Diagnostic().WithLocation(0).WithArguments(string.Empty, "followed");
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ public class TestClass
 ";
 
             var expected = Diagnostic().WithLocation(0).WithArguments(string.Empty, "followed");
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

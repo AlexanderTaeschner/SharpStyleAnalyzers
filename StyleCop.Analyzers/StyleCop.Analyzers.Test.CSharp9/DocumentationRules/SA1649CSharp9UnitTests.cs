@@ -29,7 +29,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.DocumentationRules
                 },
             };
 
-            await test.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            await test.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -61,7 +61,7 @@ class Helper
             };
 
             test.TestState.ExpectedDiagnostics.Add(Diagnostic().WithLocation(0));
-            await test.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            await test.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -95,7 +95,7 @@ enum Helper
             };
 
             test.TestState.ExpectedDiagnostics.Add(Diagnostic().WithLocation(0));
-            await test.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            await test.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

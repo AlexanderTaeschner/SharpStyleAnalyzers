@@ -32,7 +32,7 @@ namespace StyleCop.Analyzers.Test.CSharp8.NamingRules
 
             DiagnosticResult expected = Diagnostic().WithLocation(0).WithArguments("bar");
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -53,7 +53,7 @@ namespace StyleCop.Analyzers.Test.CSharp8.NamingRules
 
             DiagnosticResult expected = Diagnostic().WithLocation(0).WithArguments("bar");
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -66,7 +66,7 @@ namespace StyleCop.Analyzers.Test.CSharp8.NamingRules
     public int Property { readonly get; set; }
 }";
 
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

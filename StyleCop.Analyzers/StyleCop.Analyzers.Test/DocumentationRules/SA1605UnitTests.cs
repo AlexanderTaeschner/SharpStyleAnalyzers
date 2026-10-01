@@ -1,4 +1,4 @@
-// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -33,7 +33,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoTestTypeNoDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestTypeNoDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -50,7 +50,7 @@ partial {0} TypeName
         {
             foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithSummaryDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestTypeWithSummaryDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -70,7 +70,7 @@ partial {0} TypeName
         {
             foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithContentDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestTypeWithContentDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -90,7 +90,7 @@ partial {0} TypeName
         {
             foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithInheritedDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestTypeWithInheritedDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -108,7 +108,7 @@ partial {0} TypeName
         {
             foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithoutDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestTypeWithoutDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -130,7 +130,7 @@ TypeName
         {
             foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
             {
-                await this.DoTestNonPartialTypeWithoutDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestNonPartialTypeWithoutDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -157,7 +157,7 @@ public partial class ClassName
 {
     partial void Test();
 }";
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -174,7 +174,7 @@ public partial class ClassName
     /// </summary>
     partial void Test();
 }";
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -191,7 +191,7 @@ public partial class ClassName
     /// </content>
     partial void Test();
 }";
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -206,7 +206,7 @@ public partial class ClassName
     /// <inheritdoc/>
     partial void Test();
 }";
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -224,7 +224,7 @@ public partial class ClassName
 
             DiagnosticResult expected = Diagnostic().WithLocation(8, 18);
 
-            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -240,7 +240,7 @@ public partial class ClassName
     public void Test() { }
 }";
 
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -255,7 +255,7 @@ public partial class ClassName
 }";
             var expected = Diagnostic().WithLocation(3, 22);
 
-            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -281,7 +281,7 @@ public partial class ClassName
 }
 ";
 
-            await VerifyCSharpDiagnosticAsync(testCode, testSettings, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, testSettings, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -295,7 +295,7 @@ public partial class ClassName
     public void Test() { }
 }";
 
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -309,7 +309,7 @@ public partial class ClassName
     public void Test() { }
 }";
 
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -323,7 +323,7 @@ public partial class ClassName
     public void Test() { }
 }";
 
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         private static Task VerifyCSharpDiagnosticAsync(string source, DiagnosticResult expected, CancellationToken cancellationToken)

@@ -1,4 +1,4 @@
-// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -24,7 +24,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
             {
-                await this.DoTestTypeNoDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestTypeNoDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -41,7 +41,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithSummaryDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestTypeWithSummaryDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -61,7 +61,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithContentDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestTypeWithContentDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -81,7 +81,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithInheritedDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestTypeWithInheritedDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -99,7 +99,7 @@ namespace StyleCop.Analyzers.Test.DocumentationRules
         {
             foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithoutSummaryDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestTypeWithoutSummaryDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -120,7 +120,7 @@ TypeName
         {
             foreach (string typeName in CommonMemberData.TypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithoutContentDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestTypeWithoutContentDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -141,7 +141,7 @@ TypeName
         {
             foreach (string typeName in CommonMemberData.BaseTypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithDefaultDocumentationAsync(typeName).ConfigureAwait(false);
+                await this.DoTestTypeWithDefaultDocumentationAsync(typeName).ConfigureAwait(true);
             }
         }
 
@@ -174,7 +174,7 @@ public class ClassName
 
             DiagnosticResult expected = Diagnostic().WithLocation(2, 5);
 
-            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -189,7 +189,7 @@ public enum EnumName
     EnumMember1 = 0,
 }
 ";
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -216,7 +216,7 @@ public enum EnumName
                 Diagnostic().WithLocation(9, 9),
             };
 
-            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -227,7 +227,7 @@ public enum EnumName
 public class ClassName
 {
 }";
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -239,7 +239,7 @@ public class ClassName
 public class ClassName
 {
 }";
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -250,7 +250,7 @@ public class ClassName
 public class ClassName
 {
 }";
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -264,7 +264,7 @@ public class ClassName
 
             DiagnosticResult expected = Diagnostic().WithLocation(3, 14);
 
-            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -277,7 +277,7 @@ public class ClassName
     /// <include file='FieldWithSummary.xml' path='/FieldName/*' />
     public int FieldName;
 }";
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -293,7 +293,7 @@ public class ClassName
 
             DiagnosticResult expected = Diagnostic().WithLocation(0);
 
-            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(true);
         }
 
         private static Task VerifyCSharpDiagnosticAsync(string source, DiagnosticResult expected, CancellationToken cancellationToken)

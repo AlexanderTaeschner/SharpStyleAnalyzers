@@ -4,5 +4,3 @@
 // a specific target and scoped to a namespace, type, member, etc.
 
 using System.Diagnostics.CodeAnalysis;
-
-[assembly: SuppressMessage("Usage", "xUnit1030:Do not call ConfigureAwait(false) in test method", Justification = "Not applicable in this context", Scope = "member")]

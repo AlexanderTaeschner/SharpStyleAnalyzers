@@ -35,7 +35,7 @@ public struct S
 }";
 
             var expected = Diagnostic().WithLocation(0).WithArguments("public", "readonly");
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -55,7 +55,7 @@ public struct S
 }";
 
             var expected = Diagnostic().WithLocation(0).WithArguments("internal", "readonly");
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -75,7 +75,7 @@ public struct S
 }";
 
             var expected = Diagnostic().WithLocation(0).WithArguments("public", "override");
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -108,7 +108,7 @@ public struct S
                 },
             };
 
-            await test.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            await test.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

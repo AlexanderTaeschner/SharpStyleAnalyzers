@@ -45,7 +45,7 @@ namespace TestNamespace
 }
 ";
 
-            await VerifyCSharpDiagnosticAsync(fileName: "TestType.cs", testCode, testSettings: null, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(fileName: "TestType.cs", testCode, testSettings: null, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -110,7 +110,7 @@ namespace TestNamespace
 ";
 
             var expectedDiagnostic = Diagnostic().WithLocation(0);
-            await VerifyCSharpFixAsync(oldFileName: "WrongFileName.cs", testCode, StyleCopSettings, expectedDiagnostic, newFileName: "TestType.cs", fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(oldFileName: "WrongFileName.cs", testCode, StyleCopSettings, expectedDiagnostic, newFileName: "TestType.cs", fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

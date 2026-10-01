@@ -57,7 +57,7 @@ namespace StyleCop.Analyzers.Test.CSharp8.OrderingRules
                 FixedCode = fixedCode,
                 NumberOfIncrementalIterations = 5,
                 NumberOfFixAllIterations = 2,
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -78,7 +78,7 @@ namespace StyleCop.Analyzers.Test.CSharp8.OrderingRules
 }
 ";
 
-            await VerifyCSharpFixAsync(testCode, Diagnostic().WithLocation(0).WithArguments("public", "private"), fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, Diagnostic().WithLocation(0).WithArguments("public", "private"), fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -92,7 +92,7 @@ namespace StyleCop.Analyzers.Test.CSharp8.OrderingRules
 }
 ";
 
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -122,7 +122,7 @@ namespace StyleCop.Analyzers.Test.CSharp8.OrderingRules
                 FixedCode = fixedCode,
                 NumberOfIncrementalIterations = 2,
                 NumberOfFixAllIterations = 2,
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

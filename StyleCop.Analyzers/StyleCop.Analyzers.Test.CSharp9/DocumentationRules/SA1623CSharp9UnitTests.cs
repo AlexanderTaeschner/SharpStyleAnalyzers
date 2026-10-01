@@ -56,12 +56,12 @@ public class TestClass
 ";
 
             var expected = Diagnostic(PropertySummaryDocumentationAnalyzer.SA1623Descriptor).WithLocation(0).WithArguments(expectedArgument);
-            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(true);
 
             if (fixedTestCode.Contains("Gets or initializes"))
             {
                 // These are allowed to be written as just 'Gets'
-                await VerifyCSharpDiagnosticAsync(fixedTestCode.Replace("Gets or initializes", "Gets"), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+                await VerifyCSharpDiagnosticAsync(fixedTestCode.Replace("Gets or initializes", "Gets"), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
             }
         }
 
@@ -113,12 +113,12 @@ public class TestClass
 ";
 
             var expected = Diagnostic(PropertySummaryDocumentationAnalyzer.SA1623Descriptor).WithLocation(0).WithArguments(expectedArgument);
-            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(true);
 
             if (fixedTestCode.Contains("Gets or initializes"))
             {
                 // These are allowed to be written as just 'Gets'
-                await VerifyCSharpDiagnosticAsync(fixedTestCode.Replace("Gets or initializes", "Gets"), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+                await VerifyCSharpDiagnosticAsync(fixedTestCode.Replace("Gets or initializes", "Gets"), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
             }
         }
 
@@ -172,12 +172,12 @@ public class TestClass
                 Diagnostic(PropertySummaryDocumentationAnalyzer.SA1623Descriptor).WithLocation(0).WithArguments(expectedArgument),
             };
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(true);
 
             if (fixedTestCode.Contains("Gets or initializes"))
             {
                 // These are allowed to be written as just 'Gets'
-                await VerifyCSharpDiagnosticAsync(fixedTestCode.Replace("Gets or initializes", "Gets"), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+                await VerifyCSharpDiagnosticAsync(fixedTestCode.Replace("Gets or initializes", "Gets"), DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
             }
         }
 
@@ -208,7 +208,7 @@ public class TestClass
                 .WithLocation(0)
                 .WithArguments("Gets or initializes");
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

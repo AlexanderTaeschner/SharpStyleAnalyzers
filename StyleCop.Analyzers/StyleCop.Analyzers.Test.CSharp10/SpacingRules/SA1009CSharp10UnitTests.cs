@@ -46,7 +46,7 @@ class TestClass
                 {
                     Diagnostic(DescriptorFollowed).WithLocation(0),
                 },
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

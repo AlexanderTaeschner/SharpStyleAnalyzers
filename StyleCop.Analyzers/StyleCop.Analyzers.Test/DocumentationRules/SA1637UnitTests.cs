@@ -42,7 +42,7 @@ namespace Bar
 ".ReplaceLineEndings(lineEnding);
 
             var expectedDiagnostic = Diagnostic(FileHeaderAnalyzers.SA1637Descriptor).WithLocation(0);
-            await this.VerifyCSharpFixAsync(testCode, expectedDiagnostic, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await this.VerifyCSharpFixAsync(testCode, expectedDiagnostic, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

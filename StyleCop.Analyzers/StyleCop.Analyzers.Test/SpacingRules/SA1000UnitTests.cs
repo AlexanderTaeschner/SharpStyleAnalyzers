@@ -31,7 +31,7 @@ catch
 }
 ";
 
-            await this.TestKeywordStatementAsync(statement, DiagnosticResult.EmptyDiagnosticResults, statement).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statement, DiagnosticResult.EmptyDiagnosticResults, statement).ConfigureAwait(true);
         }
 
         [Fact]
@@ -53,11 +53,11 @@ catch (Exception ex)
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("catch", string.Empty, "followed").WithLocation(15, 1);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -75,11 +75,11 @@ fixed (byte* b = &y[0])
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("fixed", string.Empty, "followed").WithLocation(13, 1);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -95,11 +95,11 @@ fixed (byte* b = &y[0])
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("for", string.Empty, "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -115,11 +115,11 @@ fixed (byte* b = &y[0])
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("foreach", string.Empty, "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -129,11 +129,11 @@ fixed (byte* b = &y[0])
 
             string statementWithSpace = @"var result = from @x in new int[3] select x;";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("from", string.Empty, "followed").WithLocation(12, 26);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -147,11 +147,11 @@ select z;";
 group @x by x.A into z
 select z;";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("group", string.Empty, "followed").WithLocation(13, 1);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -167,11 +167,11 @@ select z;";
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("if", string.Empty, "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -181,11 +181,11 @@ select z;";
 
             string statementWithSpace = @"var y = new int[3]; var result = from x in @y select x;";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("in", string.Empty, "followed").WithLocation(12, 53);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -199,11 +199,11 @@ select z;";
 group x by x.A into @z
 select z;";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("into", string.Empty, "followed").WithLocation(13, 16);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -217,11 +217,11 @@ select x;";
 join @a in new[] { new { B = 3 } } on x.A equals a.B
 select x;";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("join", string.Empty, "followed").WithLocation(13, 1);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -235,11 +235,11 @@ select x;";
 let @z = 3
 select x;";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("let", string.Empty, "followed").WithLocation(13, 1);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -255,11 +255,11 @@ select x;";
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("lock", string.Empty, "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -273,11 +273,11 @@ select x;";
 orderby (x.A)
 select x;";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("orderby", string.Empty, "followed").WithLocation(13, 1);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -287,11 +287,11 @@ select x;";
 
             string statementWithSpace = @"return ;";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("return", " not", "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -301,11 +301,11 @@ select x;";
 
             string statementWithSpace = @"return (3);";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace, returnType: "int").ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace, returnType: "int").ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("return", string.Empty, "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace, returnType: "int").ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace, returnType: "int").ConfigureAwait(true);
         }
 
         [Fact]
@@ -315,11 +315,11 @@ select x;";
 
             string statementWithSpace = @"var result = from x in new int[3] select @x;";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("select", string.Empty, "followed").WithLocation(12, 47);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -329,11 +329,11 @@ select x;";
 
             string statementWithSpace = @"int* x = stackalloc @Int32[3];";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("stackalloc", string.Empty, "followed").WithLocation(12, 22);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -353,11 +353,11 @@ default:
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("switch", string.Empty, "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -367,11 +367,11 @@ default:
 
             string statementWithSpace = @"throw (new Exception());";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("throw", string.Empty, "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -395,11 +395,11 @@ catch (Exception ex)
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("throw", " not", "followed").WithLocation(17, 5);
 
-            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -415,11 +415,11 @@ catch (Exception ex)
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("using", string.Empty, "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -433,11 +433,11 @@ select x;";
 where (x.A)
 select x;";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("where", string.Empty, "followed").WithLocation(13, 1);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -453,11 +453,11 @@ select x;";
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("while", string.Empty, "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -466,7 +466,7 @@ select x;";
             // There is no way to have a 'yield' keyword which is not followed by a space. All we need to do is verify
             // that no diagnostic is reported for its use with a space.
             string statementWithSpace = @"yield return 3;";
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace, returnType: "IEnumerable<int>").ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace, returnType: "IEnumerable<int>").ConfigureAwait(true);
         }
 
         [Fact]
@@ -475,7 +475,7 @@ select x;";
             // There is no way to have a 'yield' keyword which is not followed by a space. All we need to do is verify
             // that no diagnostic is reported for its use with a space.
             string statementWithSpace = @"yield break;";
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace, returnType: "IEnumerable<int>").ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace, returnType: "IEnumerable<int>").ConfigureAwait(true);
         }
 
         [Fact]
@@ -485,21 +485,21 @@ select x;";
 
             string statementWithSpace = @"int x = checked (3);";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("checked", " not", "followed").WithLocation(12, 21);
 
-            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
 
             statementWithoutSpace = @"checked{ };";
 
             statementWithSpace = @"checked { };";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             expected = Diagnostic().WithArguments("checked", string.Empty, "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -519,11 +519,11 @@ default :
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("default", " not", "followed").WithLocation(14, 1);
 
-            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -533,11 +533,11 @@ default :
 
             string statementWithSpace = @"int x = default (int);";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("default", " not", "followed").WithLocation(12, 21);
 
-            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -547,11 +547,11 @@ default :
 
             string statementWithSpace = @"string x = nameof (x);";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("nameof", " not", "followed").WithLocation(12, 24);
 
-            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -561,11 +561,11 @@ default :
 
             string statementWithSpace = @"int x = sizeof (int);";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("sizeof", " not", "followed").WithLocation(12, 21);
 
-            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -575,11 +575,11 @@ default :
 
             string statementWithSpace = @"Type x = typeof (int);";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("typeof", " not", "followed").WithLocation(12, 22);
 
-            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -589,21 +589,21 @@ default :
 
             string statementWithSpace = @"int x = unchecked (3);";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("unchecked", " not", "followed").WithLocation(12, 21);
 
-            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
 
             statementWithoutSpace = @"unchecked{ };";
 
             statementWithSpace = @"unchecked { };";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             expected = Diagnostic().WithArguments("unchecked", string.Empty, "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -613,11 +613,11 @@ default :
 
             string statementWithSpace = @"int x = new @Int32();";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("new", string.Empty, "followed").WithLocation(12, 21);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -627,11 +627,11 @@ default :
 
             string statementWithSpace = @"int[] x = new @Int32[3];";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("new", string.Empty, "followed").WithLocation(12, 23);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -641,10 +641,10 @@ default :
 
             string statementWithSpace = @"int[] x = new [] { 3 };";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             // this case is handled by SA1026, so it shouldn't be reported here
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -655,10 +655,10 @@ default :
 
             string statementWithSpace = @"int[] x = null; x.Select(var => var .ToString());";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             // this case is handled by SA1019, so it shouldn't be reported here
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
         }
 
         /// <summary>
@@ -674,10 +674,10 @@ default :
 
             string statementWithSpace = @"Func<int>[] x = null; x.Select(var => var ());";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             // this case is handled by SA1008, so it shouldn't be reported here
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -691,11 +691,11 @@ default :
 {
 }";
 
-            await this.TestKeywordDeclarationAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordDeclarationAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("new", " not", "followed").WithLocation(9, 39);
 
-            await this.TestKeywordDeclarationAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordDeclarationAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -709,11 +709,11 @@ default :
 {
 }";
 
-            await this.TestKeywordDeclarationAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordDeclarationAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("new", " not", "followed").WithLocation(9, 52);
 
-            await this.TestKeywordDeclarationAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordDeclarationAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -727,11 +727,11 @@ default :
 {
 }";
 
-            await this.TestKeywordDeclarationAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordDeclarationAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("new", " not", "followed").WithLocation(9, 46);
 
-            await this.TestKeywordDeclarationAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordDeclarationAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -745,11 +745,11 @@ default :
 {
 }";
 
-            await this.TestKeywordDeclarationAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordDeclarationAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("new", " not", "followed").WithLocation(9, 40);
 
-            await this.TestKeywordDeclarationAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordDeclarationAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -763,11 +763,11 @@ default :
 {
 }";
 
-            await this.TestKeywordDeclarationAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordDeclarationAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("new", " not", "followed").WithLocation(9, 53);
 
-            await this.TestKeywordDeclarationAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordDeclarationAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -781,11 +781,11 @@ default :
 {
 }";
 
-            await this.TestKeywordDeclarationAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordDeclarationAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("new", " not", "followed").WithLocation(9, 47);
 
-            await this.TestKeywordDeclarationAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordDeclarationAsync(statementWithSpace, expected, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -795,8 +795,8 @@ default :
 
             string statementWithSpace = @"var result = await (default(Task<int>));";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace, asyncMethod: false).ConfigureAwait(false);
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace, asyncMethod: false).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace, asyncMethod: false).ConfigureAwait(true);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace, asyncMethod: false).ConfigureAwait(true);
         }
 
         [Fact]
@@ -806,11 +806,11 @@ default :
 
             string statementWithSpace = @"var result = await (default(Task<int>));";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace, asyncMethod: true).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace, asyncMethod: true).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("await", string.Empty, "followed").WithLocation(12, 26);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace, asyncMethod: true).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace, asyncMethod: true).ConfigureAwait(true);
         }
 
         [Fact]
@@ -832,11 +832,11 @@ default:
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("case", string.Empty, "followed").WithLocation(14, 1);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -864,11 +864,11 @@ default:
 }
 ";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("case", string.Empty, "followed").WithLocation(15, 10);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -878,11 +878,11 @@ default:
 
             string statementWithSpace = @"var @x = ""test"";";
 
-            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithSpace).ConfigureAwait(true);
 
             DiagnosticResult expected = Diagnostic().WithArguments("var", string.Empty, "followed").WithLocation(12, 13);
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -899,7 +899,7 @@ class ClassName
 ";
 
             var expected = DiagnosticResult.CompilerError("CS0742").WithMessage("A query body must end with a select clause or a group clause").WithLocation(6, 42);
-            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, expected, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Theory]
@@ -931,7 +931,7 @@ class ClassName
 ".ReplaceLineEndings(lineEnding);
 
             var expected = Diagnostic().WithArguments("if", string.Empty, "followed").WithLocation(6, 9);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         protected Task TestKeywordStatementAsync(string statement, DiagnosticResult expected, string fixedStatement, string returnType = "void", bool asyncMethod = false, LanguageVersion? languageVersion = default)

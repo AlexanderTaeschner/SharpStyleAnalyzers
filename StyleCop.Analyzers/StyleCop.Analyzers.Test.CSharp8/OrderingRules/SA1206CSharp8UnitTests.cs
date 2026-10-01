@@ -38,7 +38,7 @@ namespace StyleCop.Analyzers.Test.CSharp8.OrderingRules
 
             var expected = Diagnostic().WithArguments("static", "async").WithLocation(0);
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -66,7 +66,7 @@ namespace StyleCop.Analyzers.Test.CSharp8.OrderingRules
 
             var expected = Diagnostic().WithArguments("static", "unsafe").WithLocation(0);
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

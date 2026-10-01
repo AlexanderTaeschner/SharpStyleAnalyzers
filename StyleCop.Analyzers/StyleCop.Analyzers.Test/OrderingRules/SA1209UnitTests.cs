@@ -26,7 +26,7 @@ class A
 {
 }";
 
-            await VerifyCSharpDiagnosticAsync(usingsInCompilationUnit, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(usingsInCompilationUnit, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -42,7 +42,7 @@ class A
     }
 }";
 
-            await VerifyCSharpDiagnosticAsync(usingsInNamespaceDeclaration, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(usingsInNamespaceDeclaration, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Theory]
@@ -71,7 +71,7 @@ class A
 
             DiagnosticResult expectedForCompilationUnit = Diagnostic().WithLocation(0);
 
-            await VerifyCSharpFixAsync(testCodeCompilationUnit, expectedForCompilationUnit, fixedTestCodeCompilationUnit, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCodeCompilationUnit, expectedForCompilationUnit, fixedTestCodeCompilationUnit, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -104,7 +104,7 @@ class A
 
             DiagnosticResult expectedForNamespaceDeclaration = Diagnostic().WithLocation(5, 5);
 
-            await VerifyCSharpFixAsync(testCodeNamespace, expectedForNamespaceDeclaration, fixedTestCodeNamespace, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCodeNamespace, expectedForNamespaceDeclaration, fixedTestCodeNamespace, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -142,7 +142,7 @@ namespace Test
 
             DiagnosticResult expected = Diagnostic().WithLocation("/0/Test0.cs", 2, 1);
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -162,7 +162,7 @@ namespace Test
     }
 }";
 
-            await VerifyCSharpDiagnosticAsync(compilationUnit, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(compilationUnit, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -194,7 +194,7 @@ namespace Test
 
             DiagnosticResult expected = Diagnostic().WithLocation("/0/Test0.cs", 4, 5);
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -228,7 +228,7 @@ namespace Test
 
             DiagnosticResult expected = Diagnostic().WithLocation("/0/Test0.cs", 4, 5);
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -263,7 +263,7 @@ using Microsoft.CodeAnalysis;
             // else block is skipped
             var expected = Diagnostic().WithLocation(7, 1);
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedTestCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

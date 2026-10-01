@@ -37,7 +37,7 @@ class TestClass
                     Diagnostic().WithLocation(2),
                     Diagnostic().WithLocation(3),
                 },
-                CancellationToken.None).ConfigureAwait(false);
+                CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

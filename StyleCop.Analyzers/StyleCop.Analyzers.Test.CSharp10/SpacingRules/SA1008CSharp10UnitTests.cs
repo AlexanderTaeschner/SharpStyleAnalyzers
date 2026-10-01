@@ -71,7 +71,7 @@ class OtherAttribute : Attribute
                     Diagnostic(DescriptorPreceded).WithLocation(0),
                     Diagnostic(DescriptorPreceded).WithLocation(1),
                 },
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -106,7 +106,7 @@ class TestClass
                 {
                     Diagnostic(DescriptorPreceded).WithLocation(0),
                 },
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

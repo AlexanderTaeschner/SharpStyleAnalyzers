@@ -40,7 +40,7 @@ class TestClass
             {
                 TestSources = { source1, oldSource2 },
                 FixedSources = { source1, newSource2 },
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -63,7 +63,7 @@ class TestClass
             {
                 TestSources = { source },
                 FixedSources = { newSource },
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -92,7 +92,7 @@ class TestClass
             {
                 TestCode = testCode,
                 FixedCode = fixedCode,
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -112,7 +112,7 @@ class TestClass
             {
                 ReferenceAssemblies = ReferenceAssemblies.Net.Net60,
                 TestCode = testCode,
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

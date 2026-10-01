@@ -27,7 +27,7 @@ class TestClass
 {
 }";
 
-            await this.VerifyCSharpFixAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await this.VerifyCSharpFixAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -63,7 +63,7 @@ class TestClass
                 StyleCopDiagnosticVerifier<SA1217UsingStaticDirectivesMustBeOrderedAlphabetically>.Diagnostic().WithLocation(1).WithArguments("System.Math", "System.Array"),
                 StyleCopDiagnosticVerifier<SA1211UsingAliasDirectivesMustBeOrderedAlphabeticallyByAliasName>.Diagnostic().WithLocation(2).WithArguments("AliasA", "AliasB"),
             };
-            await this.VerifyCSharpFixAsync(testCode, expected, fixedCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await this.VerifyCSharpFixAsync(testCode, expected, fixedCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

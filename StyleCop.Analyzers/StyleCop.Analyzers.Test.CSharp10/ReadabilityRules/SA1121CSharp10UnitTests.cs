@@ -39,7 +39,7 @@ uint value = 3;
                 TestCode = oldSource,
                 ExpectedDiagnostics = { Diagnostic().WithLocation(0) },
                 FixedCode = newSource,
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }.RunAsync(CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -77,7 +77,7 @@ class TestClass
                 Diagnostic().WithLocation(2),
             };
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

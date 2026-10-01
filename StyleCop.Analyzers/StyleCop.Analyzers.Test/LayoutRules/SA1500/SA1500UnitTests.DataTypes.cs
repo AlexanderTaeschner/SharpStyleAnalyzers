@@ -1,4 +1,4 @@
-// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -33,7 +33,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string keyword in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestDataTypeValidAsync(keyword).ConfigureAwait(false);
+                await this.DoTestDataTypeValidAsync(keyword).ConfigureAwait(true);
             }
         }
 
@@ -74,7 +74,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string keyword in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestDataTypeInvalidAsync(keyword).ConfigureAwait(false);
+                await this.DoTestDataTypeInvalidAsync(keyword).ConfigureAwait(true);
             }
         }
 

@@ -1,4 +1,4 @@
-// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
+﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #nullable disable
@@ -30,7 +30,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestValidEmptyTypeAsync(token).ConfigureAwait(false);
+                await this.DoTestValidEmptyTypeAsync(token).ConfigureAwait(true);
             }
         }
 
@@ -53,7 +53,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestEmptyTypeOnSingleLineAsync(token).ConfigureAwait(false);
+                await this.DoTestEmptyTypeOnSingleLineAsync(token).ConfigureAwait(true);
             }
         }
 
@@ -75,7 +75,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestTypeOnSingleLineAsync(token).ConfigureAwait(false);
+                await this.DoTestTypeOnSingleLineAsync(token).ConfigureAwait(true);
             }
         }
 
@@ -97,7 +97,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithBlockOnSingleLineAsync(token).ConfigureAwait(false);
+                await this.DoTestTypeWithBlockOnSingleLineAsync(token).ConfigureAwait(true);
             }
         }
 
@@ -120,7 +120,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithBlockStartOnSameLineAsync(token).ConfigureAwait(false);
+                await this.DoTestTypeWithBlockStartOnSameLineAsync(token).ConfigureAwait(true);
             }
         }
 
@@ -143,7 +143,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestEmptyTypeOnSingleLineCodeFixAsync(token).ConfigureAwait(false);
+                await this.DoTestEmptyTypeOnSingleLineCodeFixAsync(token).ConfigureAwait(true);
             }
         }
 
@@ -169,7 +169,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestTypeOnSingleLineCodeFixAsync(token).ConfigureAwait(false);
+                await this.DoTestTypeOnSingleLineCodeFixAsync(token).ConfigureAwait(true);
             }
         }
 
@@ -196,7 +196,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestTypeOnSingleLineWithMultipleStatementsCodeFixAsync(token).ConfigureAwait(false);
+                await this.DoTestTypeOnSingleLineWithMultipleStatementsCodeFixAsync(token).ConfigureAwait(true);
             }
         }
 
@@ -223,7 +223,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithBlockOnSingleLineCodeFixAsync(token).ConfigureAwait(false);
+                await this.DoTestTypeWithBlockOnSingleLineCodeFixAsync(token).ConfigureAwait(true);
             }
         }
 
@@ -251,7 +251,7 @@ namespace StyleCop.Analyzers.Test.LayoutRules
         {
             foreach (string token in CommonMemberData.DataTypeDeclarationKeywords)
             {
-                await this.DoTestTypeWithLotsOfTriviaCodeFixAsync(token).ConfigureAwait(false);
+                await this.DoTestTypeWithLotsOfTriviaCodeFixAsync(token).ConfigureAwait(true);
             }
         }
 

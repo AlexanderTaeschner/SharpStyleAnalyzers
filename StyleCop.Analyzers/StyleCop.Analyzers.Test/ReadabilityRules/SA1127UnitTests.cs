@@ -36,7 +36,7 @@ namespace StyleCop.Analyzers.Test.ReadabilityRules
         [MemberData(nameof(GetNullTests))]
         public async Task TestNullScenariosAsync(string declaration)
         {
-            await VerifyCSharpDiagnosticAsync(declaration, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(declaration, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Theory]
@@ -47,7 +47,7 @@ namespace StyleCop.Analyzers.Test.ReadabilityRules
             var fixedCode = $"{fixedDeclaration}";
 
             var expected = Diagnostic().WithLocation(1, column);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Theory]
@@ -68,7 +68,7 @@ class Foo
     {{ }}
 }}".ReplaceLineEndings(lineEnding);
             var expected = Diagnostic().WithLocation(0);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -90,7 +90,7 @@ class Foo
     { }
 }";
             var expected = Diagnostic().WithLocation(5, 30);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -114,7 +114,7 @@ class Foo
     { }
 }";
             var expected = Diagnostic().WithLocation(6, 16);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -138,7 +138,7 @@ class Foo
     {{ }}
 }}";
             var expected = Diagnostic().WithLocation(6, 30);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -162,7 +162,7 @@ class Foo
     #endregion
 }}";
             var expected = Diagnostic().WithLocation(5, 30);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -181,7 +181,7 @@ class Foo
         => typeof(T).Name;
 }}";
             var expected = Diagnostic().WithLocation(4, 32);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -207,7 +207,7 @@ class Foo<T>
     }}
 }}";
             var expected = Diagnostic().WithLocation(3, 14);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -225,7 +225,7 @@ interface Foo
         where T : class;
 }}";
             var expected = Diagnostic().WithLocation(4, 26);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -248,7 +248,7 @@ interface Foo
                 Diagnostic().WithLocation(4, 29),
                 Diagnostic().WithLocation(4, 45),
             };
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -266,7 +266,7 @@ class Foo<T, R>
 }}";
             var expected = Diagnostic().WithLocation(2, 17);
             var expected2 = Diagnostic().WithLocation(2, 33);
-            await VerifyCSharpFixAsync(testCode, new[] { expected, expected2 }, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, new[] { expected, expected2 }, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -284,7 +284,7 @@ class Foo<T, R>
 {{
 }}";
             var expected = Diagnostic().WithLocation(2, 17);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -307,7 +307,7 @@ class Foo
             var expected = Diagnostic().WithLocation(4, 39);
             var expected2 = Diagnostic().WithLocation(4, 56);
             var expected3 = Diagnostic().WithLocation(4, 73);
-            await VerifyCSharpFixAsync(testCode, new[] { expected, expected2, expected3 }, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, new[] { expected, expected2, expected3 }, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -333,7 +333,7 @@ class Foo
     }}
 }}";
             var expected = Diagnostic().WithLocation(5, 26);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -351,7 +351,7 @@ class Foo<T, R>
 {{
 }}";
             var expected = Diagnostic().WithLocation(2, 17);
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }

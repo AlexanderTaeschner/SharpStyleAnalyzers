@@ -38,7 +38,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.SpacingRules
                 Diagnostic().WithArguments("unmanaged", " not").WithLocation(1),
             };
 
-            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpFixAsync(testCode, expected, fixedCode, CancellationToken.None).ConfigureAwait(true);
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.SpacingRules
         {
             string statementWithoutSpace = "int a = new();";
 
-            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, DiagnosticResult.EmptyDiagnosticResults, statementWithoutSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -55,7 +55,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.SpacingRules
         {
             string statement = "bool flag = true; object value = flag ? null : new();";
 
-            await this.TestKeywordStatementAsync(statement, DiagnosticResult.EmptyDiagnosticResults, statement).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statement, DiagnosticResult.EmptyDiagnosticResults, statement).ConfigureAwait(true);
         }
 
         [Theory]
@@ -70,7 +70,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.SpacingRules
             var statementWithSpace = $"_ = 1 is {@operator}1;";
 
             var expected = Diagnostic().WithArguments("is", string.Empty, "followed").WithLocation(0);
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Theory]
@@ -85,7 +85,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.SpacingRules
             var statementWithSpace = $"_ = 1 is not {relationalOperator}1;";
 
             var expected = Diagnostic().WithArguments("not", string.Empty, "followed").WithLocation(0);
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Theory]
@@ -99,7 +99,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.SpacingRules
             var statementWithSpace = $"_ = (int?)1 is not null {logicalOperator} {relationalOperator}1;";
 
             var expected = Diagnostic().WithArguments(logicalOperator, string.Empty, "followed").WithLocation(0);
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -110,7 +110,7 @@ namespace StyleCop.Analyzers.Test.CSharp9.SpacingRules
             var statementWithSpace = "_ = new object() is not (null);";
 
             var expected = Diagnostic().WithArguments("not", string.Empty, "followed").WithLocation(0);
-            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(false);
+            await this.TestKeywordStatementAsync(statementWithoutSpace, expected, statementWithSpace).ConfigureAwait(true);
         }
 
         [Fact]
@@ -147,7 +147,7 @@ public struct ExtensionEnumerator
 }
 ";
 
-            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(false);
+            await VerifyCSharpDiagnosticAsync(testCode, DiagnosticResult.EmptyDiagnosticResults, CancellationToken.None).ConfigureAwait(true);
         }
     }
 }
