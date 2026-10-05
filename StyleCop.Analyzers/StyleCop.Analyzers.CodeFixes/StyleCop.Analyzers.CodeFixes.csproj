@@ -13,11 +13,6 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <!-- This package intentionally uses SemVer 2. -->
-    <NoWarn>$(NoWarn),NU5105</NoWarn>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <CodeAnalysisRuleSet>..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 

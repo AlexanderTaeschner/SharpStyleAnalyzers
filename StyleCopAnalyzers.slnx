@@ -1,7 +1,6 @@
 <Solution>
   <Folder Name="/build/">
     <File Path="StyleCop.Analyzers/Directory.Build.props" />
-    <File Path="StyleCop.Analyzers/Directory.Build.targets" />
   </Folder>
   <Folder Name="/documentation/">
     <File Path="documentation/AlternativeRules.md" />
