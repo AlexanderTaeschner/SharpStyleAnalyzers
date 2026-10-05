@@ -3,18 +3,38 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>12.0</LangVersion>
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
     <RootNamespace>StyleCop.Analyzers</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <IncludeSymbols>true</IncludeSymbols>
-
-    <NuspecFile Condition="'$(MetadataPackage)' != 'true'">StyleCop.Analyzers.nuspec</NuspecFile>
-    <NuspecFile Condition="'$(MetadataPackage)' == 'true'">StyleCop.Analyzers.Metadata.nuspec</NuspecFile>
+    <IncludeSymbols>False</IncludeSymbols>
+    <CodeAnalysisRuleSet>..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+    <PackageId>SharpStyleAnalyzers</PackageId>
+    <Version>0.0.1.0</Version>
+    <Authors>Alexander Täschner</Authors>
+    <Copyright>Copyright (c) Alexander Täschner 2026</Copyright>
+    <RepositoryUrl>https://github.com/AlexanderTaeschner/SharpStyleAnalyzers.git</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>none</AnalysisLevel>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
 
   <PropertyGroup>
-    <CodeAnalysisRuleSet>..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>1701;1702;NU5128</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="bin\$(Configuration)\netstandard2.0\StyleCop.Analyzers.dll" PackagePath="analyzers\dotnet\cs" Pack="true" Visible="false" />
+    <None Include="bin\$(Configuration)\netstandard2.0\**\StyleCop.Analyzers.resources.dll" PackagePath="analyzers\dotnet\cs" Pack="true" Visible="false" />
+    <None Include="bin\$(Configuration)\netstandard2.0\StyleCop.Analyzers.CodeFixes.dll" PackagePath="analyzers\dotnet\cs" Pack="true" Visible="false" />
+    <None Include="bin\$(Configuration)\netstandard2.0\**\StyleCop.Analyzers.CodeFixes.resources.dll" PackagePath="analyzers\dotnet\cs" Pack="true"  Visible="false" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.9.0" />
@@ -23,39 +43,5 @@
   <ItemGroup>
     <ProjectReference Include="..\StyleCop.Analyzers\StyleCop.Analyzers.csproj" />
   </ItemGroup>
-
-  <Target Name="SetNuspecProperties" AfterTargets="GetBuildVersion">
-    <PropertyGroup>
-      <BaseNuspecId>StyleCop.Analyzers</BaseNuspecId>
-      <ImplementationNuspecId>$(BaseNuspecId)</ImplementationNuspecId>
-      <MetadataNuspecId>$(BaseNuspecId)</MetadataNuspecId>
-
-      <ImplementationNuspecId Condition="'$(PrereleaseVersion)' != ''">$(BaseNuspecId).Unstable</ImplementationNuspecId>
-      <MetadataNuspecId Condition="'$(PrereleaseVersion)' == ''">$(BaseNuspecId).Unstable</MetadataNuspecId>
-
-      <NuspecId Condition="'$(MetadataPackage)' != 'true'">$(ImplementationNuspecId)</NuspecId>
-      <NuspecId Condition="'$(MetadataPackage)' == 'true'">$(MetadataNuspecId)</NuspecId>
-
-      <NuspecUnstableVersion>$(AssemblyVersion)</NuspecUnstableVersion>
-      <NuspecUnstableVersion Condition="'$(PublicRelease)' != 'true'">$(NuspecUnstableVersion)-g$(GitCommitIdShort)</NuspecUnstableVersion>
-      <NuspecStableVersion>$(PackageVersion)</NuspecStableVersion>
-
-      <UnstablePackage Condition="('$(PrereleaseVersion)' != '' AND '$(MetadataPackage)' != 'true') OR ('$(PrereleaseVersion)' == '' AND '$(MetadataPackage)' == 'true')">true</UnstablePackage>
-
-      <NuspecVersion Condition="'$(UnstablePackage)' != 'true'">$(NuspecStableVersion)</NuspecVersion>
-      <NuspecVersion Condition="'$(UnstablePackage)' == 'true'">$(NuspecUnstableVersion)</NuspecVersion>
-
-      <ImplementationNuspecVersion Condition="'$(PrereleaseVersion)' != ''">$(NuspecUnstableVersion)</ImplementationNuspecVersion>
-      <ImplementationNuspecVersion Condition="'$(PrereleaseVersion)' == ''">$(NuspecStableVersion)</ImplementationNuspecVersion>
-
-      <NuspecProperties>id=$(NuspecId);configuration=$(Configuration);GitCommitIdShort=$(GitCommitIdShort);version=$(NuspecVersion);tag=$(NuspecStableVersion);implId=$(ImplementationNuspecId);implVersion=$(ImplementationNuspecVersion)</NuspecProperties>
-    </PropertyGroup>
-  </Target>
-
-  <Target Name="PackMetadata" AfterTargets="Pack" Condition="'$(MetadataPackage)' != 'true'">
-    <MSBuild Projects="$(MSBuildProjectFullPath)"
-             Targets="Pack"
-             Properties="MetadataPackage=true;IncludeSymbols=false" />
-  </Target>
 
 </Project>

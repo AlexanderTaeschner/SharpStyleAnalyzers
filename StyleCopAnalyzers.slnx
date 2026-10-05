@@ -1,7 +1,4 @@
 <Solution>
-  <Folder Name="/build/">
-    <File Path="StyleCop.Analyzers/Directory.Build.props" />
-  </Folder>
   <Folder Name="/documentation/">
     <File Path="documentation/AlternativeRules.md" />
     <File Path="documentation/Configuration.md" />
@@ -217,7 +214,6 @@
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
-    <File Path="CONTRIBUTING.md" />
     <File Path="LICENSE" />
     <File Path="README.md" />
     <File Path="THIRD-PARTY-NOTICES.txt" />
