@@ -1,12 +1,5 @@
 <Solution>
-  <Folder Name="/.nuget/">
-    <File Path=".nuget/packages.config" />
-  </Folder>
   <Folder Name="/build/">
-    <File Path="build/build-and-test.yml" />
-    <File Path="build/build.ps1" />
-    <File Path="build/opencover-report.ps1" />
-    <File Path="build/test.yml" />
     <File Path="StyleCop.Analyzers/Directory.Build.props" />
     <File Path="StyleCop.Analyzers/Directory.Build.targets" />
   </Folder>
@@ -224,9 +217,7 @@
     <File Path="documentation/SX1309S.md" />
   </Folder>
   <Folder Name="/Solution Items/">
-    <File Path=".codecov.yml" />
     <File Path=".editorconfig" />
-    <File Path="appveyor.yml" />
     <File Path="CONTRIBUTING.md" />
     <File Path="LICENSE" />
     <File Path="README.md" />

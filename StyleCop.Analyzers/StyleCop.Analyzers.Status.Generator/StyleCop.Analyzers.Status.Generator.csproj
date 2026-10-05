@@ -15,11 +15,6 @@
     <CodeAnalysisRuleSet>..\StyleCop.Analyzers.Internal.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\build\keys\TestingKey.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="LibGit2Sharp" Version="0.32.0" />
     <PackageReference Include="Microsoft.Build.Locator" Version="1.11.2" />
