@@ -78,8 +78,8 @@ namespace StyleCop.Analyzers.ReadabilityRules
             context.RegisterSyntaxNodeAction(SwitchStatementAction, SyntaxKind.SwitchStatement);
             context.RegisterSyntaxNodeAction(InitializerExpressionAction, SyntaxKinds.InitializerExpression);
             context.RegisterSyntaxNodeAction(AnonymousObjectCreationExpressionAction, SyntaxKind.AnonymousObjectCreationExpression);
-            context.RegisterSyntaxNodeAction(TupleTypeAction, SyntaxKindEx.TupleType);
-            context.RegisterSyntaxNodeAction(TupleExpressionAction, SyntaxKindEx.TupleExpression);
+            context.RegisterSyntaxNodeAction(TupleTypeAction, SyntaxKind.TupleType);
+            context.RegisterSyntaxNodeAction(TupleExpressionAction, SyntaxKind.TupleExpression);
         }
 
         private static void HandleCompilationUnit(SyntaxNodeAnalysisContext context)
@@ -310,8 +310,8 @@ namespace StyleCop.Analyzers.ReadabilityRules
             case SyntaxKind.StructDeclaration:
             case SyntaxKind.InterfaceDeclaration:
             case SyntaxKind.EnumDeclaration:
-            case SyntaxKindEx.RecordDeclaration:
-            case SyntaxKindEx.RecordStructDeclaration:
+            case SyntaxKind.RecordDeclaration:
+            case SyntaxKind.RecordStructDeclaration:
                 elements.AddRange(((BaseTypeDeclarationSyntax)member).AttributeLists);
                 break;
 
@@ -336,7 +336,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
 
             case SyntaxKind.GetAccessorDeclaration:
             case SyntaxKind.SetAccessorDeclaration:
-            case SyntaxKindEx.InitAccessorDeclaration:
+            case SyntaxKind.InitAccessorDeclaration:
             case SyntaxKind.AddAccessorDeclaration:
             case SyntaxKind.RemoveAccessorDeclaration:
             case SyntaxKind.UnknownAccessorDeclaration:

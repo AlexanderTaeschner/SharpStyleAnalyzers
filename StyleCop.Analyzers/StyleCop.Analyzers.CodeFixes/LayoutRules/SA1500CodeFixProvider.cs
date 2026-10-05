@@ -164,7 +164,7 @@ namespace StyleCop.Analyzers.LayoutRules
             {
             case SyntaxKind.GetKeyword:
             case SyntaxKind.SetKeyword:
-            case SyntaxKindEx.InitKeyword:
+            case SyntaxKind.InitKeyword:
             case SyntaxKind.AddKeyword:
             case SyntaxKind.RemoveKeyword:
                 break;

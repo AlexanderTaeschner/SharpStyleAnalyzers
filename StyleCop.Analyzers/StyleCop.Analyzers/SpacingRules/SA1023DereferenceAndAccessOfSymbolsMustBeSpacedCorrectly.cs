@@ -115,15 +115,15 @@ namespace StyleCop.Analyzers.SpacingRules
             bool allowTrailingSpace;
             switch (token.Parent.Kind())
             {
-            case SyntaxKindEx.FunctionPointerType:
+            case SyntaxKind.FunctionPointerType:
                 allowAtLineStart = true;
                 allowAtLineEnd = true;
                 allowPrecedingSpace = false;
                 var nextToken = token.GetNextToken();
                 switch (nextToken.Kind())
                 {
-                case SyntaxKindEx.ManagedKeyword:
-                case SyntaxKindEx.UnmanagedKeyword:
+                case SyntaxKind.ManagedKeyword:
+                case SyntaxKind.UnmanagedKeyword:
                     allowTrailingSpace = true;
                     break;
 
@@ -134,7 +134,7 @@ namespace StyleCop.Analyzers.SpacingRules
 
                 break;
 
-            case SyntaxKind.PointerType when token.Parent.Parent.IsKind(SyntaxKindEx.FunctionPointerParameter):
+            case SyntaxKind.PointerType when token.Parent.Parent.IsKind(SyntaxKind.FunctionPointerParameter):
                 allowAtLineStart = true;
                 allowAtLineEnd = true;
                 allowPrecedingSpace = false;

@@ -125,7 +125,7 @@ namespace StyleCop.Analyzers.OrderingRules
 
         // extern alias and usings are missing here because the compiler itself is enforcing the right order.
         private static readonly ImmutableArray<SyntaxKind> OuterOrder = ImmutableArray.Create(
-            SyntaxKindEx.FileScopedNamespaceDeclaration,
+            SyntaxKind.FileScopedNamespaceDeclaration,
             SyntaxKind.NamespaceDeclaration,
             SyntaxKind.DelegateDeclaration,
             SyntaxKind.EnumDeclaration,
@@ -152,14 +152,14 @@ namespace StyleCop.Analyzers.OrderingRules
         private static readonly Dictionary<SyntaxKind, string> MemberNames = new Dictionary<SyntaxKind, string>
         {
             [SyntaxKind.NamespaceDeclaration] = "namespace",
-            [SyntaxKindEx.FileScopedNamespaceDeclaration] = "namespace",
+            [SyntaxKind.FileScopedNamespaceDeclaration] = "namespace",
             [SyntaxKind.DelegateDeclaration] = "delegate",
             [SyntaxKind.EnumDeclaration] = "enum",
             [SyntaxKind.InterfaceDeclaration] = "interface",
             [SyntaxKind.StructDeclaration] = "struct",
             [SyntaxKind.ClassDeclaration] = "class",
-            [SyntaxKindEx.RecordDeclaration] = "record",
-            [SyntaxKindEx.RecordStructDeclaration] = "record struct",
+            [SyntaxKind.RecordDeclaration] = "record",
+            [SyntaxKind.RecordStructDeclaration] = "record struct",
             [SyntaxKind.FieldDeclaration] = "field",
             [SyntaxKind.ConstructorDeclaration] = "constructor",
             [SyntaxKind.DestructorDeclaration] = "destructor",
@@ -313,8 +313,8 @@ namespace StyleCop.Analyzers.OrderingRules
             return syntaxKind switch
             {
                 SyntaxKind.EventFieldDeclaration => SyntaxKind.EventDeclaration,
-                SyntaxKindEx.RecordDeclaration => SyntaxKind.ClassDeclaration,
-                SyntaxKindEx.RecordStructDeclaration => SyntaxKind.StructDeclaration,
+                SyntaxKind.RecordDeclaration => SyntaxKind.ClassDeclaration,
+                SyntaxKind.RecordStructDeclaration => SyntaxKind.StructDeclaration,
                 _ => syntaxKind,
             };
         }

@@ -266,9 +266,9 @@ namespace StyleCop.Analyzers.LayoutRules
 
             var prevToken = token.GetPreviousToken();
             return prevToken.IsKind(SyntaxKind.OpenBraceToken)
-                || (prevToken.IsKind(SyntaxKind.OpenBracketToken) && prevToken.Parent.IsKind(SyntaxKindEx.CollectionExpression))
+                || (prevToken.IsKind(SyntaxKind.OpenBracketToken) && prevToken.Parent.IsKind(SyntaxKind.CollectionExpression))
                 || prevToken.Parent.IsKind(SyntaxKind.CaseSwitchLabel)
-                || prevToken.Parent.IsKind(SyntaxKindEx.CasePatternSwitchLabel)
+                || prevToken.Parent.IsKind(SyntaxKind.CasePatternSwitchLabel)
                 || prevToken.Parent.IsKind(SyntaxKind.DefaultSwitchLabel);
         }
 

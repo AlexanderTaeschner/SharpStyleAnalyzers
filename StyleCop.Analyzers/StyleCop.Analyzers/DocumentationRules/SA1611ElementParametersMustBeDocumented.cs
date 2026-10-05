@@ -62,7 +62,7 @@ namespace StyleCop.Analyzers.DocumentationRules
             }
 
             var node = context.Node;
-            if (node.IsKind(SyntaxKindEx.RecordDeclaration) || node.IsKind(SyntaxKindEx.RecordStructDeclaration))
+            if (node.IsKind(SyntaxKind.RecordDeclaration) || node.IsKind(SyntaxKind.RecordStructDeclaration))
             {
                 // Record parameters are covered by SA1600 instead.
                 return;
@@ -92,7 +92,7 @@ namespace StyleCop.Analyzers.DocumentationRules
             }
 
             var node = context.Node;
-            if (node.IsKind(SyntaxKindEx.RecordDeclaration) || node.IsKind(SyntaxKindEx.RecordStructDeclaration))
+            if (node.IsKind(SyntaxKind.RecordDeclaration) || node.IsKind(SyntaxKind.RecordStructDeclaration))
             {
                 // Record parameters are covered by SA1600 instead.
                 return;

@@ -149,7 +149,7 @@ namespace StyleCop.Analyzers.OrderingRules
             {
                 var rootNamespace = compilationUnit.Members.First(member => member is BaseNamespaceDeclarationSyntax);
                 var indentationLevel = IndentationHelper.GetIndentationSteps(indentationSettings, rootNamespace);
-                if (!rootNamespace.IsKind(SyntaxKindEx.FileScopedNamespaceDeclaration))
+                if (!rootNamespace.IsKind(SyntaxKind.FileScopedNamespaceDeclaration))
                 {
                     indentationLevel++;
                 }
@@ -237,7 +237,7 @@ namespace StyleCop.Analyzers.OrderingRules
                     }
 
                     var indentation = IndentationHelper.GenerateIndentationString(indentationSettings, indentationSteps);
-                    var withLeadingBlankLine = usingList[0].Parent.IsKind(SyntaxKindEx.FileScopedNamespaceDeclaration);
+                    var withLeadingBlankLine = usingList[0].Parent.IsKind(SyntaxKind.FileScopedNamespaceDeclaration);
 
                     var modifiedUsings = usingsHelper.GenerateGroupedUsings(usingList, indentation, endOfLine, withLeadingBlankLine, withTrailingBlankLine: false, qualifyNames);
 
@@ -287,7 +287,7 @@ namespace StyleCop.Analyzers.OrderingRules
         private static SyntaxNode AddUsingsToNamespace(SyntaxNode newSyntaxRoot, SyntaxTrivia endOfLine, UsingsSorter usingsHelper, string usingsIndentation, bool hasConditionalDirectives)
         {
             var rootNamespace = (BaseNamespaceDeclarationSyntax)((CompilationUnitSyntax)newSyntaxRoot).Members.First(member => member is BaseNamespaceDeclarationSyntax);
-            var withLeadingBlankLine = rootNamespace.IsKind(SyntaxKindEx.FileScopedNamespaceDeclaration);
+            var withLeadingBlankLine = rootNamespace.IsKind(SyntaxKind.FileScopedNamespaceDeclaration);
             var withTrailingBlankLine = hasConditionalDirectives || rootNamespace.Members.Any() || rootNamespace.Externs.Any();
 
             var groupedUsings = usingsHelper.GenerateGroupedUsings(TreeTextSpan.Empty, usingsIndentation, endOfLine, withLeadingBlankLine, withTrailingBlankLine, qualifyNames: false, includeGlobal: false, includeLocal: true);

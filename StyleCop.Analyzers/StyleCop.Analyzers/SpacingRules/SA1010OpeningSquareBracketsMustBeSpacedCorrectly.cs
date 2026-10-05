@@ -126,12 +126,12 @@ namespace StyleCop.Analyzers.SpacingRules
 
         private static bool IsPartOfListPattern(SyntaxToken token)
         {
-            return token.Parent.IsKind(SyntaxKindEx.ListPattern);
+            return token.Parent.IsKind(SyntaxKind.ListPattern);
         }
 
         private static bool IsPartOfCollectionExpression(SyntaxToken token)
         {
-            return token.Parent.IsKind(SyntaxKindEx.CollectionExpression);
+            return token.Parent.IsKind(SyntaxKind.CollectionExpression);
         }
     }
 }

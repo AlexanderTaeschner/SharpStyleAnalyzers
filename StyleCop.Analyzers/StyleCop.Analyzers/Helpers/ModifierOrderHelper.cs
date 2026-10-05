@@ -47,7 +47,7 @@ namespace StyleCop.Analyzers.OrderingRules
             case SyntaxKind.ProtectedKeyword:
             case SyntaxKind.InternalKeyword:
             case SyntaxKind.PrivateKeyword:
-            case SyntaxKindEx.FileKeyword:
+            case SyntaxKind.FileKeyword:
                 result = ModifierType.Access;
                 break;
 
@@ -69,7 +69,7 @@ namespace StyleCop.Analyzers.OrderingRules
             case SyntaxKind.AsyncKeyword:
             case SyntaxKind.PartialKeyword:
             case SyntaxKind.RefKeyword:
-            case SyntaxKindEx.RequiredKeyword:
+            case SyntaxKind.RequiredKeyword:
                 result = ModifierType.Other;
                 break;
             }

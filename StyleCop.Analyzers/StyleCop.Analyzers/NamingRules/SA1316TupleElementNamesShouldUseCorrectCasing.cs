@@ -55,8 +55,8 @@ namespace StyleCop.Analyzers.NamingRules
 
             context.RegisterCompilationStartAction(context =>
             {
-                context.RegisterSyntaxNodeAction(TupleTypeAction, SyntaxKindEx.TupleType);
-                context.RegisterSyntaxNodeAction(TupleExpressionAction, SyntaxKindEx.TupleExpression);
+                context.RegisterSyntaxNodeAction(TupleTypeAction, SyntaxKind.TupleType);
+                context.RegisterSyntaxNodeAction(TupleExpressionAction, SyntaxKind.TupleExpression);
             });
         }
 
@@ -200,7 +200,7 @@ namespace StyleCop.Analyzers.NamingRules
 
                 case SyntaxKind.Parameter:
                 case SyntaxKind.ParameterList:
-                case SyntaxKindEx.TupleElement:
+                case SyntaxKind.TupleElement:
                 case SyntaxKind.TypeArgumentList:
                 case SyntaxKind when node is TypeSyntax:
                     node = node.Parent;

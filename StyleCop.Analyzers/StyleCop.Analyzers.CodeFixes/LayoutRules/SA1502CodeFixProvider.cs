@@ -69,8 +69,8 @@ namespace StyleCop.Analyzers.LayoutRules
             case SyntaxKind.ClassDeclaration:
             case SyntaxKind.InterfaceDeclaration:
             case SyntaxKind.StructDeclaration:
-            case SyntaxKindEx.RecordDeclaration:
-            case SyntaxKindEx.RecordStructDeclaration:
+            case SyntaxKind.RecordDeclaration:
+            case SyntaxKind.RecordStructDeclaration:
             case SyntaxKind.EnumDeclaration:
                 newSyntaxRoot = this.RegisterBaseTypeDeclarationCodeFix(syntaxRoot, (BaseTypeDeclarationSyntax)node, indentationSettings);
                 break;
@@ -80,7 +80,7 @@ namespace StyleCop.Analyzers.LayoutRules
                 break;
 
             case SyntaxKind.Block:
-                if (node.Parent.IsKind(SyntaxKindEx.LocalFunctionStatement))
+                if (node.Parent.IsKind(SyntaxKind.LocalFunctionStatement))
                 {
                     newSyntaxRoot = this.RegisterLocalFunctionStatementCodeFix(syntaxRoot, (LocalFunctionStatementSyntax)node.Parent, indentationSettings);
                 }

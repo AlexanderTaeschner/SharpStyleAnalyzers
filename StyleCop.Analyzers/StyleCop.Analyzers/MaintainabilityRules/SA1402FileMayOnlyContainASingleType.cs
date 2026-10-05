@@ -105,7 +105,7 @@ namespace StyleCop.Analyzers.MaintainabilityRules
 
         private static bool ContainsTopLevelTypeDeclarations(SyntaxNode node)
         {
-            return node.IsKind(SyntaxKind.CompilationUnit) || node.IsKind(SyntaxKind.NamespaceDeclaration) || node.IsKind(SyntaxKindEx.FileScopedNamespaceDeclaration);
+            return node.IsKind(SyntaxKind.CompilationUnit) || node.IsKind(SyntaxKind.NamespaceDeclaration) || node.IsKind(SyntaxKind.FileScopedNamespaceDeclaration);
         }
 
         private static bool IsRelevantType(MemberDeclarationSyntax node, StyleCopSettings settings)
@@ -121,14 +121,14 @@ namespace StyleCop.Analyzers.MaintainabilityRules
             switch (node.Kind())
             {
             case SyntaxKind.ClassDeclaration:
-            case SyntaxKindEx.RecordDeclaration:
+            case SyntaxKind.RecordDeclaration:
                 isRelevant = topLevelTypes.Contains(TopLevelType.Class);
                 break;
             case SyntaxKind.InterfaceDeclaration:
                 isRelevant = topLevelTypes.Contains(TopLevelType.Interface);
                 break;
             case SyntaxKind.StructDeclaration:
-            case SyntaxKindEx.RecordStructDeclaration:
+            case SyntaxKind.RecordStructDeclaration:
                 isRelevant = topLevelTypes.Contains(TopLevelType.Struct);
                 break;
             case SyntaxKind.EnumDeclaration:
@@ -144,7 +144,7 @@ namespace StyleCop.Analyzers.MaintainabilityRules
 
         private static bool IsFileLocalType(MemberDeclarationSyntax node)
         {
-            return node.GetModifiers().Any(SyntaxKindEx.FileKeyword);
+            return node.GetModifiers().Any(SyntaxKind.FileKeyword);
         }
     }
 }

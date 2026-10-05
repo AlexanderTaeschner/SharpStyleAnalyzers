@@ -11,6 +11,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
     using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.CSharp.Syntax;
     using Microsoft.CodeAnalysis.Diagnostics;
+    using Microsoft.CodeAnalysis.Operations;
     using StyleCop.Analyzers.Lightup;
 
     /// <summary>
@@ -47,8 +48,8 @@ namespace StyleCop.Analyzers.ReadabilityRules
 
             if (LightupHelpers.SupportsIOperation)
             {
-                context.RegisterOperationAction(ObjectCreationOperationAction, OperationKindEx.ObjectCreation);
-                context.RegisterOperationAction(TypeParameterObjectCreationOperationAction, OperationKindEx.TypeParameterObjectCreation);
+                context.RegisterOperationAction(ObjectCreationOperationAction, OperationKind.ObjectCreation);
+                context.RegisterOperationAction(TypeParameterObjectCreationOperationAction, OperationKind.TypeParameterObjectCreation);
             }
             else
             {
@@ -58,7 +59,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
 
         private static void HandleObjectCreationOperation(OperationAnalysisContext context)
         {
-            var objectCreation = IObjectCreationOperationWrapper.FromOperation(context.Operation);
+            var objectCreation = (IObjectCreationOperation)context.Operation;
 
             var typeToCreate = objectCreation.Constructor.ContainingType;
             if ((typeToCreate == null) || typeToCreate.IsReferenceType || IsReferenceTypeParameter(typeToCreate))
@@ -78,17 +79,17 @@ namespace StyleCop.Analyzers.ReadabilityRules
                 return;
             }
 
-            if (objectCreation.Initializer.WrappedOperation != null)
+            if (objectCreation.Initializer != null)
             {
                 return;
             }
 
-            context.ReportDiagnostic(Diagnostic.Create(Descriptor, objectCreation.WrappedOperation.Syntax.GetLocation()));
+            context.ReportDiagnostic(Diagnostic.Create(Descriptor, objectCreation.Syntax.GetLocation()));
         }
 
         private static void HandleTypeParameterObjectCreationOperation(OperationAnalysisContext context)
         {
-            var objectCreation = ITypeParameterObjectCreationOperationWrapper.FromOperation(context.Operation);
+            var objectCreation = (ITypeParameterObjectCreationOperation)context.Operation;
 
             var typeToCreate = objectCreation.Type;
             if ((typeToCreate == null) || typeToCreate.IsReferenceType || IsReferenceTypeParameter(typeToCreate))
@@ -96,12 +97,12 @@ namespace StyleCop.Analyzers.ReadabilityRules
                 return;
             }
 
-            if (objectCreation.Initializer.WrappedOperation != null)
+            if (objectCreation.Initializer != null)
             {
                 return;
             }
 
-            context.ReportDiagnostic(Diagnostic.Create(Descriptor, objectCreation.WrappedOperation.Syntax.GetLocation()));
+            context.ReportDiagnostic(Diagnostic.Create(Descriptor, objectCreation.Syntax.GetLocation()));
         }
 
         private static void HandleObjectCreationExpression(SyntaxNodeAnalysisContext context)

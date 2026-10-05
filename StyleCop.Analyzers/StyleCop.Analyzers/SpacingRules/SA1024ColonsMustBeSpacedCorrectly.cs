@@ -134,10 +134,10 @@ namespace StyleCop.Analyzers.SpacingRules
             case SyntaxKind.LabeledStatement:
             case SyntaxKind.CaseSwitchLabel:
             case SyntaxKind.DefaultSwitchLabel:
-            case SyntaxKindEx.CasePatternSwitchLabel:
+            case SyntaxKind.CasePatternSwitchLabel:
             // NameColon is not explicitly listed in the description of this warning, but the behavior is inferred
             case SyntaxKind.NameColon:
-            case SyntaxKindEx.ExpressionColon:
+            case SyntaxKind.ExpressionColon:
                 requireBefore = false;
                 break;
 

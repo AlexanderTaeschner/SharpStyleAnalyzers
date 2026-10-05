@@ -51,7 +51,7 @@ namespace StyleCop.Analyzers.Helpers
             case SyntaxKind.VariableDeclaration:
                 return ((VariableDeclarationSyntax)syntax.Parent).Type == syntax;
 
-            case SyntaxKindEx.LocalFunctionStatement:
+            case SyntaxKind.LocalFunctionStatement:
                 return ((LocalFunctionStatementSyntax)syntax.Parent).ReturnType == syntax;
 
             default:
@@ -61,7 +61,7 @@ namespace StyleCop.Analyzers.Helpers
 
         public static TypeSyntax StripRefFromType(this TypeSyntax syntax)
         {
-            if (syntax.IsKind(SyntaxKindEx.RefType))
+            if (syntax.IsKind(SyntaxKind.RefType))
             {
                 syntax = ((RefTypeSyntax)syntax).Type;
             }

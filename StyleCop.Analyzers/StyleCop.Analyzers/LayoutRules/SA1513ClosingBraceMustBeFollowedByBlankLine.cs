@@ -312,7 +312,7 @@ namespace StyleCop.Analyzers.LayoutRules
                         || nextToken.IsKind(SyntaxKind.RemoveKeyword)
                         || nextToken.IsKind(SyntaxKind.GetKeyword)
                         || nextToken.IsKind(SyntaxKind.SetKeyword)
-                        || nextToken.IsKind(SyntaxKindEx.InitKeyword))
+                        || nextToken.IsKind(SyntaxKind.InitKeyword))
                     {
                         // the close brace is followed by an accessor (SA1516 will handle that)
                         return;

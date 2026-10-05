@@ -81,8 +81,8 @@ namespace StyleCop.Analyzers.NamingRules
                 // Note: Fields are handled by SA1303 through SA1311
                 context.RegisterSyntaxNodeAction(BaseNamespaceDeclarationAction, SyntaxKinds.BaseNamespaceDeclaration);
                 context.RegisterSyntaxNodeAction(ClassDeclarationAction, SyntaxKind.ClassDeclaration);
-                context.RegisterSyntaxNodeAction(RecordDeclarationAction, SyntaxKindEx.RecordDeclaration);
-                context.RegisterSyntaxNodeAction(RecordDeclarationAction, SyntaxKindEx.RecordStructDeclaration);
+                context.RegisterSyntaxNodeAction(RecordDeclarationAction, SyntaxKind.RecordDeclaration);
+                context.RegisterSyntaxNodeAction(RecordDeclarationAction, SyntaxKind.RecordStructDeclaration);
                 context.RegisterSyntaxNodeAction(EnumDeclarationAction, SyntaxKind.EnumDeclaration);
                 context.RegisterSyntaxNodeAction(EnumMemberDeclarationAction, SyntaxKind.EnumMemberDeclaration);
                 context.RegisterSyntaxNodeAction(StructDeclarationAction, SyntaxKind.StructDeclaration);
@@ -90,7 +90,7 @@ namespace StyleCop.Analyzers.NamingRules
                 context.RegisterSyntaxNodeAction(EventDeclarationAction, SyntaxKind.EventDeclaration);
                 context.RegisterSyntaxNodeAction(EventFieldDeclarationAction, SyntaxKind.EventFieldDeclaration);
                 context.RegisterSyntaxNodeAction(MethodDeclarationAction, SyntaxKind.MethodDeclaration);
-                context.RegisterSyntaxNodeAction(LocalFunctionStatementAction, SyntaxKindEx.LocalFunctionStatement);
+                context.RegisterSyntaxNodeAction(LocalFunctionStatementAction, SyntaxKind.LocalFunctionStatement);
                 context.RegisterSyntaxNodeAction(PropertyDeclarationAction, SyntaxKind.PropertyDeclaration);
                 context.RegisterSyntaxNodeAction(ParameterAction, SyntaxKind.Parameter);
             });
@@ -222,7 +222,7 @@ namespace StyleCop.Analyzers.NamingRules
         {
             var parameterDeclaration = (ParameterSyntax)context.Node;
             if (!parameterDeclaration.Parent.IsKind(SyntaxKind.ParameterList)
-                || (!parameterDeclaration.Parent.Parent.IsKind(SyntaxKindEx.RecordDeclaration) && !parameterDeclaration.Parent.Parent.IsKind(SyntaxKindEx.RecordStructDeclaration)))
+                || (!parameterDeclaration.Parent.Parent.IsKind(SyntaxKind.RecordDeclaration) && !parameterDeclaration.Parent.Parent.IsKind(SyntaxKind.RecordStructDeclaration)))
             {
                 // Only positional parameters of records are treated as properties
                 return;

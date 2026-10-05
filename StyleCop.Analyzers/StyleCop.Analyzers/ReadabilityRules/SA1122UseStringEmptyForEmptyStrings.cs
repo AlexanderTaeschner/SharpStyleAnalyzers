@@ -85,7 +85,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
 
             if (outermostExpression.Parent.IsKind(SyntaxKind.AttributeArgument)
                 || outermostExpression.Parent.IsKind(SyntaxKind.CaseSwitchLabel)
-                || outermostExpression.Parent.IsKind(SyntaxKindEx.ConstantPattern))
+                || outermostExpression.Parent.IsKind(SyntaxKind.ConstantPattern))
             {
                 return true;
             }

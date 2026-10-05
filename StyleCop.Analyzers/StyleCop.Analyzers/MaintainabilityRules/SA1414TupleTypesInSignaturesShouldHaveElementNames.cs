@@ -146,7 +146,7 @@ namespace StyleCop.Analyzers.MaintainabilityRules
         {
             switch (typeSyntax.Kind())
             {
-            case SyntaxKindEx.TupleType:
+            case SyntaxKind.TupleType:
                 CheckTupleType(context, (TupleTypeSyntax)typeSyntax);
                 break;
 

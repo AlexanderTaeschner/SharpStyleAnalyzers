@@ -69,7 +69,7 @@ namespace StyleCop.Analyzers.NamingRules
             context.RegisterSyntaxNodeAction(JoinClauseAction, SyntaxKind.JoinClause);
             context.RegisterSyntaxNodeAction(JoinIntoClauseAction, SyntaxKind.JoinIntoClause);
             context.RegisterSyntaxNodeAction(ForEachStatementAction, SyntaxKind.ForEachStatement);
-            context.RegisterSyntaxNodeAction(SingleVariableDesignationAction, SyntaxKindEx.SingleVariableDesignation);
+            context.RegisterSyntaxNodeAction(SingleVariableDesignationAction, SyntaxKind.SingleVariableDesignation);
         }
 
         private static void HandleVariableDeclaration(SyntaxNodeAnalysisContext context)

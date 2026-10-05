@@ -56,7 +56,7 @@ namespace StyleCop.Analyzers.SpacingRules
             context.EnableConcurrentExecution();
 
             context.RegisterSyntaxNodeAction(ImplicitArrayCreationExpressionAction, SyntaxKind.ImplicitArrayCreationExpression);
-            context.RegisterSyntaxNodeAction(ImplicitStackAllocArrayCreationExpressionAction, SyntaxKindEx.ImplicitStackAllocArrayCreationExpression);
+            context.RegisterSyntaxNodeAction(ImplicitStackAllocArrayCreationExpressionAction, SyntaxKind.ImplicitStackAllocArrayCreationExpression);
         }
 
         private static void HandleImplicitArrayCreationExpression(SyntaxNodeAnalysisContext context)

@@ -73,7 +73,7 @@ namespace StyleCop.Analyzers.MaintainabilityRules
             ImmutableArray.Create(SyntaxKind.LogicalAndExpression, SyntaxKind.LogicalOrExpression);
 
         private static readonly ImmutableArray<SyntaxKind> HandledBinaryPatternKinds =
-            ImmutableArray.Create(SyntaxKindEx.AndPattern, SyntaxKindEx.OrPattern);
+            ImmutableArray.Create(SyntaxKind.AndPattern, SyntaxKind.OrPattern);
 
         private static readonly Action<SyntaxNodeAnalysisContext> BinaryExpressionAction = HandleBinaryExpression;
         private static readonly Action<SyntaxNodeAnalysisContext> BinaryPatternAction = HandleBinaryPattern;
@@ -156,13 +156,13 @@ namespace StyleCop.Analyzers.MaintainabilityRules
         private static bool IsAndOperator(SyntaxToken operatorToken)
         {
             return operatorToken.IsKind(SyntaxKind.AmpersandAmpersandToken)
-                || operatorToken.IsKind(SyntaxKindEx.AndKeyword);
+                || operatorToken.IsKind(SyntaxKind.AndKeyword);
         }
 
         private static bool IsOrOperator(SyntaxToken operatorToken)
         {
             return operatorToken.IsKind(SyntaxKind.BarBarToken)
-                || operatorToken.IsKind(SyntaxKindEx.OrKeyword);
+                || operatorToken.IsKind(SyntaxKind.OrKeyword);
         }
     }
 }

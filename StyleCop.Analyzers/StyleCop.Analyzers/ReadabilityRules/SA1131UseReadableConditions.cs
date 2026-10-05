@@ -71,7 +71,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
         private static bool IsLiteral(ExpressionSyntax expression, SemanticModel semanticModel)
         {
             // Default expressions are most of the time constants, but not for default(MyStruct).
-            if (expression.IsKind(SyntaxKind.DefaultExpression) || expression.IsKind(SyntaxKindEx.DefaultLiteralExpression))
+            if (expression.IsKind(SyntaxKind.DefaultExpression) || expression.IsKind(SyntaxKind.DefaultLiteralExpression))
             {
                 return true;
             }

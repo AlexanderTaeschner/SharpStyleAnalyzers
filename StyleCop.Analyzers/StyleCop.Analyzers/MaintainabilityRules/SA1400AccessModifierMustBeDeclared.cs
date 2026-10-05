@@ -200,7 +200,7 @@ namespace StyleCop.Analyzers.MaintainabilityRules
                 case SyntaxKind.ProtectedKeyword:
                 case SyntaxKind.InternalKeyword:
                 case SyntaxKind.PrivateKeyword:
-                case SyntaxKindEx.FileKeyword:
+                case SyntaxKind.FileKeyword:
                     return;
 
                 case SyntaxKind.StaticKeyword:

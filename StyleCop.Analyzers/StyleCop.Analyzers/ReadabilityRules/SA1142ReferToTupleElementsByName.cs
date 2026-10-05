@@ -12,6 +12,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
     using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.CSharp.Syntax;
     using Microsoft.CodeAnalysis.Diagnostics;
+    using Microsoft.CodeAnalysis.Operations;
     using StyleCop.Analyzers.Helpers;
     using StyleCop.Analyzers.Lightup;
 
@@ -44,7 +45,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
 
             if (LightupHelpers.SupportsIOperation)
             {
-                context.RegisterOperationAction(FieldReferenceOperationAction, OperationKindEx.FieldReference);
+                context.RegisterOperationAction(FieldReferenceOperationAction, OperationKind.FieldReference);
             }
             else
             {
@@ -59,13 +60,13 @@ namespace StyleCop.Analyzers.ReadabilityRules
                 return;
             }
 
-            var fieldReference = IFieldReferenceOperationWrapper.FromOperation(context.Operation);
+            var fieldReference = (IFieldReferenceOperation)context.Operation;
 
             if (CheckFieldName(fieldReference.Field))
             {
-                var location = fieldReference.WrappedOperation.Syntax is MemberAccessExpressionSyntax memberAccessExpression
+                var location = fieldReference.Syntax is MemberAccessExpressionSyntax memberAccessExpression
                     ? memberAccessExpression.Name.GetLocation()
-                    : fieldReference.WrappedOperation.Syntax.GetLocation();
+                    : fieldReference.Syntax.GetLocation();
                 context.ReportDiagnostic(Diagnostic.Create(Descriptor, location));
             }
         }

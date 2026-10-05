@@ -146,7 +146,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
 
         private static bool IsValueTuple(SemanticModel semanticModel, TypeSyntax typeSyntax)
         {
-            if (typeSyntax.IsKind(SyntaxKindEx.TupleType))
+            if (typeSyntax.IsKind(SyntaxKind.TupleType))
             {
                 return false;
             }

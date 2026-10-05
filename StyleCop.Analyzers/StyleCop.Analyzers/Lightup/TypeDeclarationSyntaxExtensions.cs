@@ -4,6 +4,7 @@
 namespace StyleCop.Analyzers.Lightup;
 
 using System;
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 internal static class TypeDeclarationSyntaxExtensions
@@ -24,8 +25,8 @@ internal static class TypeDeclarationSyntaxExtensions
             // Prior to C# 12, the ParameterList property in RecordDeclarationSyntax did not override a base method.
             switch (syntax.Kind())
             {
-            case SyntaxKindEx.RecordDeclaration:
-            case SyntaxKindEx.RecordStructDeclaration:
+            case SyntaxKind.RecordDeclaration:
+            case SyntaxKind.RecordStructDeclaration:
                 return ((RecordDeclarationSyntax)syntax).ParameterList;
 
             default:

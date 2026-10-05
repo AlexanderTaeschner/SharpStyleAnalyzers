@@ -70,7 +70,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
         private static void CheckUsingDeclaration(SyntaxNodeAnalysisContext context, UsingDirectiveSyntax usingDirective)
         {
             if (!usingDirective.Parent.IsKind(SyntaxKind.NamespaceDeclaration)
-                && !usingDirective.Parent.IsKind(SyntaxKindEx.FileScopedNamespaceDeclaration))
+                && !usingDirective.Parent.IsKind(SyntaxKind.FileScopedNamespaceDeclaration))
             {
                 // Usings outside of a namespace are always qualified.
                 return;

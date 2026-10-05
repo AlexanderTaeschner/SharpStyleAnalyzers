@@ -87,7 +87,7 @@ namespace StyleCop.Analyzers.SpacingRules
             {
             case SyntaxKind.TypeArgumentList:
             case SyntaxKind.TypeParameterList:
-            case SyntaxKindEx.FunctionPointerParameterList:
+            case SyntaxKind.FunctionPointerParameterList:
                 break;
 
             default:
@@ -115,7 +115,7 @@ namespace StyleCop.Analyzers.SpacingRules
                 case SyntaxKind.OpenBracketToken:
                 // SemicolonToken isn't listed above, but it's required for reasonable using alias declaration formatting
                 case SyntaxKind.SemicolonToken:
-                case SyntaxKind.ColonToken when nextToken.Parent.IsKind(SyntaxKindEx.CasePatternSwitchLabel):
+                case SyntaxKind.ColonToken when nextToken.Parent.IsKind(SyntaxKind.CasePatternSwitchLabel):
                     allowTrailingNoSpace = true;
                     allowTrailingSpace = false;
                     break;
@@ -127,7 +127,7 @@ namespace StyleCop.Analyzers.SpacingRules
                 case SyntaxKind.CloseParenToken:
                 case SyntaxKind.GreaterThanToken:
                 case SyntaxKind.CloseBraceToken:
-                case SyntaxKind.CloseBracketToken when nextToken.Parent.IsKind(SyntaxKindEx.CollectionExpression):
+                case SyntaxKind.CloseBracketToken when nextToken.Parent.IsKind(SyntaxKind.CollectionExpression):
                     allowTrailingNoSpace = true;
                     allowTrailingSpace = true;
                     break;

@@ -63,7 +63,7 @@ namespace StyleCop.Analyzers.Helpers
         private static bool ContainsLocalUsingAliasNoCache(SyntaxTree tree)
         {
             // Check for "local" using aliases
-            var nodes = tree.GetRoot().DescendantNodes(node => node.IsKind(SyntaxKind.CompilationUnit) || node.IsKind(SyntaxKind.NamespaceDeclaration) || node.IsKind(SyntaxKindEx.FileScopedNamespaceDeclaration));
+            var nodes = tree.GetRoot().DescendantNodes(node => node.IsKind(SyntaxKind.CompilationUnit) || node.IsKind(SyntaxKind.NamespaceDeclaration) || node.IsKind(SyntaxKind.FileScopedNamespaceDeclaration));
             return nodes.OfType<UsingDirectiveSyntax>().Any(x => x.GlobalKeyword().IsKind(SyntaxKind.None) && x.Alias != null);
         }
 

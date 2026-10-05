@@ -186,7 +186,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
 
             switch (typeSyntax.Kind())
             {
-            case SyntaxKindEx.TupleType:
+            case SyntaxKind.TupleType:
                 CheckTupleType(context, expressionType, (TupleTypeSyntax)typeSyntax, reportLocation);
                 break;
 

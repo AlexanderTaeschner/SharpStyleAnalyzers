@@ -108,7 +108,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
                         return;
                     }
 
-                    if (context.Node.Parent.Parent.IsKind(SyntaxKindEx.WithInitializerExpression))
+                    if (context.Node.Parent.Parent.IsKind(SyntaxKind.WithInitializerExpression))
                     {
                         /* Handle 'X' in:
                          *   value with { X = 3 }
@@ -251,7 +251,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
                 case SyntaxKind.DelegateDeclaration:
                 case SyntaxKind.EnumDeclaration:
                 case SyntaxKind.NamespaceDeclaration:
-                case SyntaxKindEx.FileScopedNamespaceDeclaration:
+                case SyntaxKind.FileScopedNamespaceDeclaration:
                     return false;
 
                 case SyntaxKind.FieldDeclaration:
@@ -281,7 +281,7 @@ namespace StyleCop.Analyzers.ReadabilityRules
                 case SyntaxKind.Attribute:
                     return false;
 
-                case SyntaxKindEx.RecursivePattern:
+                case SyntaxKind.RecursivePattern:
                     return false;
 
                 default:

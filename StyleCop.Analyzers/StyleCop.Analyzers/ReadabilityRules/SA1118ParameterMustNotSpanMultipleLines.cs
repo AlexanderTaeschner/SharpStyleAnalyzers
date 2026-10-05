@@ -85,9 +85,9 @@ namespace StyleCop.Analyzers.ReadabilityRules
             SyntaxKind.AnonymousObjectCreationExpression,
             SyntaxKind.ArrayCreationExpression,
             SyntaxKind.ImplicitArrayCreationExpression,
-            SyntaxKindEx.WithExpression,
-            SyntaxKindEx.ImplicitObjectCreationExpression,
-            SyntaxKindEx.CollectionExpression,
+            SyntaxKind.WithExpression,
+            SyntaxKind.ImplicitObjectCreationExpression,
+            SyntaxKind.CollectionExpression,
         };
 
         /// <inheritdoc/>

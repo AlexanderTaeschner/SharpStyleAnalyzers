@@ -86,7 +86,7 @@ namespace StyleCop.Analyzers.SpacingRules
                 SyntaxKind.GreaterThanOrEqualExpression,
                 SyntaxKind.LeftShiftExpression,
                 SyntaxKind.RightShiftExpression,
-                SyntaxKindEx.UnsignedRightShiftExpression,
+                SyntaxKind.UnsignedRightShiftExpression,
                 SyntaxKind.AddExpression,
                 SyntaxKind.SubtractExpression,
                 SyntaxKind.MultiplyExpression,
@@ -104,13 +104,13 @@ namespace StyleCop.Analyzers.SpacingRules
                 SyntaxKind.PreIncrementExpression,
                 SyntaxKind.PreDecrementExpression,
                 SyntaxKind.AddressOfExpression,
-                SyntaxKindEx.IndexExpression);
+                SyntaxKind.IndexExpression);
 
         private static readonly ImmutableArray<SyntaxKind> PostfixUnaryExpressionKinds =
             ImmutableArray.Create(
                 SyntaxKind.PostIncrementExpression,
                 SyntaxKind.PostDecrementExpression,
-                SyntaxKindEx.SuppressNullableWarningExpression);
+                SyntaxKind.SuppressNullableWarningExpression);
 
         private static readonly ImmutableArray<SyntaxKind> AssignmentExpressionKinds =
             ImmutableArray.Create(
@@ -119,13 +119,13 @@ namespace StyleCop.Analyzers.SpacingRules
                 SyntaxKind.ExclusiveOrAssignmentExpression,
                 SyntaxKind.LeftShiftAssignmentExpression,
                 SyntaxKind.RightShiftAssignmentExpression,
-                SyntaxKindEx.UnsignedRightShiftAssignmentExpression,
+                SyntaxKind.UnsignedRightShiftAssignmentExpression,
                 SyntaxKind.AddAssignmentExpression,
                 SyntaxKind.SubtractAssignmentExpression,
                 SyntaxKind.MultiplyAssignmentExpression,
                 SyntaxKind.DivideAssignmentExpression,
                 SyntaxKind.ModuloAssignmentExpression,
-                SyntaxKindEx.CoalesceAssignmentExpression,
+                SyntaxKind.CoalesceAssignmentExpression,
                 SyntaxKind.SimpleAssignmentExpression);
 
         private static readonly Action<SyntaxNodeAnalysisContext> ConstructorDeclarationAction = HandleConstructorDeclaration;
@@ -218,9 +218,9 @@ namespace StyleCop.Analyzers.SpacingRules
             context.RegisterSyntaxNodeAction(EqualsValueClauseAction, SyntaxKind.EqualsValueClause);
             context.RegisterSyntaxNodeAction(LambdaExpressionAction, SyntaxKinds.LambdaExpression);
             context.RegisterSyntaxNodeAction(ArrowExpressionClauseAction, SyntaxKind.ArrowExpressionClause);
-            context.RegisterSyntaxNodeAction(RangeExpressionAction, SyntaxKindEx.RangeExpression);
-            context.RegisterSyntaxNodeAction(RelationalPatternAction, SyntaxKindEx.RelationalPattern);
-            context.RegisterSyntaxNodeAction(SwitchExpressionArmAction, SyntaxKindEx.SwitchExpressionArm);
+            context.RegisterSyntaxNodeAction(RangeExpressionAction, SyntaxKind.RangeExpression);
+            context.RegisterSyntaxNodeAction(RelationalPatternAction, SyntaxKind.RelationalPattern);
+            context.RegisterSyntaxNodeAction(SwitchExpressionArmAction, SyntaxKind.SwitchExpressionArm);
         }
 
         private static void HandleConstructorDeclaration(SyntaxNodeAnalysisContext context)
@@ -302,7 +302,7 @@ namespace StyleCop.Analyzers.SpacingRules
                 && !(unaryExpression.Parent is CastExpressionSyntax)
                 && !precedingToken.IsKind(SyntaxKind.OpenParenToken)
                 && !precedingToken.IsKind(SyntaxKind.OpenBracketToken)
-                && !precedingToken.IsKind(SyntaxKindEx.DotDotToken)
+                && !precedingToken.IsKind(SyntaxKind.DotDotToken)
                 && !(precedingToken.IsKind(SyntaxKind.OpenBraceToken) && (precedingToken.Parent is InterpolationSyntax));
 
             bool analyze;
@@ -329,7 +329,7 @@ namespace StyleCop.Analyzers.SpacingRules
                 }
                 else
                 {
-                    if (precedingToken.IsKind(SyntaxKindEx.DotDotToken))
+                    if (precedingToken.IsKind(SyntaxKind.DotDotToken))
                     {
                         // The preceding whitespace will be checked as part of the range operator '..' so only check
                         // trailing whitespace for the current unary prefix operator.
@@ -417,7 +417,7 @@ namespace StyleCop.Analyzers.SpacingRules
                 && !precedingToken.IsKind(SyntaxKind.OpenParenToken)
                 && !precedingToken.IsKind(SyntaxKind.OpenBracketToken)
                 && !(precedingToken.IsKind(SyntaxKind.OpenBraceToken) && (precedingToken.Parent is InterpolationSyntax))
-                && !precedingToken.IsKind(SyntaxKindEx.DotDotToken);
+                && !precedingToken.IsKind(SyntaxKind.DotDotToken);
 
             var tokenString = castExpression.OpenParenToken.ToString() + castExpression.Type.ToString() + castExpression.CloseParenToken.ToString();
             CheckToken(context, castExpression.OpenParenToken, mustHaveLeadingWhitespace, false, false, tokenString);

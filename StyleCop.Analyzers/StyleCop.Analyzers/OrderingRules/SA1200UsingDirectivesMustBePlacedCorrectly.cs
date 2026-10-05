@@ -246,7 +246,7 @@ namespace StyleCop.Analyzers.OrderingRules
                     continue;
 
                 case SyntaxKind.NamespaceDeclaration:
-                case SyntaxKindEx.FileScopedNamespaceDeclaration:
+                case SyntaxKind.FileScopedNamespaceDeclaration:
                 case SyntaxKind.ExternAliasDirective:
                 default:
                     continue;

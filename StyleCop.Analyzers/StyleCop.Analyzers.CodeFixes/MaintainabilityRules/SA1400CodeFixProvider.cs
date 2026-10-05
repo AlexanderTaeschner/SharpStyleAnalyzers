@@ -85,8 +85,8 @@ namespace StyleCop.Analyzers.MaintainabilityRules
                 updatedDeclarationNode = HandleStructDeclaration((StructDeclarationSyntax)declarationNode);
                 break;
 
-            case SyntaxKindEx.RecordDeclaration:
-            case SyntaxKindEx.RecordStructDeclaration:
+            case SyntaxKind.RecordDeclaration:
+            case SyntaxKind.RecordStructDeclaration:
                 updatedDeclarationNode = HandleRecordDeclaration((RecordDeclarationSyntax)declarationNode);
                 break;
 
@@ -379,8 +379,8 @@ namespace StyleCop.Analyzers.MaintainabilityRules
                 case SyntaxKind.InterfaceDeclaration:
                 case SyntaxKind.EnumDeclaration:
                 case SyntaxKind.StructDeclaration:
-                case SyntaxKindEx.RecordDeclaration:
-                case SyntaxKindEx.RecordStructDeclaration:
+                case SyntaxKind.RecordDeclaration:
+                case SyntaxKind.RecordStructDeclaration:
                 case SyntaxKind.DelegateDeclaration:
                 case SyntaxKind.EventDeclaration:
                 case SyntaxKind.EventFieldDeclaration:

@@ -224,7 +224,6 @@
     <File Path="THIRD-PARTY-NOTICES.txt" />
   </Folder>
   <Project Path="StyleCop.Analyzers/StyleCop.Analyzers.CodeFixes/StyleCop.Analyzers.CodeFixes.csproj" />
-  <Project Path="StyleCop.Analyzers/StyleCop.Analyzers.CodeGeneration/StyleCop.Analyzers.CodeGeneration.csproj" />
   <Project Path="StyleCop.Analyzers/StyleCop.Analyzers.PrivateAnalyzers/StyleCop.Analyzers.PrivateAnalyzers.csproj" />
   <Project Path="StyleCop.Analyzers/StyleCop.Analyzers.PrivateCodeFixes/StyleCop.Analyzers.PrivateCodeFixes.csproj" />
   <Project Path="StyleCop.Analyzers/StyleCop.Analyzers.Status.Generator/StyleCop.Analyzers.Status.Generator.csproj">

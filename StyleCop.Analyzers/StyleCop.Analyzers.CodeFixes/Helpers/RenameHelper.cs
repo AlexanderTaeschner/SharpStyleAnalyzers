@@ -159,8 +159,8 @@ namespace StyleCop.Analyzers.Helpers
                 case SyntaxKind.UsingDirective:
                 case SyntaxKind.LabeledStatement:
                 case SyntaxKind.AnonymousObjectMemberDeclarator:
-                case SyntaxKindEx.LocalFunctionStatement:
-                case SyntaxKindEx.SingleVariableDesignation:
+                case SyntaxKind.LocalFunctionStatement:
+                case SyntaxKind.SingleVariableDesignation:
                     return parent;
 
                 default:
@@ -197,11 +197,11 @@ namespace StyleCop.Analyzers.Helpers
             {
                 switch (node.Kind())
                 {
-                case SyntaxKindEx.LocalFunctionStatement:
+                case SyntaxKind.LocalFunctionStatement:
                     this.Found |= ((LocalFunctionStatementSyntax)node).Identifier.ValueText == this.name;
                     break;
 
-                case SyntaxKindEx.SingleVariableDesignation:
+                case SyntaxKind.SingleVariableDesignation:
                     this.Found |= ((SingleVariableDesignationSyntax)node).Identifier.ValueText == this.name;
                     break;
 

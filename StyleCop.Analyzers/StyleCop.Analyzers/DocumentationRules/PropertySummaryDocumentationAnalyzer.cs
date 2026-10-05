@@ -138,9 +138,9 @@ namespace StyleCop.Analyzers.DocumentationRules
                         break;
 
                     case SyntaxKind.SetKeyword:
-                    case SyntaxKindEx.InitKeyword:
+                    case SyntaxKind.InitKeyword:
                         setter = accessor;
-                        setterIsInitOnly = accessor.Keyword.IsKind(SyntaxKindEx.InitKeyword);
+                        setterIsInitOnly = accessor.Keyword.IsKind(SyntaxKind.InitKeyword);
                         break;
                     }
                 }
