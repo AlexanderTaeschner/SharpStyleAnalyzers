@@ -5,6 +5,7 @@
     <OutputType>Exe</OutputType>
     <TargetFrameworks>net48</TargetFrameworks>
     <LangVersion>12.0</LangVersion>
+    <NeutralLanguage>en-US</NeutralLanguage>
     <EnforceExtendedAnalyzerRules>false</EnforceExtendedAnalyzerRules>
 
     <!-- Automatically generate the necessary assembly binding redirects -->
