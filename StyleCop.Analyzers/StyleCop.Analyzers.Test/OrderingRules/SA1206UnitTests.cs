@@ -9,6 +9,7 @@ namespace StyleCop.Analyzers.Test.OrderingRules
     using System.Threading.Tasks;
     using Microsoft.CodeAnalysis.Testing;
     using StyleCop.Analyzers.OrderingRules;
+    using StyleCop.Analyzers.Test.Helpers;
     using Xunit;
     using static StyleCop.Analyzers.Test.Verifiers.StyleCopCodeFixVerifier<
         StyleCop.Analyzers.OrderingRules.SA1206DeclarationKeywordsMustFollowOrder,
@@ -17,7 +18,7 @@ namespace StyleCop.Analyzers.Test.OrderingRules
     /// <summary>
     /// Unit tests for <see cref="SA1206DeclarationKeywordsMustFollowOrder"/>.
     /// </summary>
-    public class SA1206UnitTests
+    public class SA1206UnitTests : LangUnitTestsBase
     {
         [Fact]
         public async Task TestKeywordsInClassDeclarationAsync()
